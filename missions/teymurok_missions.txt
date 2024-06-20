@@ -1,0 +1,892 @@
+teymurok_first_branh = {
+    slot = 1
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+    has_country_shield = yes
+
+    economic_base1 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 1
+
+        trigger = {
+            monthly_income = 20
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base2 = {
+        icon = geo_a_house_divided
+        required_missions = { economic_base1 }
+        position = 2
+
+        trigger = {
+            treasury = 800
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base3 = {
+        icon = geo_a_house_divided
+        required_missions = { economic_base2 }
+        position = 3
+
+        trigger = {
+            temple = 3
+            workshop = 5
+            marketplace = 2
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base4 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 6
+
+        provinces_to_highlight = {
+
+        }
+
+        trigger = {
+            num_of_owned_provinces_with = {
+                value = 5
+                OR = {
+                    trade_goods = iron
+                    trade_goods = copper
+                }
+                has_building = workshop
+                development = 10
+            }
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base5 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 7
+
+        provinces_to_highlight = {
+
+        }
+
+        trigger = {
+            num_of_owned_provinces_with = {
+                value = 5
+                trade_goods = grain
+                has_building = workshop
+                development = 10
+            }
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base6 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 9
+
+        provinces_to_highlight = {
+
+        }
+
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base7 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 10
+
+        provinces_to_highlight = {
+
+        }
+
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    economic_base8 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 15
+
+        provinces_to_highlight = {
+
+        }
+
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+}
+
+teymurok_second_branh = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+    has_country_shield = yes
+
+    get_material = {
+        icon = geo_a_house_divided
+        required_missions = { treaty }
+        position = 5
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material2 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 6
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material3 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 7
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material4 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 8
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material5 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 10
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material6 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 11
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material7 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 12
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    get_material8 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 15
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+}
+
+teymurok_third_branh = {
+    slot = 3
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+    has_country_shield = yes
+
+    perimetr1 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 1
+
+        provinces_to_highlight = {
+            region = inner_castanor_region
+            NOT = {
+                owned_by = ROOT
+            }
+        }
+        
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+                value = 10
+                region = inner_castanor_region
+            }
+        }
+
+        effect = {
+			every_owned_province = {
+				every_neighbor_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+                    }
+					add_permanent_claim = ROOT
+				}
+			}
+        }
+    }
+
+    perimetr2 = {
+        icon = geo_a_house_divided
+        required_missions = { perimetr1 }
+        position = 2
+
+        provinces_to_highlight = {
+            region = inner_castanor_region
+            NOT = {
+                owned_by = ROOT
+            }
+        }
+        
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+                value = 20
+                region = inner_castanor_region
+            }
+        }
+
+        effect = {
+            custom_tooltip = perma_claim_neighbor_area
+			hidden_effect = {
+				every_owned_province = {
+					every_neighbor_province = {
+					    limit = {
+						    NOT = { is_core = ROOT }
+                        }
+						area = {
+							add_permanent_claim = ROOT
+						}
+					}
+				}
+			}
+        }
+    }
+
+    perimetr3 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 3
+
+        provinces_to_highlight = {
+            region = inner_castanor_region
+            NOT = {
+                owned_by = ROOT
+            }
+        }
+        
+        trigger = {
+          #  num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+           #     value = 40
+            #    region = inner_castanor_region
+           # }
+        }
+
+        effect = {
+            inner_castanor_region = {
+                add_permanent_claim = ROOT
+            }
+            inner_castanor_region = {
+                every_neighbor_province = {
+                    limit = {
+                        region = south_castanor_region
+                    }
+                    area = {
+                        add_permanent_claim = ROOT
+                    }
+                }
+            }
+            inner_castanor_region = {
+                every_neighbor_province = {
+                    limit = {
+                        region = west_castanor_region
+                    }
+                    area = {
+                        add_permanent_claim = ROOT
+                    }
+                }
+            }
+        }
+    }
+
+    treaty = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 4
+        
+        trigger = {
+
+        }
+
+        effect = {
+            country_event = {
+                id = flavor_teymurok.2
+            }
+        }
+    }
+
+    treaty2 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 6
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty3 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 7
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty4 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 8
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty5 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 11
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty6 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 13
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty7 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 14
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty8 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 15
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty9 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 16
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty10 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 17
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    treaty11 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 18
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+}
+
+teymurok_fourth_branh = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+    has_country_shield = yes
+
+    war = {
+        icon = geo_a_house_divided
+        required_missions = { treaty }
+        position = 5
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war2 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 6
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war3 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 7
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war4 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 9
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war5 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 10
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war6 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 12
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    war7 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 15
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+}
+
+teymurok_fifth_branh = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+    has_country_shield = yes
+
+    friend = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 3
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+            calc_true_if = {
+                all_country	 = {
+                    alliance_with = ROOT
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                amount = 2
+            }
+        }
+
+        effect = {
+
+        }
+    }
+
+    mock = {
+        icon = geo_a_house_divided
+        required_missions = { treaty }
+        position = 5
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    mock2 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 6
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    mock3 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 7
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    mock4 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 8
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+
+    mock5 = {
+        icon = geo_a_house_divided
+        required_missions = {  }
+        position = 15
+
+        provinces_to_highlight = {
+
+        }
+        
+        trigger = {
+
+        }
+
+        effect = {
+
+        }
+    }
+}

@@ -1,0 +1,48 @@
+
+namespace = flavor_teymurok
+
+country_event = {
+	id = flavor_teymurok.1
+	title = flavor_teymurok.1.title
+	desc = flavor_teymurok.1.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.1.a
+	}
+}
+
+country_event = {
+	id = flavor_teymurok.2
+	title = flavor_teymurok.2.title
+	desc = flavor_teymurok.2.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.2.a
+		add_country_modifier = { 
+    		name = teymurok_full_public_rejection
+    		duration = -1
+		}
+		add_country_modifier = { 
+    		name = teymurok_full_church_condemnation
+    		duration = -1
+		}
+		add_country_modifier = { 
+    		name = teymurok_full_diplomatic_blockade
+    		duration = -1
+		}
+		add_country_modifier = { 
+    		name = teymurok_full_unrest
+    		duration = -1
+		}
+		add_country_modifier = { 
+    		name = teymurok_full_ugly_zombies
+    		duration = -1
+		}
+	}
+}

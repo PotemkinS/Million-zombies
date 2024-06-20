@@ -1,0 +1,23 @@
+teymurok_full_public_rejection = {
+    all_estate_loyalty_equilibrium = -0.15
+}
+
+teymurok_full_church_condemnation = {
+    religious_unity = -0.4
+    tolerance_own = -3
+}
+
+teymurok_full_diplomatic_blockade = {
+    diplomatic_reputation = -2
+    improve_relation_modifier = -0.2
+    ae_impact = 0.1
+}
+
+teymurok_full_unrest = {
+    global_unrest = 3
+    legitimacy = -2
+}
+
+teymurok_full_ugly_zombies = {
+    prestige = -1.0
+}

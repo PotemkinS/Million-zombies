@@ -1,0 +1,25 @@
+country_decisions = {
+
+	teymurok_form = {
+		major = yes
+		potential = {
+			tag = B20
+			has_reform = adventurer_reform
+		}
+		allow = {
+		#	has_reform = found_our_nation
+		#	is_free_or_tributary_trigger = yes
+		#	is_at_war = no
+		#	adm_tech = 7
+		}
+		effect = {
+			change_tag = TEY
+			custom_tooltip = teymurok_nation_settling_advice_tt
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+	}
+}
