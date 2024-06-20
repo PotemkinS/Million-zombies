@@ -1,0 +1,3 @@
+﻿l_english:
+ collect_50k_tooltip: "Kill and lose §Y50k§! soldiers in battles you won. (Currently §Y[Root.teymurokBodiesCollected.GetValue]§!)."
+ collect_500k_tooltip: "Kill and lose §Y500k§! soldiers in battles you won. (Currently §Y[Root.teymurokBodiesCollected.GetValue]§!)."

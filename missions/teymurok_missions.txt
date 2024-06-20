@@ -1,4 +1,4 @@
-teymurok_first_branh = {
+teymurok_first_branch = {
     slot = 1
     generic = no
     ai = yes
@@ -17,7 +17,10 @@ teymurok_first_branh = {
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_growing_trade_influence
+				duration = 7300
+			}
         }
     }
 
@@ -31,7 +34,10 @@ teymurok_first_branh = {
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = strong_treasury
+				duration = 3650
+			}
         }
     }
 
@@ -47,7 +53,10 @@ teymurok_first_branh = {
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_escann_repopulation
+				duration = 5475
+			}
         }
     }
 
@@ -57,7 +66,17 @@ teymurok_first_branh = {
         position = 6
 
         provinces_to_highlight = {
-
+			owned_by = ROOT
+			OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
+			NOT = { 
+				AND = {
+                has_building = workshop
+                development = 10
+				}
+			}
         }
 
         trigger = {
@@ -73,7 +92,10 @@ teymurok_first_branh = {
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_zombie_mines1
+				duration = 7300
+			}
         }
     }
 
@@ -83,7 +105,14 @@ teymurok_first_branh = {
         position = 7
 
         provinces_to_highlight = {
-
+			owned_by = ROOT
+            trade_goods = grain
+			NOT = { 
+				AND = {
+                has_building = workshop
+                development = 10
+				}
+			}
         }
 
         trigger = {
@@ -96,7 +125,10 @@ teymurok_first_branh = {
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_zombie_fields1
+				duration = 7300
+			}
         }
     }
 
@@ -106,15 +138,38 @@ teymurok_first_branh = {
         position = 9
 
         provinces_to_highlight = {
-
+			owned_by = ROOT
+			OR = {
+				trade_goods = iron
+				trade_goods = copper
+			}
+			NOT = { 
+				AND = {
+                	has_building = workshop
+                	development = 15
+					has_manufactory_trigger = yes
+				}
+			}
         }
 
         trigger = {
-
+            num_of_owned_provinces_with = {
+                value = 10
+				OR = {
+                	trade_goods = iron
+					trade_goods = copper
+				}
+				has_manufactory_trigger = yes
+                has_building = workshop
+                development = 15
+            }
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_zombie_mines2
+				duration = 7300
+			}
         }
     }
 
@@ -124,15 +179,27 @@ teymurok_first_branh = {
         position = 10
 
         provinces_to_highlight = {
-
+			province_id = 858
         }
 
         trigger = {
-
+			owns_core_province = 858
+			858 = {
+				development = 40
+			}
         }
 
         effect = {
-
+			858 = {
+				add_great_project = {
+					type = zombie_factory
+					instant = no
+				}
+				hidden_effect = {
+					set_province_flag = zombie_factory
+				}
+			}
+			remove_country_modifier = teymurok_ugly_zombies
         }
     }
 
@@ -155,12 +222,13 @@ teymurok_first_branh = {
     }
 }
 
-teymurok_second_branh = {
+teymurok_second_branch = {
     slot = 2
     generic = no
     ai = yes
     potential = {
         tag = TEY
+        has_country_flag = yarken_treaty_published
     }
     has_country_shield = yes
 
@@ -168,17 +236,27 @@ teymurok_second_branh = {
         icon = geo_a_house_divided
         required_missions = { treaty }
         position = 5
-
-        provinces_to_highlight = {
-
-        }
         
         trigger = {
-
+            custom_trigger_tooltip = {
+                tooltip = collect_50k_tooltip
+                check_variable = {
+                    which = teymurokBodiesCollected
+                    value = 50000
+                }
+            }
         }
 
         effect = {
+			add_country_modifier = { 
+    			name = teymurok_yarken_payment1
+    			duration = -1
+			}
 
+			add_country_modifier = { 
+    			name = teymurok_zombie_research1
+    			duration = 10950
+			}
         }
     }
 
@@ -186,17 +264,20 @@ teymurok_second_branh = {
         icon = geo_a_house_divided
         required_missions = {  }
         position = 6
-
-        provinces_to_highlight = {
-
-        }
         
         trigger = {
-
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 70
+			}
         }
 
         effect = {
-
+			remove_country_modifier = teymurok_full_church_condemnation
+			add_country_modifier = { 
+    			name = teymurok_church_payed1
+    			duration = -1
+			}
         }
     }
 
@@ -206,15 +287,26 @@ teymurok_second_branh = {
         position = 7
 
         provinces_to_highlight = {
-
+			province_id = 858
         }
         
         trigger = {
-
+			858 = {
+				development = 20
+				has_building = workshop
+				has_building = marketplace
+				has_building = barracks
+				has_building = mage_tower
+			}
         }
 
         effect = {
-
+			858 = {
+				add_province_modifier = {
+					name = teymurok_factory_preparation
+					duration = -1
+				}
+			}
         }
     }
 
@@ -222,17 +314,27 @@ teymurok_second_branh = {
         icon = geo_a_house_divided
         required_missions = {  }
         position = 8
-
-        provinces_to_highlight = {
-
-        }
         
         trigger = {
-
+            custom_trigger_tooltip = {
+                tooltip = collect_500k_tooltip
+                check_variable = {
+                    which = teymurokBodiesCollected
+                    value = 500000
+                }
+            }
         }
 
         effect = {
-
+			remove_country_modifier = teymurok_yarken_payment1
+			add_country_modifier = {
+				name = teymurok_yarken_payment2
+				duration = -1
+			}
+			add_country_modifier = {
+				name = teymurok_zombie_research2
+				duration = 10950
+			}
         }
     }
 
@@ -242,15 +344,44 @@ teymurok_second_branh = {
         position = 10
 
         provinces_to_highlight = {
-
+			owned_by = ROOT
+            OR = {
+                trade_goods = grain
+                trade_goods = fish
+                trade_goods = wine
+                trade_goods = tea
+                trade_goods = livestock
+			}
+			NOT = { 
+				AND = {
+                	has_building = workshop
+					has_manufactory_trigger = yes
+                	development = 15
+				}
+			}
         }
-        
-        trigger = {
 
+        trigger = {
+            num_of_owned_provinces_with = {
+                value = 10
+            	OR = {
+             	   trade_goods = grain
+            	    trade_goods = fish
+            	    trade_goods = wine
+            	    trade_goods = tea
+            	    trade_goods = livestock
+				}
+                has_building = workshop
+				has_manufactory_trigger = yes
+                development = 15
+            }
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_zombie_fields2
+				duration = 7300
+			}
         }
     }
 
@@ -260,11 +391,16 @@ teymurok_second_branh = {
         position = 11
 
         provinces_to_highlight = {
-
+			province_id = 858
         }
-        
+		
         trigger = {
-
+        	858 = {
+				has_great_project = {
+					type = zombie_factory
+					tier = 3
+				}
+			}
         }
 
         effect = {
@@ -282,11 +418,38 @@ teymurok_second_branh = {
         }
         
         trigger = {
-
+			total_development = 1500
+			monthly_income = 300
+            num_of_owned_provinces_with = {
+                value = 20
+            	OR = {
+             	   trade_goods = grain
+            	    trade_goods = fish
+            	    trade_goods = wine
+            	    trade_goods = tea
+            	    trade_goods = livestock
+				}
+                has_building = workshop
+				has_manufactory_trigger = yes
+                development = 20
+            }
+            num_of_owned_provinces_with = {
+                value = 20
+				OR = {
+                	trade_goods = iron
+					trade_goods = copper
+				}
+				has_manufactory_trigger = yes
+                has_building = workshop
+                development = 20
+            }
         }
 
         effect = {
-
+			add_country_modifier = {
+				name = teymurok_zombie_economy
+				duration = -1
+			}
         }
     }
 
@@ -309,7 +472,7 @@ teymurok_second_branh = {
     }
 }
 
-teymurok_third_branh = {
+teymurok_third_branch = {
     slot = 3
     generic = no
     ai = yes
@@ -387,7 +550,7 @@ teymurok_third_branh = {
 
     perimetr3 = {
         icon = geo_a_house_divided
-        required_missions = {  }
+        required_missions = { perimetr2 }
         position = 3
 
         provinces_to_highlight = {
@@ -398,10 +561,10 @@ teymurok_third_branh = {
         }
         
         trigger = {
-          #  num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
-           #     value = 40
-            #    region = inner_castanor_region
-           # }
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+                value = 40
+                region = inner_castanor_region
+            }
         }
 
         effect = {
@@ -444,6 +607,14 @@ teymurok_third_branh = {
             country_event = {
                 id = flavor_teymurok.2
             }
+            hidden_effect = {
+                set_country_flag = yarken_treaty_published
+                set_variable = {
+                    which = teymurokBodiesCollected
+                    value = 0
+                }
+            }
+            swap_non_generic_missions = yes
         }
     }
 
@@ -628,7 +799,7 @@ teymurok_third_branh = {
     }
 }
 
-teymurok_fourth_branh = {
+teymurok_fourth_branch = {
     slot = 4
     generic = no
     ai = yes
@@ -764,7 +935,7 @@ teymurok_fourth_branh = {
     }
 }
 
-teymurok_fifth_branh = {
+teymurok_fifth_branch = {
     slot = 5
     generic = no
     ai = yes

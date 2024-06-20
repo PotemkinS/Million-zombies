@@ -1,0 +1,23 @@
+on_startup = {
+    events = {
+        flavor_teymurok.1
+    }
+}
+
+on_battle_won_country = {
+    if = {
+        limit = {
+            has_country_flag = yarken_treaty_published
+        }
+
+        change_variable = {
+            which = teymurokBodiesCollected
+            which = land_units_lost
+        }
+
+        change_variable = {
+            which = teymurokBodiesCollected
+            which = land_units_killed
+        }
+    }
+}
