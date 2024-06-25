@@ -1,3 +1,32 @@
+teymurok_fake_2 = {
+    slot = 2
+    generic = no 
+    ai = yes
+    potential = {
+        tag = TEY
+        NOT = { has_country_flag = yarken_treaty_published }
+    }
+}
+
+teymurok_fake_4 = {
+    slot = 4
+    generic = no 
+    ai = yes
+    potential = {
+        tag = TEY
+        NOT = { has_country_flag = yarken_treaty_published }
+    }
+}
+
+teymurok_fake_5 = {
+    slot = 5
+    generic = no 
+    ai = yes
+    potential = {
+        tag = TEY
+    }
+}
+
 teymurok_first_branch = {
     slot = 1
     generic = no
@@ -59,6 +88,17 @@ teymurok_first_branch = {
 			}
         }
     }
+}
+
+teymurok_first_branch_post_treaty = {
+    slot = 1
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+        has_country_flag = yarken_treaty_published
+    }
+    has_country_shield = yes
 
     economic_base4 = {
         icon = geo_a_house_divided
@@ -617,6 +657,17 @@ teymurok_third_branch = {
             swap_non_generic_missions = yes
         }
     }
+}
+
+teymurok_third_branch_post_treaty = {
+    slot = 3
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+        has_country_flag = yarken_treaty_published
+    }
+    has_country_shield = yes
 
     treaty2 = {
         icon = geo_a_house_divided
@@ -805,6 +856,7 @@ teymurok_fourth_branch = {
     ai = yes
     potential = {
         tag = TEY
+        has_country_flag = yarken_treaty_published
     }
     has_country_shield = yes
 
@@ -970,6 +1022,17 @@ teymurok_fifth_branch = {
 
         }
     }
+}
+
+teymurok_fifth_branch_post_treaty = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+        tag = TEY
+        has_country_flag = yarken_treaty_published
+    }
+    has_country_shield = yes
 
     mock = {
         icon = geo_a_house_divided

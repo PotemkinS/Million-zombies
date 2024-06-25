@@ -1,0 +1,20 @@
+siege_genius = {
+    allow = {
+        always = no
+    }
+	siege_ability = 0.3
+}
+
+logistic_genius = {
+    allow = {
+        always = no
+    }
+	movement_speed = 1
+}
+
+battle_genius = {
+    allow = {
+        always = no
+    }
+	discipline = 0.15
+}

@@ -1,0 +1,5 @@
+estate_mages = {
+    privileges = {
+        estate_mages_organization_yarken
+    }
+}

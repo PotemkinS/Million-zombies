@@ -130,3 +130,11 @@ teymurok_growing_trade_influence = {
 teymurok_escann_repopulation = {
     development_cost = -0.1
 }
+
+teymurok_monster_hunter = {
+    improve_relation_modifier = 0.2
+}
+
+teymurok_magic_book = {
+    all_power_cost = -0.025
+}

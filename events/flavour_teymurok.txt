@@ -35,6 +35,10 @@ country_event = {
 	option = {
 		name = flavor_teymurok.2.a
 
+		remove_estate_privilege = estate_mages_organization_state
+
+		set_estate_privilege = estate_mages_organization_yarken
+
 		add_country_modifier = { 
     		name = teymurok_full_public_rejection
     		duration = -1
@@ -65,6 +69,6 @@ country_event = {
     		duration = -1
 		}
 
-		add_historical_rival = A85
+		A85 = { add_historical_rival = ROOT }
 	}
 }

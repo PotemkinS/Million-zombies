@@ -1,0 +1,16 @@
+estate_mages_organization_yarken = {
+	icon = privilege_promote_maratha_nobility
+	max_absolutism = -40
+	loyalty = 0.2
+	influence  = -0.1
+	land_share = 10
+ 	is_valid = { 
+		tag = TEY
+	}	#Conditions for whether it is possible for the country to have this privilege
+ 	can_select = { 
+		always = no
+	}
+ 	can_revoke = { 
+		always = no 
+	}
+}
