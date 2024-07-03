@@ -1,0 +1,377 @@
+remove_excess_corpses = {
+    if = {
+        limit = {
+            has_country_flag = no_fridge
+            check_variable = {
+                which = teymurokBodiesCollected
+                value = 50
+            }
+        }
+        set_variable = {
+            which = teymurokBodiesCollected
+            value = 50
+        }
+    }
+
+    else_if = {
+        limit = {
+            has_country_flag = small_fridge
+            check_variable = {
+                which = teymurokBodiesCollected
+                value = 500
+            }
+        }
+        set_variable = {
+            which = teymurokBodiesCollected
+            value = 500
+        }
+    }
+}
+
+prepare_variables_for_spending = {
+		export_to_variable = {
+			which = tey_small_global_economy
+			value = total_development
+		}
+
+		multiply_variable = {
+    		which = tey_small_global_economy
+    		value = 0.25
+		}
+
+		export_to_variable = {
+			which = tey_big_global_economy
+			value = total_development
+		}
+
+		multiply_variable = {
+    		which = tey_big_global_economy
+    		value = 0.5
+		}
+
+		export_to_variable = {
+			which = tey_small_local_economy
+			value = total_development
+		}
+
+		multiply_variable = {
+    		which = tey_small_local_economy
+    		value = 0.125
+		}
+
+		export_to_variable = {
+			which = tey_big_local_economy
+			value = total_development
+		}
+
+		multiply_variable = {
+    		which = tey_big_local_economy
+    		value = 0.25
+		}
+
+		export_to_variable = {
+			which = tey_small_army
+			value = army_size
+		}
+
+		export_to_variable = {
+			which = tey_big_army
+			value = army_size
+		}
+
+		multiply_variable = {
+    		which = tey_big_army
+    		value = 2
+		}
+
+		if = {
+			limit = {
+				mil_tech = 16
+			}
+			set_variable = {
+				which = tey_extreme_army
+				value = 80
+			}
+		}
+
+		else_if = {
+			limit = {
+				mil_tech = 12
+			}
+			set_variable = {
+				which = tey_extreme_army
+				value = 60
+			}
+		}
+
+		else = {
+			set_variable = {
+				which = tey_extreme_army
+				value = 40
+			}
+		}
+}
+
+remove_extreme_modifiers = {
+    remove_country_modifier = tey_centaur_army_extreme
+    remove_country_modifier = tey_elf_army_extreme
+    remove_country_modifier = tey_gnoll_army_extreme
+    remove_country_modifier = tey_gnome_army_extreme
+    remove_country_modifier = tey_goblin_army_extreme
+    remove_country_modifier = tey_harimari_army_extreme
+    remove_country_modifier = tey_hobgoblin_army_extreme
+    remove_country_modifier = tey_kobold_army_extreme
+    remove_country_modifier = tey_ogre_army_extreme
+    remove_country_modifier = tey_orc_army_extreme
+}
+
+remove_corpses_army = {
+    subtract_variable = {
+        which = teymurokBodiesCollected
+        which = tey_$var$_army
+    }
+}
+
+remove_corpses_local_economy = {
+    subtract_variable = {
+        which = teymurokBodiesCollected
+        which = tey_$var$_local_economy
+    }
+}
+
+remove_corpses_global_economy = {
+    subtract_variable = {
+        which = teymurokBodiesCollected
+        which = tey_$var$_global_economy
+    }
+}
+
+add_small_local_economy = {
+		if = {
+			limit = { NOT = { is_enough_corpses_local_economy = { var = small } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = {
+				all_owned_province = {
+					is_$goods$_good = yes
+					OR = {
+						has_province_modifier = tey_small_unspecial_goods
+						has_province_modifier = tey_big_unspecial_goods
+					}
+				}
+			}
+			custom_tooltip = tey_this_or_better_modifier_all_provinces_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_local_economy = { var = small }
+				any_owned_province = {
+					is_$goods$_good = yes
+					NOT = {
+						has_province_modifier = tey_small_unspecial_goods
+						has_province_modifier = tey_big_unspecial_goods
+					}
+				}
+			}
+			custom_tooltip = tey_local_small_$goods$_tt
+			custom_tooltip = all_small_prolonged_big_untouched_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit ={
+						is_$goods$_good = yes
+						NOT = {
+							has_province_modifier = tey_big_unspecial_goods
+						}
+					}
+						if = {
+							limit = {
+								has_province_modifier = tey_small_unspecial_goods
+							}
+							remove_province_modifier = tey_small_unspecial_goods
+						}
+						add_province_modifier = {
+							name = tey_small_unspecial_goods
+							duration = 3650
+						}
+				}
+			}
+			remove_corpses_local_economy = { var = small }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}
+
+add_big_local_economy = {
+		if = {
+			limit = { NOT = { is_enough_corpses_local_economy = { var = big } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = {
+				all_owned_province = {
+					is_$goods$_good = yes
+					has_province_modifier = tey_big_unspecial_goods
+				}
+			}
+			custom_tooltip = tey_this_modifier_all_provinces_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_local_economy = { var = big }
+				any_owned_province = {
+					NOT = {
+						is_$goods$_good = yes
+						has_province_modifier = tey_big_unspecial_goods
+					}
+				}
+			}
+			custom_tooltip = tey_local_big_$goods$_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_$goods$_good = yes
+					}
+					if = {
+						limit = {
+							has_province_modifier = tey_small_unspecial_goods
+						}
+						remove_province_modifier = tey_small_unspecial_goods
+					}
+					if = {
+						limit = {
+							has_province_modifier = tey_big_unspecial_goods
+						}
+						remove_province_modifier = tey_big_unspecial_goods
+					}
+						add_province_modifier = {
+							name = tey_big_unspecial_goods
+							duration = 3650
+						}
+				}
+			}
+			remove_corpses_local_economy = { var = big }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}
+
+add_small_global_economy = {
+		if = {
+			limit = { NOT = { is_enough_corpses_global_economy = { var = small } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_modifier = tey_small_$modifier$
+					has_country_modifier = tey_big_$modifier$
+				}
+			}
+			custom_tooltip = tey_this_or_better_modifier_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_global_economy = { var = small }
+				NOT = { has_country_modifier = tey_small_$modifier$ }
+				NOT = { has_country_modifier = tey_big_$modifier$ }
+			}
+			add_country_modifier = {
+				name = tey_small_$modifier$
+				duration = 3650
+			}
+			remove_corpses_global_economy = { var = small }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}
+
+add_big_global_economy = {
+		if = {
+			limit = { NOT = { is_enough_corpses_global_economy = { var = big } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = { has_country_modifier = tey_big_$modifier$ }
+			custom_tooltip = tey_this_modifier_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_global_economy = { var = big }
+				NOT = { has_country_modifier = tey_big_$modifier$ }
+			}
+			if = { limit = { has_country_modifier = tey_small_$modifier$ }
+				remove_country_modifier = tey_small_$modifier$	
+			}
+			add_country_modifier = {
+				name = tey_big_$modifier$
+				duration = 3650
+			}
+			remove_corpses_global_economy = { var = big }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}
+
+add_small_army = {
+		if = {
+			limit = { NOT = { is_enough_corpses_army = { var = small } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_modifier = tey_small_$modifier$
+					has_country_modifier = tey_big_$modifier$
+				}
+			}
+			custom_tooltip = tey_this_or_better_modifier_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_army = { var = small }
+				NOT = { has_country_modifier = tey_small_$modifier$ }
+				NOT = { has_country_modifier = tey_big_$modifier$ }
+			}
+			add_country_modifier = {
+				name = tey_small_$modifier$
+				duration = 3650
+			}
+			remove_corpses_army = { var = small }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}
+
+add_big_army = {
+		if = {
+			limit = { NOT = { is_enough_corpses_army = { var = big } } }
+			custom_tooltip = tey_not_enough_corpses_tt
+		}
+		if = {
+			limit = { has_country_modifier = tey_big_$modifier$ }
+			custom_tooltip = tey_this_modifier_tt
+		}
+		if = {
+			limit = {
+				is_enough_corpses_army = { var = big }
+				NOT = { has_country_modifier = tey_big_$modifier$ }
+			}
+			if = { limit = { has_country_modifier = tey_small_$modifier$ }
+				remove_country_modifier = tey_small_$modifier$	
+			}
+			add_country_modifier = {
+				name = tey_big_$modifier$
+				duration = 3650
+			}
+			remove_corpses_army = { var = big }
+		}
+		country_event = {
+			id = flavor_teymurok.200
+		}
+}

@@ -5,19 +5,107 @@ on_startup = {
 }
 
 on_battle_won_country = {
+
     if = {
         limit = {
             has_country_flag = yarken_treaty_published
         }
 
-        change_variable = {
-            which = teymurokBodiesCollected
-            which = land_units_lost
+        remove_extreme_modifiers = yes
+
+        set_variable = {
+            which = teymurokDivider
+            which = land_units_killed
+        }
+
+        divide_variable = {
+            which = teymurokDivider
+            value = 1000
         }
 
         change_variable = {
             which = teymurokBodiesCollected
-            which = land_units_killed
+            which = teymurokDivider
+        }
+
+        remove_excess_corpses = yes
+    }
+
+    if = {
+        limit = {
+            has_country_flag = yarken_treaty_published
+            NOT = { has_country_flag = havent_chosen }
+            check_variable = {
+                which = land_units_lost
+                value = 5000
+            }
+            OR = {
+                has_country_flag = big_fridge
+                AND = {
+                    has_country_flag = small_fridge
+                    NOT = {
+                        check_variable = {
+                            which = teymurokBodiesCollected 
+                            value = 500000
+                        }
+                    }
+                }
+                AND = {
+                    has_country_flag = no_fridge
+                    NOT = {
+                        check_variable = {
+                            which = teymurokBodiesCollected 
+                            value = 50000
+                        }
+                    }
+                }
+            }
+        }
+        
+        set_variable = {
+            which = teymurokOurBodiesCollected
+            which = land_units_lost
+        }
+
+        divide_variable = {
+            which = teymurokOurBodiesCollected
+            value = 1000
+        }
+
+        set_country_flag = havent_chosen
+
+        country_event = {
+            id = flavor_teymurok.3
+        }
+    }
+}
+
+on_battle_lost_country = {
+    if = {
+        limit ={
+            has_country_flag = yarken_treaty_published
+        }
+        remove_extreme_modifiers = yes
+    }
+}
+
+on_expanded_infrastructure = {
+    if = {
+        limit = {
+            FROM = {
+                has_country_flag = teymurok_can_build_cemetry
+            }
+			NOT = { has_construction = building }
+			NOT = { has_construction = core }
+			NOT = { has_construction = culture }
+			NOT = { has_construction = missionary }
+			NOT = { has_colonist = yes }
+            NOT = { has_building = cemetery }
+        }
+        add_building_construction = {
+            building = cemetery
+            speed = 1
+            cost = 1
         }
     }
 }

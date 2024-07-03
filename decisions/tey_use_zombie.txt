@@ -1,0 +1,17 @@
+country_decisions = {
+
+	tey_use_zombie = {
+		major = yes
+		potential = {
+			NOT = {
+				has_country_flag = spending_zombies
+			}
+		}
+		effect = {
+			set_country_flag = spending_zombies
+			country_event = {
+				id = flavor_teymurok.200
+			}
+		}
+	}
+}

@@ -1,0 +1,100 @@
+buy_corpses = {
+    category = economy
+
+    require_acceptance = no
+
+    is_visible = {
+        always = yes    #has_country_flag = can_buy_corpses
+    }
+
+    is_allowed = {
+        FROM = {
+            alliance_with = ROOT
+            has_opinion = {
+                who = ROOT
+                value = 150
+            }
+            custom_trigger_tooltip = {
+                tooltip = tey_20_year_cooldown_tt
+                NOT = {
+                    has_country_modifier = teymurok_bought_corpses
+                }
+            }
+        }
+    }
+
+    on_accept = {
+        export_to_variable = {
+            which = tey_target_development
+            value = total_development
+            who = FROM
+        }
+
+        if = {
+            limit = {
+                check_variable = {
+                    which = tey_target_development
+                    value = 500
+                }
+            }
+            add_treasury = -500
+            FROM = {
+                add_treasury = 500
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = tey_target_development
+                    value = 300
+                }
+            }
+            add_treasury = -300
+            FROM = {
+                add_treasury = 300
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = tey_target_development
+                    value = 200
+                }
+            }
+            add_treasury = -200
+            FROM = {
+                add_treasury = 200
+            }
+        }
+        else = {
+            add_treasury = -100
+            FROM = {
+                add_treasury = 100
+            }
+        }
+
+        FROM = {
+            add_country_modifier ={
+                name = teymurok_bought_corpses
+                duration = 7300
+            }
+        }
+
+        divide_variable = {
+            which = tey_target_development
+            value = 5
+        }
+
+        change_variable = {
+            which = teymurokBodiesCollected
+            which = tey_target_development
+        }
+
+        remove_excess_corpses = yes
+        
+        change_variable = {
+            which = boughtCorpses
+            value = 1
+        }
+    }
+}

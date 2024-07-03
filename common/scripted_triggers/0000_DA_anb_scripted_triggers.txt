@@ -1,0 +1,92 @@
+has_mages_special_organization_privilege = {
+	OR = {
+		has_estate_privilege = estate_mages_organization_covenant
+		has_estate_privilege = estate_mages_organization_elissa
+		has_estate_privilege = estate_mages_organization_bardic_college
+		has_estate_privilege = estate_mages_organization_ice_smiths
+		has_estate_privilege = estate_mages_organization_science_mages
+		has_estate_privilege = estate_mages_organization_constabularies
+		has_estate_privilege = estate_mages_organization_runesmiths
+		has_estate_privilege = estate_mages_organization_lihos_maidens
+		has_estate_privilege = estate_mages_organization_onyxguard
+		has_estate_privilege = estate_mages_organization_proffesional_mihipha
+        has_estate_privilege = estate_mages_organization_yarken
+	}
+}
+
+is_plant_good = {
+	OR = {
+		trade_goods = grain
+		trade_goods = wine
+		trade_goods = tea
+		trade_goods = spices 
+		trade_goods = coffee
+		trade_goods = cotton
+		trade_goods = sugar 
+		trade_goods = tobacco
+		trade_goods = cloves 
+		trade_goods = incense 
+		trade_goods = tropical_wood 
+		trade_goods = cocoa 
+		trade_goods = fungi 
+		trade_goods = serpentbloom 
+	}
+}
+
+is_mine_good = {
+	OR = {
+		trade_goods = iron
+		trade_goods = copper
+		trade_goods = gold 
+		trade_goods = gems 
+		trade_goods = coal
+		trade_goods = salt
+		trade_goods = mithril
+		trade_goods = damestear 
+	}
+}
+
+is_animal_good = {
+	OR = {
+		trade_goods = fish
+		trade_goods = livestock
+		trade_goods = wool
+		trade_goods = fur
+		trade_goods = ivory 
+	}
+}
+
+is_processed_good = {
+	OR = {
+		trade_goods = glass
+		trade_goods = paper
+		trade_goods = silk
+		trade_goods = dyes
+		trade_goods = chinaware 
+		trade_goods = naval_supplies
+		trade_goods = cloth
+		trade_goods = slaves
+		trade_goods = precursor_relics 
+	}
+}
+
+is_enough_corpses_army = {
+	check_variable = {
+		which = teymurokBodiesCollected
+		which = tey_$var$_army
+	}
+}
+
+is_enough_corpses_local_economy = {
+	check_variable = {
+		which = teymurokBodiesCollected
+		which = tey_$var$_local_economy
+	}
+}
+
+is_enough_corpses_global_economy = {
+	check_variable = {
+		which = teymurokBodiesCollected
+		which = tey_$var$_global_economy
+	}
+}

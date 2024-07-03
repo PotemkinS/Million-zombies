@@ -1,6 +1,7 @@
 
 namespace = flavor_teymurok
 
+#introduction
 country_event = {
 	id = flavor_teymurok.1
 	title = flavor_teymurok.1.title
@@ -9,7 +10,6 @@ country_event = {
 
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	
 	trigger = {
 		NOT = {
@@ -24,6 +24,7 @@ country_event = {
 	}
 }
 
+#treaty published
 country_event = {
 	id = flavor_teymurok.2
 	title = flavor_teymurok.2.title
@@ -72,3 +73,452 @@ country_event = {
 		A85 = { add_historical_rival = ROOT }
 	}
 }
+
+#use our corpses
+country_event = {
+	id = flavor_teymurok.3
+	title = flavor_teymurok.3.title
+	desc = flavor_teymurok.3.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.3.a
+
+        change_variable = {
+            which = teymurokBodiesCollected
+            which = teymurokOurBodiesCollected
+        }
+
+		add_legitimacy = -10
+		
+        remove_excess_corpses = yes
+	}
+	
+	option = {
+		name = flavor_teymurok.3.b
+		
+		add_legitimacy = 5
+		add_prestige = 5
+		add_treasury = -25
+	}
+
+	after = {
+		clr_country_flag = havent_chosen
+	}
+}
+
+#do not fear we will protect you
+country_event = {
+	id = flavor_teymurok.4
+	title = flavor_teymurok.4.title
+	desc = flavor_teymurok.4.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.4.a
+
+		custom_tooltip = teymurok_coalition_war_tt
+		hidden_effect = {
+			every_rival_country = { 
+				form_coalition_against = ROOT
+			}
+
+			every_enemy_country = { 
+				form_coalition_against = ROOT
+			}
+
+			random_rival_country = {
+				if = {
+					limit = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = scornfully_insulted
+						}
+					}
+					form_coalition_against = ROOT
+					declare_war_with_cb = {
+    					who = ROOT
+    					casus_belli = cb_super_badboy
+					}
+				}
+			}
+		}
+
+		set_country_flag = teymurok_coalition_war
+	}
+}
+
+#we are victorious but neighbours are still salty
+country_event = {
+	id = flavor_teymurok.5
+	title = flavor_teymurok.5.title
+	desc = flavor_teymurok.5.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.5.a
+
+		custom_tooltip = teymurok_neighbours_salty_tt
+
+		set_country_flag = teymurok_bad_boy
+	}
+}
+
+#we are victorious but neighbours are still salty consequences
+country_event = {
+	id = flavor_teymurok.6
+	title = flavor_teymurok.6.title
+	desc = flavor_teymurok.6.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = teymurok_bad_boy
+			days = 3650
+		}
+		any_country = {
+			coalition_target = ROOT
+		}
+		NOT = { has_country_flag =  diplomatic_blockade_overcome }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = flavor_teymurok.6.a
+
+		every_known_country = {
+			limit = { 
+				capital_scope = { 
+					continent = europe
+				}
+			}
+			add_aggressive_expansion = {
+				who = TEY
+				value = 40
+				apply_calc = no
+			}
+		}
+	}
+}
+
+#chilling with magisterium
+country_event = {
+	id = flavor_teymurok.7
+	title = flavor_teymurok.7.title
+	desc = flavor_teymurok.7.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.7.a
+	}
+}
+
+#esann united
+country_event = {
+	id = flavor_teymurok.8
+	title = flavor_teymurok.8.title
+	desc = flavor_teymurok.8.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.8.a
+	}
+}
+
+#everyone needs a friend
+country_event = {
+	id = flavor_teymurok.9
+	title = flavor_teymurok.9.title
+	desc = flavor_teymurok.9.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.9.a
+	}
+}
+
+#can use specialised zombies
+country_event = {
+	id = flavor_teymurok.10
+	title = flavor_teymurok.10.title
+	desc = flavor_teymurok.10.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_teymurok.10.a
+	}
+}
+
+###########################################
+#use zombie decision events
+
+#first decision main event 
+country_event = {
+	id = flavor_teymurok.200
+	title = flavor_teymurok.200.title
+	desc = flavor_teymurok.200.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {#close
+		name = flavor_teymurok.200.a
+		clr_country_flag = spending_zombies
+	}
+	
+	option = {#army
+		name = flavor_teymurok.200.b
+
+		country_event = {
+			id = flavor_teymurok.201
+		}
+	}
+	
+	option = {#country economy
+		name = flavor_teymurok.200.c
+
+		country_event = {
+			id = flavor_teymurok.202
+		}
+	}
+	
+	option = {#province economy
+		name = flavor_teymurok.200.d
+
+		country_event = {
+			id = flavor_teymurok.203
+		}
+	}
+}
+
+#first decision war event
+country_event = {
+	id = flavor_teymurok.201
+	title = flavor_teymurok.201.title
+	desc = flavor_teymurok.201.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.200.a
+		clr_country_flag = spending_zombies
+	}
+	
+	option = {#back
+		name = flavor_teymurok.201.b
+
+		country_event = {
+			id = flavor_teymurok.200
+		}
+	}
+	
+	option = {#small recovery
+		name = flavor_teymurok.201.c
+		
+		add_small_army = { modifier = recovery }
+	}
+	
+	option = {#big recovery
+		name = flavor_teymurok.201.d
+		
+		add_big_army = { modifier = recovery }
+	}
+	
+	option = {#small siege
+		name = flavor_teymurok.201.e
+		
+		add_small_army = { modifier = siege }
+	}
+	
+	option = {#big siege
+		name = flavor_teymurok.201.f
+		
+		add_big_army = { modifier = siege }
+	}
+	
+	option = {#small shield
+		name = flavor_teymurok.201.g
+		
+		add_small_army = { modifier = shield }
+	}
+	
+	option = {#big shield
+		name = flavor_teymurok.201.h
+		
+		add_big_army = { modifier = shield }
+	}
+}
+
+#first decision country economy event
+country_event = {
+	id = flavor_teymurok.202
+	title = flavor_teymurok.202.title
+	desc = flavor_teymurok.202.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.200.a
+		clr_country_flag = spending_zombies
+	}
+	
+	option = {#back
+		name = flavor_teymurok.201.b
+
+		country_event = {
+			id = flavor_teymurok.200
+		}
+	}
+	
+	option = {#small buidings
+		name = flavor_teymurok.202.c
+
+		add_small_global_economy = { modifier = builders}
+	}
+	
+	option = {#big buidings
+		name = flavor_teymurok.202.d
+
+		add_big_global_economy = { modifier = builders }
+	}
+	
+	option = {#small dev
+		name = flavor_teymurok.202.d
+
+		add_small_global_economy = { modifier = developers }
+	}
+	
+	option = {#big dev
+		name = flavor_teymurok.202.d
+
+		add_big_global_economy = { modifier = developers }
+	}
+}
+
+#first decision province economy event
+country_event = {
+	id = flavor_teymurok.203
+	title = flavor_teymurok.203.title
+	desc = flavor_teymurok.203.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.200.a
+		clr_country_flag = spending_zombies
+	}
+	
+	option = {#back
+		name = flavor_teymurok.201.b
+
+		country_event = {
+			id = flavor_teymurok.200
+		}
+	}
+	
+	option = {#small plants
+		name = flavor_teymurok.203.c
+
+		add_small_local_economy = { goods = plant }
+	}
+	
+	option = {#big plants
+		name = flavor_teymurok.203.d
+
+		add_big_local_economy = { goods = plant }
+	}
+	
+	option = {#small mines
+		name = flavor_teymurok.203.e
+
+		add_small_local_economy = { goods = mine }
+	}
+	
+	option = {#big mines
+		name = flavor_teymurok.203.f
+
+		add_big_local_economy = { goods = mine }
+	}
+	
+	option = {#small animals
+		name = flavor_teymurok.203.g
+
+		add_small_local_economy = { goods = animal }
+	}
+	
+	option = {#big animals
+		name = flavor_teymurok.203.h
+
+		add_big_local_economy = { goods = animal }
+	}
+	
+	option = {#small processed
+		name = flavor_teymurok.203.i
+
+		add_small_local_economy = { goods = processed }
+	}
+	
+	option = {#big processed
+		name = flavor_teymurok.203.j
+
+		add_big_local_economy = { goods = processed }
+	}
+}
+
+#we are happy to have friends because of what lies ahead
+
+#estates revolt on crownland revoke - 3
+
+#new kings less sceptical about necromancy
+
+#new ally after treaty published
+
+#people happy to see liberators
+
+#people hate new necromancy rulers
+
+#people got used to necromancy rulers
+
+#people have no work - 4
+
+#Krakdhumvror dwarfs make big fridge
+
+#add our dead soldiers to pool
+
+#wise ones
+
+#greentide2

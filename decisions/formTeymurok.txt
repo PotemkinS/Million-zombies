@@ -3,8 +3,9 @@ country_decisions = {
 	teymurok_form = {
 		major = yes
 		potential = {
-			tag = B20
-			has_reform = adventurer_reform
+			ai = no
+		#	tag = B20
+		#	has_reform = adventurer_reform
 		}
 		allow = {
 		#	has_reform = found_our_nation
@@ -30,40 +31,6 @@ country_decisions = {
 				}
 			}
 			country_event = { id = ideagroups.1 } #Swap Ideas
-		}
-	}
-
-	test = {
-		major = yes
-		potential = {
-			OR = {
-				tag = B20
-				tag = TEY
-			}
-		}
-		allow = {
-			has_leaders_with = {
-				amount = 2
-				value = 2
-				general = yes
-				shock = 5
-			}
-		}
-		effect = {
-			while = {
-    			limit = {
-       				has_leaders = {
-						value = 1
-						type = general
-						include_monarch = no
-						include_heir = no
-					}
-    			}
-    
-    			kill_leader = {
-    				type = general
-				}
-			}
 		}
 	}
 }
