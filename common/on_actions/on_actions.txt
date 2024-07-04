@@ -5,7 +5,6 @@ on_startup = {
 }
 
 on_battle_won_country = {
-
     if = {
         limit = {
             has_country_flag = yarken_treaty_published
@@ -23,60 +22,144 @@ on_battle_won_country = {
             value = 1000
         }
 
-        change_variable = {
-            which = teymurokBodiesCollected
-            which = teymurokDivider
+        if = {
+            limit = { 
+                FROM = {
+                    OR = {
+                        always = yes
+                        has_country_modifier = human_military
+                        has_country_modifier = half_elven_military
+                    }
+                }
+            }
+            change_variable = {
+                which = teymurok_human_bodies_collected
+                which = teymurokDivider
+            }
+        }
+        else = {
+            if = {
+                limit = { FROM = { has_country_modifier = centaur_military } }
+                change_variable = {
+                    which = teymurok_centaur_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = dwarven_military } }
+                change_variable = {
+                    which = teymurok_dwarf_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = elven_military } }
+                change_variable = {
+                    which = teymurok_elf_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = gnollish_military } }
+                change_variable = {
+                    which = teymurok_gnoll_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = gnomish_military } }
+                change_variable = {
+                    which = teymurok_gnome_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = goblin_military } }
+                change_variable = {
+                    which = teymurok_goblin_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = halfling_military } }
+                change_variable = {
+                    which = teymurok_halfling_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = harpy_military } }
+                change_variable = {
+                    which = teymurok_harpy_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { 
+                    FROM = {
+                        OR = {
+                            has_country_modifier = half_orcish_military
+                            has_country_modifier = orcish_military
+                        }
+                    }
+                }
+                change_variable = {
+                    which = teymurok_orc_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = ruinborn_military } }
+                change_variable = {
+                    which = teymurok_ruinborn_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = troll_military } }
+                change_variable = {
+                    which = teymurok_troll_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = harimari_military } }
+                change_variable = {
+                    which = teymurok_harimari_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = hobgoblin_military } }
+                change_variable = {
+                    which = teymurok_hobgoblin_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = ogre_military } }
+                change_variable = {
+                    which = teymurok_ogre_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = lizardfolk_military } }
+                change_variable = {
+                    which = teymurok_yasher_bodies_collected
+                    which = teymurokDivider
+                }
+            }
+            else_if = {
+                limit = { FROM = { has_country_modifier = kobold_military } }
+                change_variable = {
+                    which = teymurok_kobold_bodies_collected
+                    which = teymurokDivider
+                }
+            }
         }
 
         remove_excess_corpses = yes
-    }
-
-    if = {
-        limit = {
-            has_country_flag = yarken_treaty_published
-            NOT = { has_country_flag = havent_chosen }
-            check_variable = {
-                which = land_units_lost
-                value = 5000
-            }
-            OR = {
-                has_country_flag = big_fridge
-                AND = {
-                    has_country_flag = small_fridge
-                    NOT = {
-                        check_variable = {
-                            which = teymurokBodiesCollected 
-                            value = 500000
-                        }
-                    }
-                }
-                AND = {
-                    has_country_flag = no_fridge
-                    NOT = {
-                        check_variable = {
-                            which = teymurokBodiesCollected 
-                            value = 50000
-                        }
-                    }
-                }
-            }
-        }
-        
-        set_variable = {
-            which = teymurokOurBodiesCollected
-            which = land_units_lost
-        }
-
-        divide_variable = {
-            which = teymurokOurBodiesCollected
-            value = 1000
-        }
-
-        set_country_flag = havent_chosen
-
-        country_event = {
-            id = flavor_teymurok.3
-        }
     }
 }
 

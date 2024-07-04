@@ -4,7 +4,7 @@ buy_corpses = {
     require_acceptance = no
 
     is_visible = {
-        always = yes    #has_country_flag = can_buy_corpses
+        always = yes #has_country_flag = can_buy_corpses
     }
 
     is_allowed = {
@@ -34,12 +34,50 @@ buy_corpses = {
             limit = {
                 check_variable = {
                     which = tey_target_development
+                    value = 1000
+                }
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        has_country_modifier = teymurok_permanent_partner
+                    }
+                }
+                add_treasury = -700
+                FROM = {
+                    add_treasury = 700
+                }
+            }
+            else = {
+                add_treasury = -1000
+                FROM = {
+                    add_treasury = 1000
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = tey_target_development
                     value = 500
                 }
             }
-            add_treasury = -500
-            FROM = {
-                add_treasury = 500
+            if = {
+                limit = {
+                    FROM = {
+                        has_country_modifier = teymurok_permanent_partner
+                    }
+                }
+                add_treasury = -300
+                FROM = {
+                    add_treasury = 300
+                }
+            }
+            else = {
+                add_treasury = -500
+                FROM = {
+                    add_treasury = 500
+                }
             }
         }
         else_if = {
@@ -78,6 +116,16 @@ buy_corpses = {
                 name = teymurok_bought_corpses
                 duration = 7300
             }
+            if = {
+                limit = {
+                    has_country_modifier = teymurok_permanent_partner
+                }
+                remove_country_modifier = teymurok_permanent_partner
+            }
+            add_country_modifier = {
+                name = teymurok_permanent_partner
+                duration = 10950
+            }
         }
 
         divide_variable = {
@@ -85,9 +133,141 @@ buy_corpses = {
             value = 5
         }
 
-        change_variable = {
-            which = teymurokBodiesCollected
-            which = tey_target_development
+        if = {
+            limit = { 
+                FROM = {
+                    OR = {
+                        always = yes
+                        culture_is_half_elven = yes
+                        culture_is_human = yes
+                    }
+                }
+            }
+            change_variable = {
+                which = teymurok_human_bodies_collected
+                which = tey_target_development
+            }
+        }
+        else = {
+            if = {
+                limit = { FROM = { culture_is_centaur = yes } }
+                change_variable = {
+                    which = teymurok_centaur_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_dwarven = yes } }
+                change_variable = {
+                    which = teymurok_dwarf_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_elven = yes } }
+                change_variable = {
+                    which = teymurok_elf_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_gnollish = yes } }
+                change_variable = {
+                    which = teymurok_gnoll_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_gnomish = yes } }
+                change_variable = {
+                    which = teymurok_gnome_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_goblin = yes } }
+                change_variable = {
+                    which = teymurok_goblin_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_halfling = yes } }
+                change_variable = {
+                    which = teymurok_halfling_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_harpy = yes } }
+                change_variable = {
+                    which = teymurok_harpy_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { 
+                    FROM = {
+                        OR = {
+                            culture_is_orcish = yes 
+                            culture_is_half_orcish = yes
+                        }
+                    }
+                }
+                change_variable = {
+                    which = teymurok_orc_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_ruinborn = yes } }
+                change_variable = {
+                    which = teymurok_ruinborn_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_troll = yes } }
+                change_variable = {
+                    which = teymurok_troll_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_harimari = yes } }
+                change_variable = {
+                    which = teymurok_harimari_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_hobgoblin = yes } }
+                change_variable = {
+                    which = teymurok_hobgoblin_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_ogre = yes } }
+                change_variable = {
+                    which = teymurok_ogre_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_lizardfolk = yes } }
+                change_variable = {
+                    which = teymurok_yasher_bodies_collected
+                    which = tey_target_development
+                }
+            }
+            else_if = {
+                limit = { FROM = { culture_is_kobold = yes } }
+                change_variable = {
+                    which = teymurok_kobold_bodies_collected
+                    which = tey_target_development
+                }
+            }
         }
 
         remove_excess_corpses = yes

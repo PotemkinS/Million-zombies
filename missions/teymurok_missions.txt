@@ -322,7 +322,7 @@ teymurok_second_branch = {
 			custom_trigger_tooltip = {
 				tooltip = collect_50k_tt
 				check_variable = {
-					which = teymurokBodiesCollected
+					which = teymurok_human_bodies_collected
 					value = 50
 				}
 			}
@@ -345,7 +345,7 @@ teymurok_second_branch = {
 
 			hidden_effect = {
 				set_variable = {
-					which = teymurokBodiesCollected
+					which = teymurok_human_bodies_collected
 					value = 0
 				}
 			}
@@ -455,7 +455,7 @@ teymurok_second_branch = {
 			custom_trigger_tooltip = {
 				tooltip = collect_500k_tt
 				check_variable = {
-					which = teymurokBodiesCollected
+					which = teymurok_human_bodies_collected
 					value = 500
 				}
 			}
@@ -476,7 +476,7 @@ teymurok_second_branch = {
 
 			hidden_effect = {
 				set_variable = {
-					which = teymurokBodiesCollected
+					which = teymurok_human_bodies_collected
 					value = 0
 				}
 			}
@@ -790,7 +790,7 @@ teymurok_third_branch = {
 				}
 
 				set_variable = {
-					which = teymurokBodiesCollected
+					which = teymurok_human_bodies_collected
 					value = 0
 				}
 			}

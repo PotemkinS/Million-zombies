@@ -41,40 +41,40 @@ country_event = {
 		set_estate_privilege = estate_mages_organization_yarken
 
 		add_country_modifier = { 
-    		name = teymurok_full_public_rejection
-    		duration = -1
+			name = teymurok_full_public_rejection
+			duration = -1
 		}
 
 		add_country_modifier = { 
-    		name = teymurok_full_church_condemnation
-    		duration = -1
+			name = teymurok_full_church_condemnation
+			duration = -1
 		}
 
 		add_country_modifier = { 
-    		name = teymurok_full_diplomatic_blockade
-    		duration = -1
+			name = teymurok_full_diplomatic_blockade
+			duration = -1
 		}
 
 		add_country_modifier = { 
-    		name = teymurok_full_unrest
-    		duration = -1
+			name = teymurok_full_unrest
+			duration = -1
 		}
 
 		add_country_modifier = { 
-    		name = teymurok_ugly_zombies
-    		duration = -1
+			name = teymurok_ugly_zombies
+			duration = -1
 		}
 
 		add_country_modifier = { 
-    		name = teymurok_yarken_payment
-    		duration = -1
+			name = teymurok_yarken_payment
+			duration = -1
 		}
 
 		A85 = { add_historical_rival = ROOT }
 	}
 }
 
-#use our corpses
+#shit idea rethink
 country_event = {
 	id = flavor_teymurok.3
 	title = flavor_teymurok.3.title
@@ -86,26 +86,90 @@ country_event = {
 	option = {
 		name = flavor_teymurok.3.a
 
-        change_variable = {
-            which = teymurokBodiesCollected
-            which = teymurokOurBodiesCollected
-        }
+		change_variable = {
+			which = teymurok_human_bodies_collected
+			value = 10000
+		}
 
-		add_legitimacy = -10
-		
-        remove_excess_corpses = yes
-	}
-	
-	option = {
-		name = flavor_teymurok.3.b
-		
-		add_legitimacy = 5
-		add_prestige = 5
-		add_treasury = -25
-	}
+		change_variable = {
+			which = teymurok_centaur_bodies_collected
+			value = 10000
+		}
 
-	after = {
-		clr_country_flag = havent_chosen
+		change_variable = {
+			which = teymurok_dwarf_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_elf_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_gnoll_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_gnome_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_goblin_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_halfling_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_harimari_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_harpy_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_hobgoblin_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_yasher_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_orc_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_ogre_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_kobold_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_troll_bodies_collected
+			value = 10000
+		}
+
+		change_variable = {
+			which = teymurok_ruinborn_bodies_collected
+			value = 10000
+		}
 	}
 }
 
@@ -141,8 +205,8 @@ country_event = {
 					}
 					form_coalition_against = ROOT
 					declare_war_with_cb = {
-    					who = ROOT
-    					casus_belli = cb_super_badboy
+						who = ROOT
+						casus_belli = cb_super_badboy
 					}
 				}
 			}
@@ -187,7 +251,7 @@ country_event = {
 		any_country = {
 			coalition_target = ROOT
 		}
-		NOT = { has_country_flag =  diplomatic_blockade_overcome }
+		NOT = { has_country_flag = diplomatic_blockade_overcome }
 	}
 
 	mean_time_to_happen = {
@@ -265,7 +329,97 @@ country_event = {
 	
 	option = {
 		name = flavor_teymurok.10.a
+
+		custom_tooltip = can_use_special_zomies_tt
+
+		hidden_effect = {
+	set_variable = {
+		which = local_economy_cheker
+		which = tey_$var$_local_economy
 	}
+			set_variable = {
+				which = teymurok_centaur_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_dwarf_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_elf_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_gnoll_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_gnome_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_goblin_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_halfling_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_harimari_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_harpy_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_hobgoblin_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_kobold_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_yasher_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_ogre_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_orc_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_ruinborn_bodies_collected
+				value = 0
+			}
+			set_variable = {
+				which = teymurok_troll_bodies_collected
+				value = 0
+			}
+		}
+	}
+}
+
+#debug
+
+country_event = {
+	id = flavor_teymurok.11
+	title = flavor_teymurok.11.title
+	desc = flavor_teymurok.11.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = shlyapa
+		custom_tooltip = cheker_tt
+	}
+
 }
 
 ###########################################
@@ -280,9 +434,16 @@ country_event = {
 
 	is_triggered_only = yes
 	
+	immediate = {
+		hidden_effect ={
+			prepare_local_economy_cheker = { var = big }
+		}
+	}
+
 	option = {#close
 		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
+		clr_country_flag = spending_shlak
 	}
 	
 	option = {#army
@@ -326,6 +487,7 @@ country_event = {
 	option = {#close
 		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
+		clr_country_flag = spending_shlak
 	}
 	
 	option = {#back
@@ -339,37 +501,37 @@ country_event = {
 	option = {#small recovery
 		name = flavor_teymurok.201.c
 		
-		add_small_army = { modifier = recovery }
+		add_small_army = { modifier = recovery race = human }
 	}
 	
 	option = {#big recovery
 		name = flavor_teymurok.201.d
 		
-		add_big_army = { modifier = recovery }
+		add_big_army = { modifier = recovery race = human }
 	}
 	
 	option = {#small siege
 		name = flavor_teymurok.201.e
 		
-		add_small_army = { modifier = siege }
+		add_small_army = { modifier = siege race = human }
 	}
 	
 	option = {#big siege
 		name = flavor_teymurok.201.f
 		
-		add_big_army = { modifier = siege }
+		add_big_army = { modifier = siege race = human }
 	}
 	
 	option = {#small shield
 		name = flavor_teymurok.201.g
 		
-		add_small_army = { modifier = shield }
+		add_small_army = { modifier = shield race = human }
 	}
 	
 	option = {#big shield
 		name = flavor_teymurok.201.h
 		
-		add_big_army = { modifier = shield }
+		add_big_army = { modifier = shield race = human }
 	}
 }
 
@@ -389,6 +551,7 @@ country_event = {
 	option = {#close
 		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
+		clr_country_flag = spending_shlak
 	}
 	
 	option = {#back
@@ -402,25 +565,25 @@ country_event = {
 	option = {#small buidings
 		name = flavor_teymurok.202.c
 
-		add_small_global_economy = { modifier = builders}
+		add_small_global_economy = { modifier = builders race = human }
 	}
 	
 	option = {#big buidings
 		name = flavor_teymurok.202.d
 
-		add_big_global_economy = { modifier = builders }
+		add_big_global_economy = { modifier = builders race = human }
 	}
 	
 	option = {#small dev
 		name = flavor_teymurok.202.d
 
-		add_small_global_economy = { modifier = developers }
+		add_small_global_economy = { modifier = developers race = human }
 	}
 	
 	option = {#big dev
 		name = flavor_teymurok.202.d
 
-		add_big_global_economy = { modifier = developers }
+		add_big_global_economy = { modifier = developers race = human }
 	}
 }
 
@@ -440,6 +603,7 @@ country_event = {
 	option = {#close
 		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
+		clr_country_flag = spending_shlak
 	}
 	
 	option = {#back
@@ -453,49 +617,1319 @@ country_event = {
 	option = {#small plants
 		name = flavor_teymurok.203.c
 
-		add_small_local_economy = { goods = plant }
+		add_small_local_economy = { goods = plant type = unspecial race = human }
 	}
 	
 	option = {#big plants
 		name = flavor_teymurok.203.d
 
-		add_big_local_economy = { goods = plant }
+		add_big_local_economy = { goods = plant type = unspecial race = human }
 	}
 	
 	option = {#small mines
 		name = flavor_teymurok.203.e
 
-		add_small_local_economy = { goods = mine }
+		add_small_local_economy = { goods = mine type = unspecial race = human }
 	}
 	
 	option = {#big mines
 		name = flavor_teymurok.203.f
 
-		add_big_local_economy = { goods = mine }
+		add_big_local_economy = { goods = mine type = unspecial race = human }
 	}
 	
 	option = {#small animals
 		name = flavor_teymurok.203.g
 
-		add_small_local_economy = { goods = animal }
+		add_small_local_economy = { goods = animal type = unspecial race = human }
 	}
 	
 	option = {#big animals
 		name = flavor_teymurok.203.h
 
-		add_big_local_economy = { goods = animal }
+		add_big_local_economy = { goods = animal type = unspecial race = human }
 	}
 	
 	option = {#small processed
 		name = flavor_teymurok.203.i
 
-		add_small_local_economy = { goods = processed }
+		add_small_local_economy = { goods = processed type = unspecial race = human }
 	}
 	
 	option = {#big processed
 		name = flavor_teymurok.203.j
 
-		add_big_local_economy = { goods = processed }
+		add_big_local_economy = { goods = processed type = unspecial race = human }
+	}
+}
+
+#second decision main event 
+country_event = {
+	id = flavor_teymurok.204
+	title = flavor_teymurok.204.title
+	desc = flavor_teymurok.204.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			prepare_local_economy_cheker = { var = big }
+		}
+	}
+	
+	option = {#close
+		name = flavor_teymurok.204.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#centaur
+		name = flavor_teymurok.204.b
+
+		country_event = {
+			id = flavor_teymurok.205
+		}
+	}
+	
+	option = {#dwarf
+		name = flavor_teymurok.204.c
+
+		country_event = {
+			id = flavor_teymurok.206
+		}
+	}
+	
+	option = {#elf
+		name = flavor_teymurok.204.d
+
+		country_event = {
+			id = flavor_teymurok.207
+		}
+	}
+	
+	option = {#gnoll
+		name = flavor_teymurok.204.e
+
+		country_event = {
+			id = flavor_teymurok.208
+		}
+	}
+	
+	option = {#gnome
+		name = flavor_teymurok.204.f
+
+		country_event = {
+			id = flavor_teymurok.209
+		}
+	}
+	
+	option = {#goblin
+		name = flavor_teymurok.204.g
+
+		country_event = {
+			id = flavor_teymurok.210
+		}
+	}
+	
+	option = {#halfling
+		name = flavor_teymurok.204.h
+
+		country_event = {
+			id = flavor_teymurok.211
+		}
+	}
+	
+	option = {#harimari
+		name = flavor_teymurok.204.i
+
+		country_event = {
+			id = flavor_teymurok.212
+		}
+	}
+	
+	option = {#harpy
+		name = flavor_teymurok.204.j
+
+		country_event = {
+			id = flavor_teymurok.213
+		}
+	}
+	
+	option = {#hobgoblin
+		name = flavor_teymurok.204.k
+
+		country_event = {
+			id = flavor_teymurok.214
+		}
+	}
+	
+	option = {#kobold
+		name = flavor_teymurok.204.l
+
+		country_event = {
+			id = flavor_teymurok.215
+		}
+	}
+	
+	option = {#yasher
+		name = flavor_teymurok.204.m
+
+		country_event = {
+			id = flavor_teymurok.216
+		}
+	}
+	
+	option = {#ogre
+		name = flavor_teymurok.204.n
+
+		country_event = {
+			id = flavor_teymurok.217
+		}
+	}
+	
+	option = {#orc
+		name = flavor_teymurok.204.o
+
+		country_event = {
+			id = flavor_teymurok.218
+		}
+	}
+	
+	option = {#ruinborn
+		name = flavor_teymurok.204.p
+
+		country_event = {
+			id = flavor_teymurok.219
+		}
+	}
+	
+	option = {#troll
+		name = flavor_teymurok.204.q
+
+		country_event = {
+			id = flavor_teymurok.220
+		}
+	}
+}
+
+#centaur buff
+country_event = {
+	id = flavor_teymurok.205
+	title = flavor_teymurok.205.title
+	desc = flavor_teymurok.205.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.205.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.205.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.205.c
+
+		add_small_army = { modifier = army_centaur race = centaur }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.205.d
+
+		add_big_army = { modifier = army_centaur race = centaur }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.205.e
+
+		add_extreme_army = { modifier = army_centaur race = centaur }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.205.f
+
+		add_small_global_economy = { modifier = economy_centaur race = centaur }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.205.g
+
+		add_big_global_economy = { modifier = economy_centaur race = centaur }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.205.h
+
+		add_small_local_economy = { goods = centaur type = special race = centaur }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.205.i
+
+		add_big_local_economy = { goods = centaur type = special race = centaur }
+	}
+}
+
+#dwarf buff
+country_event = {
+	id = flavor_teymurok.206
+	title = flavor_teymurok.206.title
+	desc = flavor_teymurok.206.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.206.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.206.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.206.c
+
+		add_small_army = { modifier = army_dwarf race = dwarf }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.206.d
+
+		add_big_army = { modifier = army_dwarf race = dwarf }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.206.e
+
+		add_extreme_army = { modifier = army_dwarf race = dwarf }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.206.f
+
+		add_small_global_economy = { modifier = economy_dwarf race = dwarf }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.206.g
+
+		add_big_global_economy = { modifier = economy_dwarf race = dwarf }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.206.h
+
+		add_small_local_economy = { goods = dwarf type = special race = dwarf }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.206.i
+
+		add_big_local_economy = { goods = dwarf type = special race = dwarf }
+	}
+}
+
+#elf buff
+country_event = {
+	id = flavor_teymurok.207
+	title = flavor_teymurok.207.title
+	desc = flavor_teymurok.207.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.207.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.207.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.207.c
+
+		add_small_army = { modifier = army_elf race = elf }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.207.d
+
+		add_big_army = { modifier = army_elf race = elf }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.207.e
+
+		add_extreme_army = { modifier = army_elf race = elf }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.207.f
+
+		add_small_global_economy = { modifier = economy_elf race = elf }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.207.g
+
+		add_big_global_economy = { modifier = economy_elf race = elf }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.207.h
+
+		add_small_local_economy = { goods = elf type = special race = elf }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.207.i
+
+		add_big_local_economy = { goods = elf type = special race = elf }
+	}
+}
+
+#gnoll buff
+country_event = {
+	id = flavor_teymurok.208
+	title = flavor_teymurok.208.title
+	desc = flavor_teymurok.208.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.208.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.208.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.208.c
+
+		add_small_army = { modifier = army_gnoll race = gnoll }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.208.d
+
+		add_big_army = { modifier = army_gnoll race = gnoll }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.208.e
+
+		add_extreme_army = { modifier = army_gnoll race = gnoll }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.208.f
+
+		add_small_global_economy = { modifier = economy_gnoll race = gnoll }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.208.g
+
+		add_big_global_economy = { modifier = economy_gnoll race = gnoll }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.208.h
+
+		add_small_local_economy = { goods = gnoll type = special race = gnoll }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.208.i
+
+		add_big_local_economy = { goods = gnoll type = special race = gnoll }
+	}
+}
+
+#gnome buff
+country_event = {
+	id = flavor_teymurok.209
+	title = flavor_teymurok.209.title
+	desc = flavor_teymurok.209.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.209.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.209.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.209.c
+
+		add_small_army = { modifier = army_gnome race = gnome }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.209.d
+
+		add_big_army = { modifier = army_gnome race = gnome }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.209.e
+
+		add_extreme_army = { modifier = army_gnome race = gnome }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.209.f
+
+		add_small_global_economy = { modifier = economy_gnome race = gnome }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.209.g
+
+		add_big_global_economy = { modifier = economy_gnome race = gnome }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.209.h
+
+		add_small_local_economy = { goods = gnome type = special race = gnome }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.209.i
+
+		add_big_local_economy = { goods = gnome type = special race = gnome }
+	}
+}
+
+#goblin buff
+country_event = {
+	id = flavor_teymurok.210
+	title = flavor_teymurok.210.title
+	desc = flavor_teymurok.210.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.210.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.210.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.210.c
+
+		add_small_army = { modifier = army_goblin race = goblin }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.210.d
+
+		add_big_army = { modifier = army_goblin race = goblin }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.210.e
+
+		add_extreme_army = { modifier = army_goblin race = goblin }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.210.f
+
+		add_small_global_economy = { modifier = economy_goblin race = goblin }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.210.g
+
+		add_big_global_economy = { modifier = economy_goblin race = goblin }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.210.h
+
+		add_small_local_economy = { goods = goblin type = special race = goblin }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.210.i
+
+		add_big_local_economy = { goods = goblin type = special race = goblin }
+	}
+}
+
+#halfling buff
+country_event = {
+	id = flavor_teymurok.211
+	title = flavor_teymurok.211.title
+	desc = flavor_teymurok.211.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.211.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.211.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.211.c
+
+		add_small_army = { modifier = army_halfling race = halfling }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.211.d
+
+		add_big_army = { modifier = army_halfling race = halfling }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.211.e
+
+		add_extreme_army = { modifier = army_halfling race = halfling }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.211.f
+
+		add_small_global_economy = { modifier = economy_halfling race = halfling }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.211.g
+
+		add_big_global_economy = { modifier = economy_halfling race = halfling }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.211.h
+
+		add_small_local_economy = { goods = halfling type = special race = halfling }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.211.i
+
+		add_big_local_economy = { goods = halfling type = special race = halfling }
+	}
+}
+
+#harimari buff
+country_event = {
+	id = flavor_teymurok.212
+	title = flavor_teymurok.212.title
+	desc = flavor_teymurok.212.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.212.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.212.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.212.c
+
+		add_small_army = { modifier = army_harimari race = harimari }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.212.d
+
+		add_big_army = { modifier = army_harimari race = harimari }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.212.e
+
+		add_extreme_army = { modifier = army_harimari race = harimari }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.212.f
+
+		add_small_global_economy = { modifier = economy_harimari race = harimari }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.212.g
+
+		add_big_global_economy = { modifier = economy_harimari race = harimari }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.212.h
+
+		add_small_local_economy = { goods = harimari type = special race = harimari }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.212.i
+
+		add_big_local_economy = { goods = harimari type = special race = harimari }
+	}
+}
+
+#harpy buff
+country_event = {
+	id = flavor_teymurok.213
+	title = flavor_teymurok.213.title
+	desc = flavor_teymurok.213.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.213.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.213.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.213.c
+
+		add_small_army = { modifier = army_harpy race = harpy }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.213.d
+
+		add_big_army = { modifier = army_harpy race = harpy }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.213.e
+
+		add_extreme_army = { modifier = army_harpy race = harpy }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.213.f
+
+		add_small_global_economy = { modifier = economy_harpy race = harpy }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.213.g
+
+		add_big_global_economy = { modifier = economy_harpy race = harpy }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.213.h
+
+		add_small_local_economy = { goods = harpy type = special race = harpy }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.213.i
+
+		add_big_local_economy = { goods = harpy type = special race = harpy }
+	}
+}
+
+#hobgoblin buff
+country_event = {
+	id = flavor_teymurok.214
+	title = flavor_teymurok.214.title
+	desc = flavor_teymurok.214.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.214.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.214.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.214.c
+
+		add_small_army = { modifier = army_hobgoblin race = hobgoblin }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.214.d
+
+		add_big_army = { modifier = army_hobgoblin race = hobgoblin }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.214.e
+
+		add_extreme_army = { modifier = army_hobgoblin race = hobgoblin }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.214.f
+
+		add_small_global_economy = { modifier = economy_hobgoblin race = hobgoblin }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.214.g
+
+		add_big_global_economy = { modifier = economy_hobgoblin race = hobgoblin }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.214.h
+
+		add_small_local_economy = { goods = hobgoblin type = special race = hobgoblin }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.214.i
+
+		add_big_local_economy = { goods = hobgoblin type = special race = hobgoblin }
+	}
+}
+
+#kobold buff
+country_event = {
+	id = flavor_teymurok.215
+	title = flavor_teymurok.215.title
+	desc = flavor_teymurok.215.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.215.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.215.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.215.c
+
+		add_small_army = { modifier = army_kobold race = kobold }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.215.d
+
+		add_big_army = { modifier = army_kobold race = kobold }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.215.e
+
+		add_extreme_army = { modifier = army_kobold race = kobold }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.215.f
+
+		add_small_global_economy = { modifier = economy_kobold race = kobold }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.215.g
+
+		add_big_global_economy = { modifier = economy_kobold race = kobold }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.215.h
+
+		add_small_local_economy = { goods = kobold type = special race = kobold }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.215.i
+
+		add_big_local_economy = { goods = kobold type = special race = kobold }
+	}
+}
+
+#yasher buff
+country_event = {
+	id = flavor_teymurok.216
+	title = flavor_teymurok.216.title
+	desc = flavor_teymurok.216.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.216.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.216.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.216.c
+
+		add_small_army = { modifier = army_yasher race = yasher }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.216.d
+
+		add_big_army = { modifier = army_yasher race = yasher }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.216.e
+
+		add_extreme_army = { modifier = army_yasher race = yasher }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.216.f
+
+		add_small_global_economy = { modifier = economy_yasher race = yasher }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.216.g
+
+		add_big_global_economy = { modifier = economy_yasher race = yasher }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.216.h
+
+		add_small_local_economy = { goods = yasher type = special race = yasher }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.216.i
+
+		add_big_local_economy = { goods = yasher type = special race = yasher }
+	}
+}
+
+#ogre buff
+country_event = {
+	id = flavor_teymurok.217
+	title = flavor_teymurok.217.title
+	desc = flavor_teymurok.217.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.217.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.217.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.217.c
+
+		add_small_army = { modifier = army_ogre race = ogre }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.217.d
+
+		add_big_army = { modifier = army_ogre race = ogre }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.217.e
+
+		add_extreme_army = { modifier = army_ogre race = ogre }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.217.f
+
+		add_small_global_economy = { modifier = economy_ogre race = ogre }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.217.g
+
+		add_big_global_economy = { modifier = economy_ogre race = ogre }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.217.h
+
+		add_small_local_economy = { goods = ogre type = special race = ogre }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.217.i
+
+		add_big_local_economy = { goods = ogre type = special race = ogre }
+	}
+}
+
+#orc buff
+country_event = {
+	id = flavor_teymurok.218
+	title = flavor_teymurok.218.title
+	desc = flavor_teymurok.218.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.218.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.218.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.218.c
+
+		add_small_army = { modifier = army_orc race = orc }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.218.d
+
+		add_big_army = { modifier = army_orc race = orc }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.218.e
+
+		add_extreme_army = { modifier = army_orc race = orc }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.218.f
+
+		add_small_global_economy = { modifier = economy_orc race = orc }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.218.g
+
+		add_big_global_economy = { modifier = economy_orc race = orc }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.218.h
+
+		add_small_local_economy = { goods = orc type = special race = orc }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.218.i
+
+		add_big_local_economy = { goods = orc type = special race = orc }
+	}
+}
+
+#ruinborn buff
+country_event = {
+	id = flavor_teymurok.219
+	title = flavor_teymurok.219.title
+	desc = flavor_teymurok.219.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.219.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.219.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.219.c
+
+		add_small_army = { modifier = army_ruinborn race = ruinborn }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.219.d
+
+		add_big_army = { modifier = army_ruinborn race = ruinborn }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.219.e
+
+		add_extreme_army = { modifier = army_ruinborn race = ruinborn }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.219.f
+
+		add_small_global_economy = { modifier = economy_ruinborn race = ruinborn }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.219.g
+
+		add_big_global_economy = { modifier = economy_ruinborn race = ruinborn }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.219.h
+
+		add_small_local_economy = { goods = ruinborn type = special race = ruinborn }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.219.i
+
+		add_big_local_economy = { goods = ruinborn type = special race = ruinborn }
+	}
+}
+
+#troll buff
+country_event = {
+	id = flavor_teymurok.220
+	title = flavor_teymurok.220.title
+	desc = flavor_teymurok.220.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_variables_for_spending = yes
+	}
+	
+	option = {#close
+		name = flavor_teymurok.220.a
+		clr_country_flag = spending_zombies
+		clr_country_flag = spending_special
+	}
+	
+	option = {#back
+		name = flavor_teymurok.220.b
+		
+		country_event = {
+			id = flavor_teymurok.204
+		}
+	}
+
+	option = {#small army buff
+		name = flavor_teymurok.220.c
+
+		add_small_army = { modifier = army_troll race = troll }
+	}
+
+	option = {#big army buff
+		name = flavor_teymurok.220.d
+
+		add_big_army = { modifier = army_troll race = troll }
+	}
+
+	option = {#extreme army buff
+		name = flavor_teymurok.220.e
+
+		add_extreme_army = { modifier = army_troll race = troll }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.220.f
+
+		add_small_global_economy = { modifier = economy_troll race = troll }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.220.g
+
+		add_big_global_economy = { modifier = economy_troll race = troll }
+	}
+
+	option = {#small local economy buff
+		name = flavor_teymurok.220.h
+
+		add_small_local_economy = { goods = troll type = special race = troll }
+	}
+
+	option = {#big local economy buff
+		name = flavor_teymurok.220.i
+
+		add_big_local_economy = { goods = troll type = special race = troll }
 	}
 }
 

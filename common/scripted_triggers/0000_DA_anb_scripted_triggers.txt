@@ -72,21 +72,137 @@ is_processed_good = {
 
 is_enough_corpses_army = {
 	check_variable = {
-		which = teymurokBodiesCollected
+		which = teymurok_$races$_bodies_collected
 		which = tey_$var$_army
 	}
 }
 
 is_enough_corpses_local_economy = {
 	check_variable = {
-		which = teymurokBodiesCollected
+		which = teymurok_$races$_bodies_collected
 		which = tey_$var$_local_economy
 	}
 }
 
 is_enough_corpses_global_economy = {
 	check_variable = {
-		which = teymurokBodiesCollected
+		which = teymurok_$races$_bodies_collected
 		which = tey_$var$_global_economy
+	}
+}
+
+is_centaur_good = {
+	OR = {
+		trade_goods = livestock
+		trade_goods = wool
+	}
+}
+
+is_dwarf_good = {
+	OR = {
+		trade_goods = mithril
+		trade_goods = coal
+		trade_goods = copper
+	}
+}
+
+is_elf_good = {
+	OR = {
+		trade_goods = wine
+		trade_goods = damestear
+	}
+}
+
+is_gnoll_good = {
+	OR = {
+		trade_goods = slaves
+		trade_goods = ivory
+	}
+}
+
+is_gnome_good = {
+	OR = {
+		trade_goods = sugar
+		trade_goods = cocoa
+	}
+}
+
+is_goblin_good = {
+	OR = {
+		trade_goods = fungi
+		trade_goods = salt
+	}
+}
+
+is_halfling_good = {
+	OR = {
+		trade_goods = tobacco
+		trade_goods = spices
+		trade_goods = coffee
+		trade_goods = cloves
+	}
+}
+
+is_harimari_good = {
+	OR = {
+		trade_goods = dyes
+		trade_goods = paper
+	}
+}
+
+is_harpy_good = {
+	OR = {
+		trade_goods = silk
+		trade_goods = cloth
+	}
+}
+
+is_hobgoblin_good = {
+	OR = {
+		trade_goods = chinaware
+		trade_goods = tea
+	}
+}
+
+is_kobold_good = {
+	OR = {
+		trade_goods = gold
+		trade_goods = gems
+	}
+}
+
+is_yasher_good = {
+	OR = {
+		trade_goods = naval_supplies
+		trade_goods = fish
+	}
+}
+
+is_ogre_good = {
+	OR = {
+		trade_goods = incense
+		trade_goods = glass
+	}
+}
+
+is_orc_good = {
+	OR = {
+		trade_goods = serpentbloom
+		trade_goods = fur
+		trade_goods = grain
+	}
+}
+
+is_ruinborn_good = {
+	OR = {
+		trade_goods = precursor_relics
+		trade_goods = cotton
+	}
+}
+
+is_troll_good = {
+	OR = {
+		trade_goods = tropical_wood
+		trade_goods = iron
 	}
 }
