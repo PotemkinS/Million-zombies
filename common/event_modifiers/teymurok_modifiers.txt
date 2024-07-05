@@ -266,15 +266,15 @@ tey_big_economy_dwarf = {
 }
 
 tey_small_army_elf = {
-	infantry_fire = 0.5
+	infantry_fire = 0.2
 }
 
 tey_big_army_elf = {
-	infantry_fire = 1
+	infantry_fire = 0.4
 }
 
 tey_extreme_army_elf = {
-	infantry_fire = 3
+	infantry_fire = 1.2
 }
 
 tey_small_economy_elf = {
@@ -379,19 +379,19 @@ tey_extreme_army_harimari = {
 	infantry_power = 0.6
 }
 
-tey_harimari_conq_small = {
+tey_small_conq_harimari = {
 	administrative_efficiency = 0.05
 }
 
-tey_harimari_conq_big = {
+tey_big_conq_harimari  = {
 	administrative_efficiency = 0.1
 }
 
-tey_harimari_ideas_small = {
+tey_small_ideas_harimari = {
 	idea_cost = -0.1
 }
 
-tey_harimari_ideas_big = {
+tey_big_ideas_harimari = {
 	idea_cost = -0.2
 }
 

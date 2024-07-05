@@ -917,6 +917,11 @@ teymurok_third_branch_post_treaty = {
 
 		effect = {
 			custom_tooltip = cemetery_upgraded_tt
+
+			set_variable = {
+				which = cemetry_adder
+				value = 1
+			}
 		}
 	}
 

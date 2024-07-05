@@ -175,9 +175,7 @@ on_battle_lost_country = {
 on_expanded_infrastructure = {
     if = {
         limit = {
-            FROM = {
-                has_country_flag = teymurok_can_build_cemetry
-            }
+            FROM = { has_country_flag = teymurok_can_build_cemetry }
 			NOT = { has_construction = building }
 			NOT = { has_construction = core }
 			NOT = { has_construction = culture }

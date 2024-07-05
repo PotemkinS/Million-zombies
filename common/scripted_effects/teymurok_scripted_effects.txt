@@ -29,111 +29,111 @@ remove_excess_corpses = {
 }
 
 prepare_variables_for_spending = {
+	export_to_variable = {
+		which = tey_small_global_economy
+		value = total_development
+	}
+
+	multiply_variable = {
+		which = tey_small_global_economy
+		value = 0.25
+	}
+
+	export_to_variable = {
+		which = tey_big_global_economy
+		value = total_development
+	}
+
+	multiply_variable = {
+		which = tey_big_global_economy
+		value = 0.5
+	}
+
+	if = {
+		limit = { has_country_flag = spending_shlak }
 		export_to_variable = {
-			which = tey_small_global_economy
+			which = tey_small_local_economy
 			value = total_development
 		}
 
 		multiply_variable = {
-    		which = tey_small_global_economy
-    		value = 0.25
+			which = tey_small_local_economy
+			value = 0.25
 		}
 
 		export_to_variable = {
-			which = tey_big_global_economy
+			which = tey_big_local_economy
 			value = total_development
 		}
 
 		multiply_variable = {
-    		which = tey_big_global_economy
-    		value = 0.5
+			which = tey_big_local_economy
+			value = 0.5
+		}
+	}
+	else = {
+		export_to_variable = {
+			which = tey_small_local_economy
+			value = total_development
 		}
 
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			export_to_variable = {
-				which = tey_small_local_economy
-				value = total_development
-			}
-
-			multiply_variable = {
-    			which = tey_small_local_economy
-    			value = 0.25
-			}
-
-			export_to_variable = {
-				which = tey_big_local_economy
-				value = total_development
-			}
-
-			multiply_variable = {
-    			which = tey_big_local_economy
-    			value = 0.5
-			}
-		}
-		else = {
-			export_to_variable = {
-				which = tey_small_local_economy
-				value = total_development
-			}
-
-			divide_variable  = {
-    			which = tey_small_local_economy
-    			value = 16
-			}
-
-			export_to_variable = {
-				which = tey_big_local_economy
-				value = total_development
-			}
-
-			multiply_variable = {
-    			which = tey_big_local_economy
-    			value = 0.125
-			}
+		divide_variable  = {
+			which = tey_small_local_economy
+			value = 16
 		}
 
 		export_to_variable = {
-			which = tey_small_army
-			value = army_size
-		}
-
-		export_to_variable = {
-			which = tey_big_army
-			value = army_size
+			which = tey_big_local_economy
+			value = total_development
 		}
 
 		multiply_variable = {
-    		which = tey_big_army
-    		value = 2
+			which = tey_big_local_economy
+			value = 0.125
 		}
+	}
 
-		if = {
-			limit = {
-				mil_tech = 16
-			}
-			set_variable = {
-				which = tey_extreme_army
-				value = 80
-			}
-		}
+	export_to_variable = {
+		which = tey_small_army
+		value = army_size
+	}
 
-		else_if = {
-			limit = {
-				mil_tech = 12
-			}
-			set_variable = {
-				which = tey_extreme_army
-				value = 60
-			}
-		}
+	export_to_variable = {
+		which = tey_big_army
+		value = army_size
+	}
 
-		else = {
-			set_variable = {
-				which = tey_extreme_army
-				value = 40
-			}
+	multiply_variable = {
+		which = tey_big_army
+		value = 2
+	}
+
+	if = {
+		limit = {
+			mil_tech = 16
 		}
+		set_variable = {
+			which = tey_extreme_army
+			value = 80
+		}
+	}
+
+	else_if = {
+		limit = {
+			mil_tech = 12
+		}
+		set_variable = {
+			which = tey_extreme_army
+			value = 60
+		}
+	}
+
+	else = {
+		set_variable = {
+			which = tey_extreme_army
+			value = 40
+		}
+	}
 }
 
 remove_extreme_modifiers = {
@@ -173,305 +173,777 @@ remove_corpses_global_economy = {
 add_small_local_economy = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_local_economy_small_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_local_economy = { races = $race$ var = small } } }
-			custom_tooltip = tey_not_enough_corpses_tt
-		}
-		if = {
-			limit = {
-				NOT = {
-					num_of_owned_provinces_with = {
-						value = 1
-						is_$goods$_good = yes
-					}
-				}
-			}
-			custom_tooltip = no_trade_good_tt
-		}
-		if = {
-			limit = {
-				is_enough_corpses_local_economy = { races = $race$ var = small }
-				any_owned_province = {
+	if = {
+		limit = { NOT = { is_enough_corpses_local_economy = { races = $race$ var = small } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 1
 					is_$goods$_good = yes
-					NOT = {
-						has_province_modifier = tey_small_$type$_goods
-						has_province_modifier = tey_big_$type$_goods
-					}
 				}
 			}
-			custom_tooltip = tey_local_small_$goods$_tt
-			custom_tooltip = all_small_prolonged_big_untouched_tt
-			hidden_effect = {
-				every_owned_province = {
-					limit ={
-						is_$goods$_good = yes
-						NOT = {
-							has_province_modifier = tey_big_$type$_goods
-						}
-					}
-						if = {
-							limit = {
-								has_province_modifier = tey_small_$type$_goods
-							}
-							remove_province_modifier = tey_small_$type$_goods
-						}
-						add_province_modifier = {
-							name = tey_small_$type$_goods
-							duration = 3650
-						}
-				}
-			}
-			hidden_effect = { remove_corpses_local_economy = { var = small races = $race$ } }
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
-		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
-}
-
-add_big_local_economy = {
-	custom_tooltip = $race$_corpse_amount_tt
-	custom_tooltip = corpse_local_economy_big_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_local_economy = { races = $race$ var = big } } }
-			custom_tooltip = tey_not_enough_corpses_tt
-		}
-		if = {
-			limit = {
+		custom_tooltip = no_trade_good_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_local_economy = { races = $race$ var = small }
+			any_owned_province = {
+				is_$goods$_good = yes
 				NOT = {
-					num_of_owned_provinces_with = {
-						value = 1
-						is_$goods$_good = yes
-					}
+					has_province_modifier = tey_small_$type$_goods
+					has_province_modifier = tey_big_$type$_goods
 				}
 			}
-			custom_tooltip = no_trade_good_tt
 		}
-		if = {
-			limit = {
-				is_enough_corpses_local_economy = { races = $race$ var = big }
-				any_owned_province = {
+		custom_tooltip = tey_local_small_$goods$_tt
+		custom_tooltip = all_small_prolonged_big_untouched_tt
+		hidden_effect = {
+			every_owned_province = {
+				limit ={
 					is_$goods$_good = yes
 					NOT = {
 						has_province_modifier = tey_big_$type$_goods
 					}
 				}
-			}
-			custom_tooltip = tey_local_big_$goods$_tt
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						is_$goods$_good = yes
-					}
 					if = {
 						limit = {
 							has_province_modifier = tey_small_$type$_goods
 						}
 						remove_province_modifier = tey_small_$type$_goods
 					}
-					if = {
-						limit = {
-							has_province_modifier = tey_big_$type$_goods
-						}
-						remove_province_modifier = tey_big_$type$_goods
+					add_province_modifier = {
+						name = tey_small_$type$_goods
+						duration = 3650
 					}
-						add_province_modifier = {
-							name = tey_big_$type$_goods
-							duration = 3650
-						}
+			}
+		}
+		hidden_effect = { remove_corpses_local_economy = { var = small races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
+}
+
+add_big_local_economy = {
+	custom_tooltip = $race$_corpse_amount_tt
+	custom_tooltip = corpse_local_economy_big_tt
+	if = {
+		limit = { NOT = { is_enough_corpses_local_economy = { races = $race$ var = big } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 1
+					is_$goods$_good = yes
 				}
 			}
-			hidden_effect = { remove_corpses_local_economy = { var = big races = $race$ } }
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+		custom_tooltip = no_trade_good_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_local_economy = { races = $race$ var = big }
+			any_owned_province = {
+				is_$goods$_good = yes
+				NOT = {
+					has_province_modifier = tey_big_$type$_goods
+				}
+			}
 		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+		custom_tooltip = tey_local_big_$goods$_tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					is_$goods$_good = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = tey_small_$type$_goods
+					}
+					remove_province_modifier = tey_small_$type$_goods
+				}
+				if = {
+					limit = {
+						has_province_modifier = tey_big_$type$_goods
+					}
+					remove_province_modifier = tey_big_$type$_goods
+				}
+					add_province_modifier = {
+						name = tey_big_$type$_goods
+						duration = 3650
+					}
+			}
 		}
+		hidden_effect = { remove_corpses_local_economy = { var = big races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
 }
 
 add_small_global_economy = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_global_economy_small_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_global_economy = { var = small races = $race$ } } }
-			custom_tooltip = tey_not_enough_corpses_tt
-		}
-		if = {
-			limit = {
-				OR = {
-					has_country_modifier = tey_small_$modifier$
-					has_country_modifier = tey_big_$modifier$
-				}
+	if = {
+		limit = { NOT = { is_enough_corpses_global_economy = { var = small races = $race$ } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = tey_small_$modifier$
+				has_country_modifier = tey_big_$modifier$
 			}
-			custom_tooltip = tey_this_or_better_modifier_tt
 		}
-		if = {
-			limit = {
-				is_enough_corpses_global_economy = { var = small races = $race$ }
-				NOT = { has_country_modifier = tey_small_$modifier$ }
-				NOT = { has_country_modifier = tey_big_$modifier$ }
-			}
-			add_country_modifier = {
-				name = tey_small_$modifier$
-				duration = 3650
-			}
-			hidden_effect = { remove_corpses_global_economy = { var = small races = $race$ } }
+		custom_tooltip = tey_this_or_better_modifier_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_global_economy = { var = small races = $race$ }
+			NOT = { has_country_modifier = tey_small_$modifier$ }
+			NOT = { has_country_modifier = tey_big_$modifier$ }
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+		add_country_modifier = {
+			name = tey_small_$modifier$
+			duration = 3650
 		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
+		hidden_effect = { remove_corpses_global_economy = { var = small races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
 }
 
 add_big_global_economy = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_global_economy_big_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_global_economy = { var = big races = $race$ } } }
-			custom_tooltip = tey_not_enough_corpses_tt
+	if = {
+		limit = { NOT = { is_enough_corpses_global_economy = { var = big races = $race$ } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = { has_country_modifier = tey_big_$modifier$ }
+		custom_tooltip = tey_this_modifier_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_global_economy = { var = big races = $race$ }
+			NOT = { has_country_modifier = tey_big_$modifier$ }
 		}
-		if = {
-			limit = { has_country_modifier = tey_big_$modifier$ }
-			custom_tooltip = tey_this_modifier_tt
+		if = { limit = { has_country_modifier = tey_small_$modifier$ }
+			remove_country_modifier = tey_small_$modifier$	
 		}
-		if = {
-			limit = {
-				is_enough_corpses_global_economy = { var = big races = $race$ }
-				NOT = { has_country_modifier = tey_big_$modifier$ }
-			}
-			if = { limit = { has_country_modifier = tey_small_$modifier$ }
-				remove_country_modifier = tey_small_$modifier$	
-			}
-			add_country_modifier = {
-				name = tey_big_$modifier$
-				duration = 3650
-			}
-			hidden_effect = { remove_corpses_global_economy = { var = big races = $race$ } }
+		add_country_modifier = {
+			name = tey_big_$modifier$
+			duration = 3650
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
-		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
+		hidden_effect = { remove_corpses_global_economy = { var = big races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
 }
 
 add_small_army = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_army_small_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_army = { var = small races = $race$} } }
-			custom_tooltip = tey_not_enough_corpses_tt
-		}
-		if = {
-			limit = {
-				OR = {
-					has_country_modifier = tey_small_$modifier$
-					has_country_modifier = tey_big_$modifier$
-				}
+	if = {
+		limit = { NOT = { is_enough_corpses_army = { var = small races = $race$} } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = tey_small_$modifier$
+				has_country_modifier = tey_big_$modifier$
 			}
-			custom_tooltip = tey_this_or_better_modifier_tt
 		}
-		if = {
-			limit = {
-				is_enough_corpses_army = { var = small races = $race$ }
-				NOT = { has_country_modifier = tey_small_$modifier$ }
-				NOT = { has_country_modifier = tey_big_$modifier$ }
-			}
-			add_country_modifier = {
-				name = tey_small_$modifier$
-				duration = 3650
-			}
-			hidden_effect = { remove_corpses_army = { var = small races = $race$ } }
+		custom_tooltip = tey_this_or_better_modifier_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_army = { var = small races = $race$ }
+			NOT = { has_country_modifier = tey_small_$modifier$ }
+			NOT = { has_country_modifier = tey_big_$modifier$ }
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+		add_country_modifier = {
+			name = tey_small_$modifier$
+			duration = 3650
 		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
+		hidden_effect = { remove_corpses_army = { var = small races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
 }
 
 add_big_army = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_army_big_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_army = { var = big races = $race$ } } }
-			custom_tooltip = tey_not_enough_corpses_tt
+	if = {
+		limit = { NOT = { is_enough_corpses_army = { var = big races = $race$ } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = { has_country_modifier = tey_big_$modifier$ }
+		custom_tooltip = tey_this_modifier_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_army = { var = big races = $race$ }
+			NOT = { has_country_modifier = tey_big_$modifier$ }
 		}
-		if = {
-			limit = { has_country_modifier = tey_big_$modifier$ }
-			custom_tooltip = tey_this_modifier_tt
+		if = { limit = { has_country_modifier = tey_small_$modifier$ }
+			remove_country_modifier = tey_small_$modifier$	
 		}
-		if = {
-			limit = {
-				is_enough_corpses_army = { var = big races = $race$ }
-				NOT = { has_country_modifier = tey_big_$modifier$ }
-			}
-			if = { limit = { has_country_modifier = tey_small_$modifier$ }
-				remove_country_modifier = tey_small_$modifier$	
-			}
-			add_country_modifier = {
-				name = tey_big_$modifier$
-				duration = 3650
-			}
-			hidden_effect = { remove_corpses_army = { var = big races = $race$ } }
+		add_country_modifier = {
+			name = tey_big_$modifier$
+			duration = 3650
 		}
-		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
-		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
+		hidden_effect = { remove_corpses_army = { var = big races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
 }
 
 add_extreme_army = {
 	custom_tooltip = $race$_corpse_amount_tt
 	custom_tooltip = corpse_army_extreme_tt
-		if = {
-			limit = { NOT = { is_enough_corpses_army = { var = extreme races = $race$ } } }
-			custom_tooltip = tey_not_enough_corpses_tt
+	if = {
+		limit = { NOT = { is_enough_corpses_army = { var = extreme races = $race$ } } }
+		custom_tooltip = tey_not_enough_corpses_tt
+	}
+	if = {
+		limit = { has_country_modifier = tey_extreme_$modifier$ }
+		custom_tooltip = tey_this_modifier_tt
+	}
+	if = {
+		limit = {
+			is_enough_corpses_army = { var = extreme races = $race$ }
+			NOT = { has_country_modifier = tey_extreme_$modifier$ }
 		}
-		if = {
-			limit = { has_country_modifier = tey_extreme_$modifier$ }
-			custom_tooltip = tey_this_modifier_tt
+		custom_tooltip = tey_extreme_army_tt
+		add_country_modifier = {
+			name = tey_extreme_$modifier$
+			duration = 365
 		}
-		if = {
-			limit = {
-				is_enough_corpses_army = { var = extreme races = $race$ }
-				NOT = { has_country_modifier = tey_extreme_$modifier$ }
+		hidden_effect = { remove_corpses_army = { var = extreme races = $race$ } }
+	}
+	if = {
+		limit = { has_country_flag = spending_shlak }
+		hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+	}
+	if = {
+		limit = { has_country_flag = spending_special }
+		hidden_effect = { country_event = { id = flavor_teymurok.204 } }
+	}
+}
+
+add_corpses_by_culture = {
+	if = {
+		limit = { 
+			$target$ = {
+				OR = {
+					culture_is_half_elven = yes
+					culture_is_human = yes
+				}
 			}
-			custom_tooltip = tey_extreme_army_tt
-			add_country_modifier = {
-				name = tey_extreme_$modifier$
-				duration = 365
+		}
+		change_variable = {
+			which = teymurok_human_bodies_collected
+			which = $var$
+		}
+	}
+	else = {
+		if = {
+			limit = { $target$ = { culture_is_centaur = yes } }
+			change_variable = {
+				which = teymurok_centaur_bodies_collected
+				which = $var$
 			}
-			hidden_effect = { remove_corpses_army = { var = extreme races = $race$ } }
 		}
+		else_if = {
+			limit = { $target$ = { culture_is_dwarven = yes } }
+			change_variable = {
+				which = teymurok_dwarf_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_elven = yes } }
+			change_variable = {
+				which = teymurok_elf_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_gnollish = yes } }
+			change_variable = {
+				which = teymurok_gnoll_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_gnomish = yes } }
+			change_variable = {
+				which = teymurok_gnome_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_goblin = yes } }
+			change_variable = {
+				which = teymurok_goblin_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_halfling = yes } }
+			change_variable = {
+				which = teymurok_halfling_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_harpy = yes } }
+			change_variable = {
+				which = teymurok_harpy_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { 
+				$target$ = {
+					OR = {
+						culture_is_orcish = yes 
+						culture_is_half_orcish = yes
+					}
+				}
+			}
+			change_variable = {
+				which = teymurok_orc_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_ruinborn = yes } }
+			change_variable = {
+				which = teymurok_ruinborn_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_troll = yes } }
+			change_variable = {
+				which = teymurok_troll_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_harimari = yes } }
+			change_variable = {
+				which = teymurok_harimari_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_hobgoblin = yes } }
+			change_variable = {
+				which = teymurok_hobgoblin_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_ogre = yes } }
+			change_variable = {
+				which = teymurok_ogre_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_lizardfolk = yes } }
+			change_variable = {
+				which = teymurok_yasher_bodies_collected
+				which = $var$
+			}
+		}
+		else_if = {
+			limit = { $target$ = { culture_is_kobold = yes } }
+			change_variable = {
+				which = teymurok_kobold_bodies_collected
+				which = $var$
+			}
+		}
+	}
+
+	remove_excess_corpses = yes
+}
+
+prepare_cemetry_variables = {
+	hidden_effect = {
+		set_variable = {
+			which = teymurok_cemetry_human_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_centaur_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_dwarf_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_elf_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_gnoll_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_gnome_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_goblin_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_halfling_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_harimari_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_harpy_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_hobgoblin_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_kobold_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_yasher_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_ogre_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_orc_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_ruinborn_bodies_collected
+			value = 0
+		}
+		set_variable = {
+			which = teymurok_cemetry_troll_bodies_collected
+			value = 0
+		}
+		every_owned_province = {
+			limit = { has_building = cemetery }
+			if = {
+				limit = { 
+					OR = {
+						culture_is_half_elven = yes
+						culture_is_human = yes
+					}
+				}
+				ROOT = {
+					change_variable = {
+						which = teymurok_human_bodies_collected
+						which = $var$
+					}
+					change_variable = {
+						which = teymurok_cemetry_human_bodies_collected
+						which = $var$
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {  culture_is_centaur = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_centaur_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_centaur_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_dwarven = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_dwarf_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_dwarf_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_elven = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_elf_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_elf_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_gnollish = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_gnoll_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_gnoll_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_gnomish = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_gnome_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_gnome_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_goblin = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_goblin_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_goblin_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_halfling = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_halfling_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_halfling_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_harpy = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_harpy_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_harpy_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = { 
+						OR = {
+							culture_is_orcish = yes 
+							culture_is_half_orcish = yes
+						}
+					}
+					ROOT = {
+						change_variable = {
+							which = teymurok_orc_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_orc_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_ruinborn = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_ruinborn_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_ruinborn_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_troll = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_troll_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_troll_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_harimari = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_harimari_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_harimari_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_hobgoblin = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_hobgoblin_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_hobgoblin_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_ogre = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_ogre_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_ogre_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_lizardfolk = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_yasher_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_yasher_bodies_collected
+							which = $var$
+						}
+					}
+				}
+				else_if = {
+					limit = {  culture_is_kobold = yes } 
+					ROOT = {
+						change_variable = {
+							which = teymurok_kobold_bodies_collected
+							which = $var$
+						}
+						change_variable = {
+							which = teymurok_cemetry_kobold_bodies_collected
+							which = $var$
+						}
+					}
+				}
+			}
+
+			remove_excess_corpses = yes
+		}
+	}
+}
+
+test_effectus ={
+	set_variable = {
+		which = wtftest
+		value = 1
+	}
+	every_owned_province = {
 		if = {
-			limit = { has_country_flag = spending_shlak }
-			hidden_effect = { country_event = { id = flavor_teymurok.200 } }
+			limit = { has_building = cemetery }
+			if = {
+				limit = { culture_group = iberian }
+				ROOT = {
+					change_variable = {
+						which = wtftest
+						value = $var$
+					}
+				}
+			}
 		}
-		if = {
-			limit = { has_country_flag = spending_special }
-			hidden_effect = { country_event = { id = flavor_teymurok.204 } }
-		}
+	}
 }

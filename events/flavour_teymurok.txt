@@ -21,6 +21,12 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.1.a
+
+		if = {
+			limit = { NOT = { ruler_has_personality = free_thinker_personality } }
+			add_ruler_personality = free_thinker_personality
+		} 
+		add_ruler_personality = well_connected_personality
 	}
 }
 
@@ -74,7 +80,7 @@ country_event = {
 	}
 }
 
-#shit idea rethink
+#cheats
 country_event = {
 	id = flavor_teymurok.3
 	title = flavor_teymurok.3.title
@@ -333,10 +339,6 @@ country_event = {
 		custom_tooltip = can_use_special_zomies_tt
 
 		hidden_effect = {
-	set_variable = {
-		which = local_economy_cheker
-		which = tey_$var$_local_economy
-	}
 			set_variable = {
 				which = teymurok_centaur_bodies_collected
 				value = 0
@@ -405,21 +407,94 @@ country_event = {
 	}
 }
 
-#debug
-
+#cemetery corpses upgrade
 country_event = {
 	id = flavor_teymurok.11
 	title = flavor_teymurok.11.title
 	desc = flavor_teymurok.11.desc
 	picture = WOKOU_INCIDENT_eventPicture
 
-	is_triggered_only = yes
-
-	option = {
-		name = shlyapa
-		custom_tooltip = cheker_tt
+	trigger = {
+		NOT = { has_country_flag = less_cemetry_spam }
 	}
 
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_cemetry_variables = { var = cemetry_adder }
+
+		hidden_effect = {
+			country_event = {
+				id = flavor_teymurok.11
+				days = 365
+			}
+			country_event = {
+				id = flavor_teymurok.12
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.11.a
+		
+		custom_tooltip = you_got_x_corpses_tt
+	}
+}
+
+#hidden cemetery corpses upgrade
+country_event = {
+	id = flavor_teymurok.12
+	title = flavor_teymurok.12.title
+	desc = flavor_teymurok.12.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = less_cemetry_spam 
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		prepare_cemetry_variables = { var = cemetry_adder }
+
+		hidden_effect = {
+			country_event = {
+				id = flavor_teymurok.11
+				days = 365
+			}
+			country_event = {
+				id = flavor_teymurok.12
+				days = 365
+			}
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.12.a
+	}
+}
+
+#test
+country_event = {
+	id = flavor_teymurok.13
+	title = flavor_teymurok.13.title
+	desc = flavor_teymurok.13.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		test_effectus = { var = 1 }
+	}
+
+	option = {
+		name = flavor_teymurok.12.a
+
+		custom_tooltip = tey_test_tt
+	}
 }
 
 ###########################################
@@ -1351,23 +1426,35 @@ country_event = {
 	option = {#small global economy buff
 		name = flavor_teymurok.212.f
 
-		add_small_global_economy = { modifier = economy_harimari race = harimari }
+		add_small_global_economy = { modifier = conq_harimari race = harimari }
 	}
 
 	option = {#big global economy buff
 		name = flavor_teymurok.212.g
 
-		add_big_global_economy = { modifier = economy_harimari race = harimari }
+		add_big_global_economy = { modifier = conq_harimari race = harimari }
+	}
+
+	option = {#small global economy buff
+		name = flavor_teymurok.212.h
+
+		add_small_global_economy = { modifier = ideas_harimari race = harimari }
+	}
+
+	option = {#big global economy buff
+		name = flavor_teymurok.212.i
+
+		add_big_global_economy = { modifier = ideas_harimari race = harimari }
 	}
 
 	option = {#small local economy buff
-		name = flavor_teymurok.212.h
+		name = flavor_teymurok.212.g
 
 		add_small_local_economy = { goods = harimari type = special race = harimari }
 	}
 
 	option = {#big local economy buff
-		name = flavor_teymurok.212.i
+		name = flavor_teymurok.212.k
 
 		add_big_local_economy = { goods = harimari type = special race = harimari }
 	}
