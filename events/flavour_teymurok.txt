@@ -19,14 +19,28 @@ country_event = {
 		ai = no
 	}
 
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { ruler_has_personality = free_thinker_personality } }
+				add_ruler_personality = free_thinker_personality
+			} 
+			add_ruler_personality = well_connected_personality
+		}
+	}
+
 	option = {
 		name = flavor_teymurok.1.a
 
-		if = {
-			limit = { NOT = { ruler_has_personality = free_thinker_personality } }
-			add_ruler_personality = free_thinker_personality
-		} 
-		add_ruler_personality = well_connected_personality
+		define_advisor = {
+			type = court_mage
+			name = "Yarken"
+			skill = 3
+			cost_multiplier = 0.2
+			age = 30
+			culture = east_damerian
+			religion = regent_court
+		}
 	}
 }
 
@@ -41,6 +55,8 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.2.a
+
+		custom_tooltip = no_fridge_tt
 
 		remove_estate_privilege = estate_mages_organization_state
 
@@ -77,6 +93,8 @@ country_event = {
 		}
 
 		A85 = { add_historical_rival = ROOT }
+		
+		swap_non_generic_missions = yes
 	}
 }
 
@@ -257,7 +275,7 @@ country_event = {
 		any_country = {
 			coalition_target = ROOT
 		}
-		NOT = { has_country_flag = diplomatic_blockade_overcome }
+		NOT = { mission_completed = tey_routinisation_of_evil }
 	}
 
 	mean_time_to_happen = {
@@ -321,6 +339,10 @@ country_event = {
 	
 	option = {
 		name = flavor_teymurok.9.a
+		
+		add_prestige_or_monarch_power = {
+			amount = 20
+		}
 	}
 }
 
@@ -335,8 +357,6 @@ country_event = {
 	
 	option = {
 		name = flavor_teymurok.10.a
-
-		custom_tooltip = can_use_special_zomies_tt
 
 		hidden_effect = {
 			set_variable = {
@@ -477,7 +497,7 @@ country_event = {
 	}
 }
 
-#test
+#academy first graduation
 country_event = {
 	id = flavor_teymurok.13
 	title = flavor_teymurok.13.title
@@ -486,16 +506,325 @@ country_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		test_effectus = { var = 1 }
+	option = {
+		name = flavor_teymurok.13.a
+
+		remove_country_modifier = teymurok_more_zombies_in_army
+
+		add_country_modifier = {
+			name = teymurok_better_leaders
+			duration = -1		
+		}
+	}
+}
+
+#new ally after treaty published
+country_event = {
+	id = flavor_teymurok.14
+	title = flavor_teymurok.14.title
+	desc = flavor_teymurok.14.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.14.a
+
+		add_power_projection = {
+			type = mission_rewards_power_projection
+			amount = 10
+ 		}
+
+		set_country_flag = tey_happy_only_once
+	}
+}
+
+#estates revolt on crownland revoke - 1
+country_event = {
+	id = flavor_teymurok.15
+	title = flavor_teymurok.15.title
+	desc = flavor_teymurok.15.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.15.a
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = religious_rebels
+				size = 1
+			}
+		}
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+#estates revolt on crownland revoke - 2
+country_event = {
+	id = flavor_teymurok.16
+	title = flavor_teymurok.16.title
+	desc = flavor_teymurok.16.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.16.a
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = religious_rebels
+				size = 2
+			}
+		}
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+
+		random_owned_province = {
+			spawn_rebels = {
+				type = particularist_rebels
+				size = 2
+			}
+		}
+
+		random_owned_province = {
+			spawn_rebels = { 
+				type = leadered_peasant_rebels
+				size = 3 
+			}
+		}
+	}
+}
+
+#estates revolt on crownland revoke - 3
+country_event = {
+	id = flavor_teymurok.17
+	title = flavor_teymurok.17.title
+	desc = flavor_teymurok.17.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.17.a
+
+		add_stability_or_adm_power = yes
+	}
+}
+
+#new kings less sceptical about necromancy - 1 pure flavor
+country_event = {
+	id = flavor_teymurok.18
+	title = flavor_teymurok.18.title
+	desc = flavor_teymurok.18.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.18.a
+
+		add_stability_or_adm_power = yes
+	}
+}
+
+#new kings less sceptical about necromancy - 2 pure flavor
+country_event = {
+	id = flavor_teymurok.19
+	title = flavor_teymurok.19.title
+	desc = flavor_teymurok.19.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.19.a
+
+		add_stability_or_adm_power = yes
+	}
+}
+
+#people happy to see liberators
+country_event = {
+	id = flavor_teymurok.20
+	title = flavor_teymurok.20.title
+	desc = flavor_teymurok.20.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.20.a
+
+		custom_tooltip = tey_liberators_tt
+	}
+}
+
+#people have no work - army
+country_event = {
+	id = flavor_teymurok.21
+	title = flavor_teymurok.21.title
+	desc = flavor_teymurok.21.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		mission_completed = tey_zombie_regiments
+	}
+
+	mean_time_to_happen = {
+		months = 120
 	}
 
 	option = {
-		name = flavor_teymurok.12.a
+		name = flavor_teymurok.21.a
 
-		custom_tooltip = tey_test_tt
+		add_country_modifier = {
+			name = tey_soldiers_bandits
+			duration = 3650
+		}
 	}
 }
+
+#people have no work - economy
+country_event = {
+	id = flavor_teymurok.22
+	title = flavor_teymurok.22.title
+	desc = flavor_teymurok.22.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		mission_completed = tey_zombie_fields1
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = flavor_teymurok.22.a
+
+		add_country_modifier = {
+			name = tey_monopolies
+			duration = 3650
+		}
+	}
+}
+
+#zombies do not spy
+country_event = {
+	id = flavor_teymurok.23
+	title = flavor_teymurok.23.title
+	desc = flavor_teymurok.23.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		mission_completed = tey_by_their_deeds
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = flavor_teymurok.23.a
+
+		add_country_modifier = {
+			name = tey_no_gossips
+			duration = 3650
+		}
+	}
+}
+
+#people in doubt
+country_event = {
+	id = flavor_teymurok.24
+	title = flavor_teymurok.24.title
+	desc = flavor_teymurok.24.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		mission_completed = tey_doctrine_of_duality
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = flavor_teymurok.24.a
+
+		add_country_modifier = {
+			name = tey_people_doubt
+			duration = 3650
+		}
+	}
+}
+
+#better not make them think
+country_event = {
+	id = flavor_teymurok.25
+	title = flavor_teymurok.25.title
+	desc = flavor_teymurok.25.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		mission_completed = tey_routinisation_of_evil
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = flavor_teymurok.25.a
+
+		add_country_modifier = {
+			name = tey_people_self_organising
+			duration = 3650
+		}
+	}
+}
+
+#people hate new necromancy rulers
+
+#people got used to necromancy rulers
+
+#wise ones
+
+#greentide2
 
 ###########################################
 #use zombie decision events
@@ -508,12 +837,6 @@ country_event = {
 	picture = WOKOU_INCIDENT_eventPicture
 
 	is_triggered_only = yes
-	
-	immediate = {
-		hidden_effect ={
-			prepare_local_economy_cheker = { var = big }
-		}
-	}
 
 	option = {#close
 		name = flavor_teymurok.200.a
@@ -746,12 +1069,6 @@ country_event = {
 	picture = WOKOU_INCIDENT_eventPicture
 
 	is_triggered_only = yes
-
-	immediate = {
-		hidden_effect = {
-			prepare_local_economy_cheker = { var = big }
-		}
-	}
 	
 	option = {#close
 		name = flavor_teymurok.204.a
@@ -2019,27 +2336,3 @@ country_event = {
 		add_big_local_economy = { goods = troll type = special race = troll }
 	}
 }
-
-#we are happy to have friends because of what lies ahead
-
-#estates revolt on crownland revoke - 3
-
-#new kings less sceptical about necromancy
-
-#new ally after treaty published
-
-#people happy to see liberators
-
-#people hate new necromancy rulers
-
-#people got used to necromancy rulers
-
-#people have no work - 4
-
-#Krakdhumvror dwarfs make big fridge
-
-#add our dead soldiers to pool
-
-#wise ones
-
-#greentide2

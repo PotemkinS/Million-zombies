@@ -4,7 +4,6 @@ country_decisions = {
 		major = yes
 		potential = {
 			ai = no
-		#	tag = B20
 		#	has_reform = adventurer_reform
 		}
 		allow = {
@@ -17,8 +16,11 @@ country_decisions = {
 			change_tag = TEY
 			custom_tooltip = teymurok_nation_settling_advice_tt
 			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
 			add_prestige = 25
 			adventurer_legacy_effect = yes
+			set_country_flag = adventurer_derived_government
+			clr_country_flag = knightly_order_adventurer
 			change_government = monarchy
 			hidden_effect = {
 				change_government_reform_progress = -1000
@@ -28,6 +30,10 @@ country_decisions = {
 				change_estate_land_share = {
     				estate = estate_mages
     				share = -10
+				}
+				country_event = { #new culture event, 10 years after their debuff runs out
+					id = marcher.2
+					days = 18250
 				}
 			}
 			country_event = { id = ideagroups.1 } #Swap Ideas

@@ -73,31 +73,31 @@ teymurok_zombie_research2 = {
 }
 
 teymurok_zombie_mines1 = {
-    build_cost = -0.1
-    build_time = -0.1
+    build_cost = -0.05
+    build_time = -0.05
 }
 
 teymurok_zombie_fields1 = {
-    development_cost = -0.1
+    development_cost = -0.05
     global_unrest = -1
 }
 
 teymurok_zombie_mines2 = {
-    build_cost = -0.2
-    global_trade_goods_size_modifier = 0.15
+    build_cost = -0.1
+    global_trade_goods_size_modifier = 0.05
 }
 
 teymurok_zombie_fields2 = {
-    development_cost = -0.15
+    development_cost = -0.1
     global_unrest = -2
 }
 
 teymurok_zombie_economy = {
-    development_cost = -0.2
+    development_cost = -0.15
     global_unrest = -2
-    build_cost = -0.2
-    build_time = -0.2
-    global_trade_goods_size_modifier = 0.3
+    build_cost = -0.15
+    build_time = -0.15
+    global_trade_goods_size_modifier = 0.1
 }
 
 teymurok_buying_bodies = {
@@ -105,6 +105,7 @@ teymurok_buying_bodies = {
     build_cost = -0.05
     global_trade_goods_size_modifier = 0.05
     manpower_recovery_speed = 0.1
+    global_unrest = 1
 }
 
 teymurok_zombies_in_army = {
@@ -118,16 +119,16 @@ teymurok_more_zombies_in_army = {
     global_manpower_modifier = 0.5
     land_forcelimit_modifier = 0.5
     land_maintenance_modifier = -0.33
-	shock_damage = -0.2
-	fire_damage = -0.2
+	shock_damage = -0.25
+	fire_damage = -0.25
 }
 
 teymurok_better_leaders ={
     global_manpower_modifier = 0.5
     land_forcelimit_modifier = 0.5
     land_maintenance_modifier = -0.15
-	shock_damage = -0.1
-	fire_damage = -0.1
+	shock_damage = -0.15
+	fire_damage = -0.15
 }
 
 teymurok_factory_preparation = {
@@ -559,4 +560,28 @@ tey_small_economy_troll = {
 tey_big_economy_troll = {
 	power_projection_from_insults = 1
 	fort_maintenance_modifier = -0.3
+}
+
+tey_administration_removed_recently = {
+	local_core_creation = -0.5
+}
+
+tey_soldiers_bandits = {
+	global_unrest = 2
+}
+
+tey_monopolies = {
+	inflation_reduction = -1
+}
+
+tey_no_gossips = {
+	yearly_corruption = 0.33
+}
+
+tey_people_doubt = {
+	legitimacy = -5
+}
+
+tey_people_self_organising = {
+    global_autonomy = 0.3
 }

@@ -42,7 +42,7 @@ zombie_factory = {
                     }
                 }
                 owner = {
-                    has_country_flag = big_fridge
+                    mission_completed = tey_big_fridge
                 }
             }
         }

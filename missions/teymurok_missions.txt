@@ -4,7 +4,7 @@ teymurok_fake_2 = {
 	ai = yes
 	potential = {
 		tag = TEY
-		NOT = { has_country_flag = yarken_treaty_published }
+		NOT = { mission_completed = tey_treaty }
 	}
 }
 
@@ -14,7 +14,7 @@ teymurok_fake_4 = {
 	ai = yes
 	potential = {
 		tag = TEY
-		NOT = { has_country_flag = yarken_treaty_published }
+		NOT = { mission_completed = tey_treaty }
 	}
 }
 
@@ -36,7 +36,7 @@ teymurok_first_branch = {
 	}
 	has_country_shield = yes
 
-	economic_base1 = {
+	tey_economic_base = {
 		icon = geo_a_house_divided
 		required_missions = {  }
 		position = 1
@@ -53,9 +53,9 @@ teymurok_first_branch = {
 		}
 	}
 
-	economic_base2 = {
+	tey_build_treasury = {
 		icon = geo_a_house_divided
-		required_missions = { economic_base1 }
+		required_missions = { tey_economic_base }
 		position = 2
 
 		trigger = {
@@ -70,9 +70,9 @@ teymurok_first_branch = {
 		}
 	}
 
-	economic_base3 = {
+	tey_infrastructure_projects = {
 		icon = geo_a_house_divided
-		required_missions = { economic_base2 }
+		required_missions = { tey_build_treasury }
 		position = 3
 
 		trigger = {
@@ -96,13 +96,13 @@ teymurok_first_branch_post_treaty = {
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = yarken_treaty_published
+		mission_completed = tey_treaty
 	}
 	has_country_shield = yes
 
 	tey_zombie_mines1 = {
 		icon = geo_a_house_divided
-		required_missions = { get_material }
+		required_missions = { tey_zombie_research }
 		position = 6
 
 		provinces_to_highlight = {
@@ -174,7 +174,7 @@ teymurok_first_branch_post_treaty = {
 
 	tey_zombie_mines2 = {
 		icon = geo_a_house_divided
-		required_missions = { get_material4 }
+		required_missions = { tey_zombie_research2 }
 		position = 10
 
 		provinces_to_highlight = {
@@ -213,7 +213,7 @@ teymurok_first_branch_post_treaty = {
 		}
 	}
 
-	economic_base7 = {
+	tey_zombie_factory_construction = {
 		icon = geo_a_house_divided
 		required_missions = { tey_zombie_mines2 }
 		position = 11
@@ -230,6 +230,7 @@ teymurok_first_branch_post_treaty = {
 		}
 
 		effect = {
+			add_treasury = -1000
 			840 = {
 				hidden_effect = {
 					set_province_flag = zombie_factory
@@ -242,9 +243,9 @@ teymurok_first_branch_post_treaty = {
 		}
 	}
 
-	economic_base8 = {
+	tey_big_fridge = {
 		icon = geo_a_house_divided
-		required_missions = { economic_base7 }
+		required_missions = { tey_zombie_factory_construction }
 		position = 12
 
 		provinces_to_highlight = {
@@ -272,14 +273,15 @@ teymurok_first_branch_post_treaty = {
 			add_dip_power = -100
 			add_treasury = -1000
 			custom_tooltip = big_fridge_tt
-			clr_country_flag = small_fridge
-			set_country_flag = big_fridge
+            country_event = {
+                id = flavor_teymurok.10
+            }
 		}
 	}
 
-	get_material6 = {
+	tey_zombie_factory_finished = {
 		icon = geo_a_house_divided
-		required_missions = { economic_base8 }
+		required_missions = { tey_big_fridge }
 		position = 12
 
 		provinces_to_highlight = {
@@ -296,9 +298,7 @@ teymurok_first_branch_post_treaty = {
 		}
 
 		effect = {
-            country_event = {
-                id = flavor_teymurok.10
-            }
+			custom_tooltip = can_use_special_zomies_tt
 		}
 	}
 }
@@ -309,13 +309,13 @@ teymurok_second_branch = {
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = yarken_treaty_published
+		mission_completed = tey_treaty
 	}
 	has_country_shield = yes
 
-	get_material = {
+	tey_zombie_research = {
 		icon = geo_a_house_divided
-		required_missions = { treaty }
+		required_missions = { tey_treaty }
 		position = 5
 		
 		trigger = {
@@ -352,9 +352,9 @@ teymurok_second_branch = {
 		}
 	}
 
-	get_material2 = {
+	tey_church_bribed = {
 		icon = geo_a_house_divided
-		required_missions = { get_material }
+		required_missions = { tey_zombie_research }
 		position = 6
 		
 		trigger = {
@@ -375,9 +375,9 @@ teymurok_second_branch = {
 		}
 	}
 
-	get_material3 = {
+	tey_zombie_factory_prep = {
 		icon = geo_a_house_divided
-		required_missions = { tey_zombie_mines1 get_material2 }
+		required_missions = { tey_zombie_mines1 tey_church_bribed }
 		position = 7
 
 		provinces_to_highlight = {
@@ -421,9 +421,9 @@ teymurok_second_branch = {
 		}
 	}
 
-	small_fridge = {
+	tey_small_fridge = {
 		icon = geo_a_house_divided
-		required_missions = { tey_zombie_fields1 get_material3 }
+		required_missions = { tey_zombie_fields1 tey_zombie_factory_prep }
 		position = 8
 		
 		trigger = {
@@ -441,14 +441,12 @@ teymurok_second_branch = {
 		effect = {
 			add_treasury = -500
 			custom_tooltip = small_fridge_tt
-			clr_country_flag = no_fridge
-			set_country_flag = small_fridge
 		}
 	}
 
-	get_material4 = {
+	tey_zombie_research2 = {
 		icon = geo_a_house_divided
-		required_missions = { small_fridge treaty4 }
+		required_missions = { tey_small_fridge tey_by_their_deeds }
 		position = 9
 		
 		trigger = {
@@ -483,9 +481,9 @@ teymurok_second_branch = {
 		}
 	}
 
-	get_material5 = {
+	tey_zombie_fields2 = {
 		icon = geo_a_house_divided
-		required_missions = { tey_zombie_mines2 treaty5 }
+		required_missions = { tey_zombie_mines2 tey_doctrine_of_duality }
 		position = 11
 
 		provinces_to_highlight = {
@@ -530,9 +528,9 @@ teymurok_second_branch = {
 		}
 	}
 
-	get_material7 = {
+	tey_zombie_economy = {
 		icon = geo_a_house_divided
-		required_missions = { treaty8 }
+		required_missions = { tey_time_heals_all_wounds }
 		position = 13
 
 		provinces_to_highlight = {
@@ -648,7 +646,7 @@ teymurok_third_branch = {
 	}
 	has_country_shield = yes
 
-	perimetr1 = {
+	tey_perimetr1 = {
 		icon = geo_a_house_divided
 		required_missions = {  }
 		position = 1
@@ -679,9 +677,9 @@ teymurok_third_branch = {
 		}
 	}
 
-	perimetr2 = {
+	tey_perimetr2 = {
 		icon = geo_a_house_divided
-		required_missions = { perimetr1 }
+		required_missions = { tey_perimetr1 }
 		position = 2
 
 		provinces_to_highlight = {
@@ -715,9 +713,9 @@ teymurok_third_branch = {
 		}
 	}
 
-	perimetr3 = {
+	tey_perimetr3 = {
 		icon = geo_a_house_divided
-		required_missions = { perimetr2 }
+		required_missions = { tey_perimetr2 }
 		position = 3
 
 		provinces_to_highlight = {
@@ -732,9 +730,20 @@ teymurok_third_branch = {
 				value = 40
 				region = inner_castanor_region
 			}
+			castonath_area = {
+				owned_by = ROOT
+			}
 		}
 
 		effect = {
+			castonath_area = {
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+			set_capital = 833
+			add_adm_power = 100
+			add_dip_power = 100 
+			add_mil_power = 100
 			inner_castanor_region = {
 				add_permanent_claim = ROOT
 			}
@@ -761,9 +770,9 @@ teymurok_third_branch = {
 		}
 	}
 
-	treaty = {
+	tey_treaty = {
 		icon = geo_a_house_divided
-		required_missions = { }#economic_base3 perimetr3 friend }
+		required_missions = { }#tey_infrastructure_projects tey_perimetr3 tey_friend }
 		position = 4
 		
 		trigger = {
@@ -775,17 +784,15 @@ teymurok_third_branch = {
 				id = flavor_teymurok.2
 			}
 			hidden_effect = {
-				set_country_flag = no_fridge
-				
 				set_country_flag = yarken_treaty_published
 
 				set_variable = {
-					which = teymurokDivider
-					value = 0
+					which = teymurok_land_seized
+					value = 3
 				}
 
 				set_variable = {
-					which = teymurokOurBodiesCollected
+					which = teymurokDivider
 					value = 0
 				}
 
@@ -794,7 +801,6 @@ teymurok_third_branch = {
 					value = 0
 				}
 			}
-			swap_non_generic_missions = yes
 		}
 	}
 }
@@ -805,13 +811,13 @@ teymurok_third_branch_post_treaty = {
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = yarken_treaty_published
+		mission_completed = tey_treaty
 	}
 	has_country_shield = yes
 
-	treaty2 = {
+	tey_desperate_times = {
 		icon = geo_a_house_divided
-		required_missions = { get_material }
+		required_missions = { tey_zombie_research }
 		position = 6
 		
 		trigger = {
@@ -837,9 +843,9 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
-	treaty3 = {
+	tey_not_war_only = {
 		icon = geo_a_house_divided
-		required_missions = { treaty2 get_material2 }
+		required_missions = { tey_desperate_times tey_church_bribed }
 		position = 7
 		
 		trigger = {
@@ -854,14 +860,26 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
-	treaty4 = {
+	tey_by_their_deeds = {
 		icon = geo_a_house_divided
-		required_missions = { treaty3 }
+		required_missions = { tey_not_war_only }
 		position = 8
 		
 		trigger = {
 			NOT = {
 				has_country_modifier = teymurok_buying_bodies
+			}
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 60
+			}
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 60
+			}
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 60
 			}
 		}
 
@@ -875,9 +893,9 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
-	treaty5 = {
+	tey_doctrine_of_duality = {
 		icon = geo_a_house_divided
-		required_missions = { treaty4 war4 }
+		required_missions = { tey_by_their_deeds tey_longterm_partnership }
 		position = 10
 		
 		trigger = {
@@ -896,14 +914,12 @@ teymurok_third_branch_post_treaty = {
 			}
 			
 			custom_tooltip = teymurok_cemetery_alowed_tt
-
-			set_country_flag = teymurok_can_build_cemetry
 		}
 	}
 
-	treaty7 = {
+	tey_body_donation = {
 		icon = geo_a_house_divided
-		required_missions = { treaty5 }
+		required_missions = { tey_doctrine_of_duality }
 		position = 11
 
 		provinces_to_highlight = {
@@ -918,21 +934,23 @@ teymurok_third_branch_post_treaty = {
 		effect = {
 			custom_tooltip = cemetery_upgraded_tt
 
-			set_variable = {
-				which = cemetry_adder
-				value = 1
+			hidden_effect = {
+				set_variable = {
+					which = cemetry_adder
+					value = 1
+				}
+			}
+			country_event = {
+				id = flavor_teymurok.11
+				days = 365
 			}
 		}
 	}
 
-	treaty8 = {
+	tey_time_heals_all_wounds = {
 		icon = geo_a_house_divided
-		required_missions = { treaty7 get_material5 war5 }
+		required_missions = { tey_body_donation tey_zombie_fields2 tey_zombie_regiments }
 		position = 12
-
-		provinces_to_highlight = {
-
-		}
 		
 		trigger = {
 
@@ -950,14 +968,10 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
-	treaty9 = {
+	tey_end_reforms = {
 		icon = geo_a_house_divided
-		required_missions = { get_material6 get_material7 war6 mock5 }
+		required_missions = { tey_zombie_factory_finished tey_zombie_economy tey_castonath_military_academy tey_escann_united }
 		position = 14
-
-		provinces_to_highlight = {
-
-		}
 		
 		trigger = {
 
@@ -1022,13 +1036,13 @@ teymurok_fourth_branch = {
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = yarken_treaty_published
+		mission_completed = tey_treaty
 	}
 	has_country_shield = yes
 
-	war = {
+	tey_virtue_signalling = {
 		icon = geo_a_house_divided
-		required_missions = { treaty }
+		required_missions = { tey_treaty }
 		position = 5
 
 		provinces_to_highlight = {
@@ -1052,9 +1066,9 @@ teymurok_fourth_branch = {
 		}
 	}
 
-	war2 = {
+	tey_blockade_is_loosening = {
 		icon = geo_a_house_divided
-		required_missions = { war }
+		required_missions = { tey_virtue_signalling }
 		position = 7
 		
 		trigger = {
@@ -1078,9 +1092,9 @@ teymurok_fourth_branch = {
 		}
 	}
 
-	war3 = {
+	tey_empty_cemeteries = {
 		icon = geo_a_house_divided
-		required_missions = { war2 treaty3}
+		required_missions = { tey_blockade_is_loosening tey_not_war_only}
 		position = 8
 		
 		trigger = {
@@ -1098,14 +1112,12 @@ teymurok_fourth_branch = {
 			}
 			
 			custom_tooltip = unlock_dip_action_buy_corpses_tt
-
-			set_country_flag = can_buy_corpses
 		}
 	}
 
-	war4 = {
+	tey_longterm_partnership = {
 		icon = geo_a_house_divided
-		required_missions = { war3 }
+		required_missions = { tey_empty_cemeteries }
 		position = 9
 		
 		trigger = {
@@ -1119,13 +1131,13 @@ teymurok_fourth_branch = {
 		}
 
 		effect = {
-			custom_tooltip = partner_discount_tt
+			custom_tooltip = tey_partner_amount_tt
 		}
 	}
 
-	war5 = {
+	tey_zombie_regiments = {
 		icon = geo_a_house_divided
-		required_missions = { war4 treaty5 }
+		required_missions = { tey_doctrine_of_duality }
 		position = 11
 		
 		trigger = {
@@ -1150,23 +1162,34 @@ teymurok_fourth_branch = {
 		}
 	}
 
-	war6 = {
+	tey_castonath_military_academy = {
 		icon = geo_a_house_divided
-		required_missions = { treaty8 }
+		required_missions = { tey_time_heals_all_wounds }
 		position = 13
+
+		provinces_to_highlight = {
+			province_id = 831
+		}
 		
 		trigger = {
+			owns_core_province = 831
 			army_size = 200
 		}
 
 		effect = {
 			add_mil_power = -200
 
-			remove_country_modifier = teymurok_more_zombies_in_army
+			831 = {
+				add_building_construction = {
+					building = university
+					speed = 1
+					cost = 1
+				}
+			}
 
-			add_country_modifier = {
-				name = teymurok_better_leaders
-				duration = -1		
+			country_event = {
+				id = flavor_teymurok.13
+				days = 1825
 			}
 		}
 	}
@@ -1181,13 +1204,22 @@ teymurok_fifth_branch = {
 	}
 	has_country_shield = yes
 
-	friend = {
+	tey_friend = {
 		icon = geo_a_house_divided
 		required_missions = {  }
 		position = 3
 
 		provinces_to_highlight = {
-
+			is_capital = yes
+			owner = {
+				alliance_with = ROOT
+				NOT = {
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+			}
 		}
 		
 		trigger = {
@@ -1217,13 +1249,13 @@ teymurok_fifth_branch_post_treaty = {
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = yarken_treaty_published
+		mission_completed = tey_treaty
 	}
 	has_country_shield = yes
 
-	mock = {
+	tey_terrible_accident = {
 		icon = geo_a_house_divided
-		required_missions = { treaty }
+		required_missions = { tey_treaty }
 		position = 5
 
 		provinces_to_highlight = {
@@ -1250,9 +1282,9 @@ teymurok_fifth_branch_post_treaty = {
 		}
 	}
 
-	mock2 = {
+	tey_war_of_the_sorcerer_king = {
 		icon = geo_a_house_divided
-		required_missions = { mock }
+		required_missions = { tey_terrible_accident }
 		position = 6
 		
 		trigger = {
@@ -1270,9 +1302,9 @@ teymurok_fifth_branch_post_treaty = {
 		}
 	}
 
-	mock3 = {
+	tey_routinisation_of_evil = {
 		icon = geo_a_house_divided
-		required_missions = { mock2 war2 }
+		required_missions = { tey_war_of_the_sorcerer_king tey_blockade_is_loosening }
 		position = 8
 		
 		trigger = {
@@ -1288,17 +1320,18 @@ teymurok_fifth_branch_post_treaty = {
 		effect = {
 			add_dip_power = -200
 
-			custom_tooltip = diplomatic_blockade_overcome_tt
+			if = {
+				limit = { mission_completed = tey_war_of_the_sorcerer_king }
+				custom_tooltip = diplomatic_blockade_overcome_tt
+			}
 
 			remove_country_modifier = teymurok_half_diplomatic_blockade
-
-			set_country_flag = diplomatic_blockade_overcome
 		}
 	}
 
-	mock4 = {
+	tey_bury_the_hatchet = {
 		icon = geo_a_house_divided
-		required_missions = { mock3 }
+		required_missions = { tey_routinisation_of_evil }
 		position = 9
 
 		provinces_to_highlight = {
@@ -1341,9 +1374,9 @@ teymurok_fifth_branch_post_treaty = {
 		}
 	}
 
-	mock5 = {
+	tey_escann_united = {
 		icon = geo_a_house_divided
-		required_missions = { mock4 }
+		required_missions = { tey_bury_the_hatchet }
 		position = 13
 
 		provinces_to_highlight = {

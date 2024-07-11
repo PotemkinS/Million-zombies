@@ -1,0 +1,22 @@
+country_decisions = {
+
+	tey_use_basic_zombie = {
+		major = yes
+
+		potential = {
+			mission_completed = tey_body_donation
+		}
+
+		effect = {
+			if = {
+                limit = { has_country_flag = less_cemetry_spam }
+                clr_country_flag = less_cemetry_spam
+                custom_tooltip = tey_cemetery_spam_tt
+            }
+            else = {
+                set_country_flag = less_cemetry_spam
+                custom_tooltip = tey_no_cemetery_spam_tt
+            }
+		}
+	}
+}

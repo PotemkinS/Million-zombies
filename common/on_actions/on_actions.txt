@@ -7,7 +7,7 @@ on_startup = {
 on_battle_won_country = {
     if = {
         limit = {
-            has_country_flag = yarken_treaty_published
+            mission_completed = tey_treaty
         }
 
         remove_extreme_modifiers = yes
@@ -24,11 +24,18 @@ on_battle_won_country = {
 
         if = {
             limit = { 
-                FROM = {
-                    OR = {
-                        always = yes
-                        has_country_modifier = human_military
-                        has_country_modifier = half_elven_military
+                OR = {
+                    ROOT = {
+                        NOT = { 
+                            mission_completed = tey_big_fridge 
+                        }
+                    }
+                    FROM = {
+                        OR = {
+                            tag = REB
+                            has_country_modifier = human_military
+                            has_country_modifier = half_elven_military
+                        }
                     }
                 }
             }
@@ -166,7 +173,7 @@ on_battle_won_country = {
 on_battle_lost_country = {
     if = {
         limit ={
-            has_country_flag = yarken_treaty_published
+            mission_completed = tey_treaty
         }
         remove_extreme_modifiers = yes
     }
@@ -175,18 +182,136 @@ on_battle_lost_country = {
 on_expanded_infrastructure = {
     if = {
         limit = {
-            FROM = { has_country_flag = teymurok_can_build_cemetry }
+            FROM = { mission_completed = tey_doctrine_of_duality }
 			NOT = { has_construction = building }
 			NOT = { has_construction = core }
 			NOT = { has_construction = culture }
 			NOT = { has_construction = missionary }
-			NOT = { has_colonist = yes }
             NOT = { has_building = cemetery }
         }
         add_building_construction = {
             building = cemetery
             speed = 1
             cost = 1
+        }
+    }
+}
+
+on_alliance_created = {
+    if = {
+        limit = {
+            has_country_modifier = teymurok_full_diplomatic_blockade
+            NOT = { has_consort_flag = tey_happy_only_once }
+        }
+        country_event = {
+            id = flavor_teymurok.14
+        }
+    }
+}
+
+on_revoke_estate_land = {
+    if = {
+        limit = { mission_completed = tey_treaty }
+        if = {
+            limit = {
+                check_variable = {
+                    which = teymurok_land_seized
+                    value = 3
+                }
+            }
+            country_event = {
+                id = flavor_teymurok.15
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = teymurok_land_seized
+                    value = 2
+                }
+            }
+            country_event = {
+                id = flavor_teymurok.16
+            }
+        }
+        else_if = {
+            limit = {
+                check_variable = {
+                    which = teymurok_land_seized
+                    value = 1
+                }
+            }
+            country_event = {
+                id = flavor_teymurok.17
+            }
+        }
+        change_variable = {
+            which = teymurok_land_seized
+            value = -1
+        }
+    }
+}
+
+on_new_monarch = {
+    if = {
+        limit = {
+            mission_completed = tey_treaty
+        }
+        if = {
+            limit = {
+                had_country_flag = {
+                    flag = yarken_treaty_published
+                    days = 18250
+                }
+                NOT = { ruler_age = 30 }
+            }
+            country_event = {
+                id = flavor_teymurok.19
+            }
+        }
+        if = {
+            limit = {
+                had_country_flag = {
+                    flag = yarken_treaty_published
+                    days = 3650
+                }
+                NOT = {
+                    had_country_flag = {
+                        flag = yarken_treaty_published
+                        days = 10950
+                    }
+                }
+                ruler_age = 15
+                NOT = { ruler_age = 36 }
+            }
+            country_event = {
+                id = flavor_teymurok.18
+            }
+        }
+    }
+}
+
+on_siege_lost_country = {
+    if = {
+        limit = {
+            mission_completed = tey_terrible_accident
+            NOT = { mission_completed = tey_war_of_the_sorcerer_king }
+            FROM = {
+                controller = {
+                    war_with = ROOT
+                }
+            }
+        }
+        country_event = {
+            id = flavor_teymurok.20
+        }
+        FROM = {
+            remove_core = ROOT
+            add_province_modifier = {
+                name = tey_administration_removed_recently
+                days = 3650
+            }
+            add_core = controller
         }
     }
 }

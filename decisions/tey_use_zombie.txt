@@ -2,11 +2,14 @@ country_decisions = {
 
 	tey_use_basic_zombie = {
 		major = yes
+
 		potential = {
+			mission_completed = tey_zombie_research
 			NOT = {
 				has_country_flag = spending_zombies
 			}
 		}
+
 		effect = {
 			set_country_flag = spending_zombies
 			set_country_flag = spending_shlak
@@ -18,11 +21,14 @@ country_decisions = {
 
 	tey_use_special_zombie = {
 		major = yes
+		
 		potential = {
+			mission_completed = tey_zombie_factory_finished
 			NOT = {
 				has_country_flag = spending_zombies
 			}
 		}
+
 		effect = {
 			set_country_flag = spending_zombies
 			set_country_flag = spending_special

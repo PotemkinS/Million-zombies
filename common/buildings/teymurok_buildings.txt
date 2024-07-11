@@ -2,10 +2,15 @@ cemetery = {
 	cost = 50
 	time = 6
 
+	build_trigger = {
+		always = no 
+	}
+
 	keep_trigger = {
-		owner = { has_country_flag = yarken_treaty_published }
+		owner = { mission_completed = tey_treaty }
 		num_of_times_expanded_infrastructure = 1
 	}
+	
 	modifier = {
 		global_tax_income = -3
 		local_regiment_cost = -0.1

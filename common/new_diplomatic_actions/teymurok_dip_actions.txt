@@ -4,7 +4,7 @@ buy_corpses = {
     require_acceptance = no
 
     is_visible = {
-        always = yes #has_country_flag = can_buy_corpses
+        mission_completed = tey_empty_cemeteries
     }
 
     is_allowed = {
@@ -37,22 +37,9 @@ buy_corpses = {
                     value = 1000
                 }
             }
-            if = {
-                limit = {
-                    FROM = {
-                        has_country_modifier = teymurok_permanent_partner
-                    }
-                }
-                add_treasury = -700
-                FROM = {
-                    add_treasury = 700
-                }
-            }
-            else = {
-                add_treasury = -1000
-                FROM = {
-                    add_treasury = 1000
-                }
+            add_treasury = -1000
+            FROM = {
+                add_treasury = 1000
             }
         }
         else_if = {
@@ -62,22 +49,9 @@ buy_corpses = {
                     value = 500
                 }
             }
-            if = {
-                limit = {
-                    FROM = {
-                        has_country_modifier = teymurok_permanent_partner
-                    }
-                }
-                add_treasury = -300
-                FROM = {
-                    add_treasury = 300
-                }
-            }
-            else = {
-                add_treasury = -500
-                FROM = {
-                    add_treasury = 500
-                }
+            add_treasury = -500
+            FROM = {
+                add_treasury = 500
             }
         }
         else_if = {
@@ -133,7 +107,15 @@ buy_corpses = {
             value = 5
         }
 
-        add_corpses_by_culture = { target = FROM var = tey_target_development }
+        if = {
+            limit = { FROM = { has_country_modifier = teymurok_permanent_partner } }
+            multiply_variable = {
+                which = tey_target_development
+                value = 2
+            }
+        }
+
+        add_corpses_by_culture = { var = tey_target_development }
         
         change_variable = {
             which = boughtCorpses
