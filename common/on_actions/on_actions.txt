@@ -182,7 +182,7 @@ on_battle_lost_country = {
 on_expanded_infrastructure = {
     if = {
         limit = {
-            FROM = { mission_completed = tey_doctrine_of_duality }
+            #FROM = { mission_completed = tey_doctrine_of_duality }
 			NOT = { has_construction = building }
 			NOT = { has_construction = core }
 			NOT = { has_construction = culture }
@@ -205,49 +205,6 @@ on_alliance_created = {
         }
         country_event = {
             id = flavor_teymurok.14
-        }
-    }
-}
-
-on_revoke_estate_land = {
-    if = {
-        limit = { mission_completed = tey_treaty }
-        if = {
-            limit = {
-                check_variable = {
-                    which = teymurok_land_seized
-                    value = 3
-                }
-            }
-            country_event = {
-                id = flavor_teymurok.15
-            }
-        }
-        else_if = {
-            limit = {
-                check_variable = {
-                    which = teymurok_land_seized
-                    value = 2
-                }
-            }
-            country_event = {
-                id = flavor_teymurok.16
-            }
-        }
-        else_if = {
-            limit = {
-                check_variable = {
-                    which = teymurok_land_seized
-                    value = 1
-                }
-            }
-            country_event = {
-                id = flavor_teymurok.17
-            }
-        }
-        change_variable = {
-            which = teymurok_land_seized
-            value = -1
         }
     }
 }
@@ -309,7 +266,7 @@ on_siege_lost_country = {
             remove_core = ROOT
             add_province_modifier = {
                 name = tey_administration_removed_recently
-                days = 3650
+                duration = 3650
             }
             add_core = controller
         }

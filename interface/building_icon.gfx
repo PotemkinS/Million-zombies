@@ -1,0 +1,7 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_cemetery"
+		texturefile = "gfx//interface//buildings//cemetery.dds"
+		loadType = "INGAME"
+	}
+}

@@ -10,6 +10,13 @@ country_decisions = {
 			}
 		}
 
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = human_corpse_amount_tt
+				always = yes
+			}
+		}
+
 		effect = {
 			set_country_flag = spending_zombies
 			set_country_flag = spending_shlak
@@ -26,6 +33,73 @@ country_decisions = {
 			mission_completed = tey_zombie_factory_finished
 			NOT = {
 				has_country_flag = spending_zombies
+			}
+		}
+
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = centaur_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = dwarf_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = elf_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = gnoll_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = gnome_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = goblin_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = halfling_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = harpy_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = harimari_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = hobgoblin_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = kobold_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = yasher_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ogre_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = orc_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ruinborn_corpse_amount_tt
+				always = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = troll_corpse_amount_tt
+				always = yes
 			}
 		}
 

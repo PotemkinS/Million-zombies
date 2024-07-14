@@ -14,26 +14,26 @@ TEY_pre_yarken_ideas = {
 	}
 	free = yes
 
-	Z01_the_mages_peace = {
+	tey_all_welcome = {
 		advisor_cost = -0.2
 	}
-	Z01_silver_and_steel = {
+	tey_lawfull = {
 		global_autonomy = -0.05
 	}
-	Z01_a_communion_of_peoples = {
+	tey_zombie_restoration = {
 		global_monthly_devastation = -0.1
 	}
-	Z01_children_of_the_dameshead = {
+	tey_unique_goods = {
 		global_trade_power = 0.1
 	}
-	Z01_one_crown = {
+	tey_make_them_fear = {
 		harsh_treatment_cost = -0.2
 	}
-	Z01_flight_of_the_dove = {
+	tey_zombies_maintenance = {
 		fort_maintenance_modifier = -0.10
 		defensiveness = 0.15
 	}
-	Z01_an_eternal_dream = {
+	tey_drills = {
 		discipline = 0.05
 	}
 }
@@ -53,26 +53,26 @@ TEY_yarken_ideas = {
 	}
 	free = yes
 
-	Z01_the_mages_peace = {
+	tey_abolish_taxes = {
 		development_cost = -0.1
 	}
-	Z01_silver_and_steel = {
+	tey_just_rule = {
 		years_of_nationalism = -5
 	}
-	Z01_a_communion_of_peoples = {
+	tey_zombie_restoration = {
 		global_monthly_devastation = -0.1
 	}
-	Z01_children_of_the_dameshead = {
+	tey_free_nation = {
 		global_unrest = -2
 	}
-	Z01_one_crown = {
+	tey_only_hierarch = {
 		max_absolutism = 10
 	}
-	Z01_flight_of_the_dove = {
+	tey_zombies_maintenance = {
 		fort_maintenance_modifier = -0.10
 		defensiveness = 0.15
 	}
-	Z01_an_eternal_dream = {
+	tey_random_shit_go = {
 		max_absolutism_effect = 0.2
 	}
 }

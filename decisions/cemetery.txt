@@ -1,6 +1,6 @@
 country_decisions = {
 
-	tey_use_basic_zombie = {
+	tey_cemetery_decisions = {
 		major = yes
 
 		potential = {

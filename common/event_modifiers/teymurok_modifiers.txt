@@ -123,7 +123,7 @@ teymurok_more_zombies_in_army = {
 	fire_damage = -0.25
 }
 
-teymurok_better_leaders ={
+teymurok_better_leaders = {
     global_manpower_modifier = 0.5
     land_forcelimit_modifier = 0.5
     land_maintenance_modifier = -0.15
@@ -289,15 +289,15 @@ tey_big_economy_elf = {
 }
 
 tey_small_army_gnoll = {
-	land_morale = 0.1
+	morale_damage = 0.1
 }
 
 tey_big_army_gnoll = {
-	land_morale = 0.2
+	morale_damage = 0.2
 }
 
 tey_extreme_army_gnoll = {
-	land_morale = 0.6
+	morale_damage = 0.6
 }
 
 tey_small_economy_gnoll = {
@@ -349,15 +349,15 @@ tey_big_economy_goblin = {
 }
 
 tey_small_army_halfling = {
-	war_exhaustion = -0.05
+	morale_damage_received = -0.1
 }
 
 tey_big_army_halfling = {
-	war_exhaustion = -0.1
+	morale_damage_received = -0.2
 }
 
 tey_extreme_army_halfling = {
-	war_exhaustion = -0.3
+	morale_damage_received = -0.6
 }
 
 tey_small_economy_halfling = {
@@ -432,12 +432,10 @@ tey_extreme_army_hobgoblin = {
 
 tey_small_economy_hobgoblin = {
 	drill_gain_modifier = 1	
-	drill_decay_modifier = -0.25
 }
 
 tey_big_economy_hobgoblin = {
 	drill_gain_modifier = 2	
-	drill_decay_modifier = -0.5
 }
 
 tey_small_army_kobold = {
@@ -462,14 +460,17 @@ tey_big_economy_kobold = {
 
 tey_small_army_yasher = {
 	allowed_marine_fraction = 0.2
+	naval_morale = 0.1
 }
 
 tey_big_army_yasher = {
 	allowed_marine_fraction = 0.4
+	naval_morale = 0.2
 }
 
 tey_extreme_army_yasher = {
 	allowed_marine_fraction = 1
+	naval_morale = 0.6
 }
 
 tey_small_economy_yasher = {
@@ -521,23 +522,23 @@ tey_big_economy_orc = {
 }
 
 tey_small_army_ruinborn = {
-	global_monthly_devastation = -0.1
+	drill_decay_modifier = -0.25
 }
 
 tey_big_army_ruinborn = {
-	global_monthly_devastation = -0.5
+	drill_decay_modifier = -0.5
 }
 
 tey_extreme_army_ruinborn = {
-	global_monthly_devastation = -1
+	military_tactics = 0.25
 }
 
 tey_small_economy_ruinborn = {
-	reform_progress_growth = 0.15
+	reform_progress_growth = 0.16
 }
 
 tey_big_economy_ruinborn = {
-	reform_progress_growth = 0.3
+	reform_progress_growth = 0.33
 }
 
 tey_small_army_troll = {
@@ -584,4 +585,9 @@ tey_people_doubt = {
 
 tey_people_self_organising = {
     global_autonomy = 0.3
+}
+
+tey_spared_rebels = {
+	all_estate_influence_modifier = -0.1
+	all_estate_loyalty_equilibrium = 0.1
 }

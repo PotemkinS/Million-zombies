@@ -33,150 +33,155 @@ remove_excess_corpses = {
 }
 
 prepare_variables_for_spending = {
-	export_to_variable = {
-		which = tey_small_global_economy
-		value = total_development
-	}
-
-	divide_variable = {
-		which = tey_small_global_economy
-		value = 4
-	}
-
-	export_to_variable = {
-		which = tey_big_global_economy
-		value = total_development
-	}
-
-	divide_variable = {
-		which = tey_big_global_economy
-		value = 2
-	}
-
-	if = {
-		limit = { has_country_flag = spending_shlak }
+	hidden_effect = {
 		export_to_variable = {
-			which = tey_small_local_economy
+			which = tey_small_global_economy
 			value = total_development
 		}
 
 		divide_variable = {
-			which = tey_small_local_economy
+			which = tey_small_global_economy
 			value = 4
 		}
 
 		export_to_variable = {
-			which = tey_big_local_economy
+			which = tey_big_global_economy
 			value = total_development
 		}
 
 		divide_variable = {
-			which = tey_big_local_economy
+			which = tey_big_global_economy
 			value = 2
 		}
-	}
-	else = {
+
+		if = {
+			limit = { has_country_flag = spending_shlak }
+			export_to_variable = {
+				which = tey_small_local_economy
+				value = total_development
+			}
+
+			divide_variable = {
+				which = tey_small_local_economy
+				value = 4
+			}
+
+			export_to_variable = {
+				which = tey_big_local_economy
+				value = total_development
+			}
+
+			divide_variable = {
+				which = tey_big_local_economy
+				value = 2
+			}
+		}
+		else = {
+			export_to_variable = {
+				which = tey_small_local_economy
+				value = total_development
+			}
+
+			divide_variable = {
+				which = tey_small_local_economy
+				value = 16
+			}
+
+			export_to_variable = {
+				which = tey_big_local_economy
+				value = total_development
+			}
+
+			divide_variable = {
+				which = tey_big_local_economy
+				value = 8
+			}
+		}
+
 		export_to_variable = {
-			which = tey_small_local_economy
-			value = total_development
-		}
-
-		divide_variable = {
-			which = tey_small_local_economy
-			value = 16
+			which = tey_small_army
+			value = land_forcelimit
 		}
 
 		export_to_variable = {
-			which = tey_big_local_economy
-			value = total_development
+			which = tey_big_army
+			value = land_forcelimit
 		}
 
-		divide_variable = {
-			which = tey_big_local_economy
-			value = 8
+		multiply_variable = {
+			which = tey_big_army
+			value = 2
 		}
-	}
 
-	export_to_variable = {
-		which = tey_small_army
-		value = land_forcelimit
-	}
-
-	export_to_variable = {
-		which = tey_big_army
-		value = land_forcelimit
-	}
-
-	multiply_variable = {
-		which = tey_big_army
-		value = 2
-	}
-
-	if = {
-		limit = {
-			check_variable = {
+		if = {
+			limit = {
+				check_variable = {
+					which = tey_small_army
+					value = 200
+				}
+			}
+			set_variable = {
 				which = tey_small_army
 				value = 200
 			}
 		}
-		set_variable = {
-			which = tey_small_army
-			value = 200
-		}
-	}
 
-	if = {
-		limit = {
-			check_variable = {
+		if = {
+			limit = {
+				check_variable = {
+					which = tey_big_army
+					value = 400
+				}
+			}
+			set_variable = {
 				which = tey_big_army
 				value = 400
 			}
 		}
-		set_variable = {
-			which = tey_big_army
-			value = 400
-		}
-	}
 
-	if = {
-		limit = {
-			mil_tech = 16
+		if = {
+			limit = {
+				mil_tech = 16
+			}
+			set_variable = {
+				which = tey_extreme_army
+				value = 80
+			}
 		}
-		set_variable = {
-			which = tey_extreme_army
-			value = 80
-		}
-	}
 
-	else_if = {
-		limit = {
-			mil_tech = 12
+		else_if = {
+			limit = {
+				mil_tech = 12
+			}
+			set_variable = {
+				which = tey_extreme_army
+				value = 60
+			}
 		}
-		set_variable = {
-			which = tey_extreme_army
-			value = 60
-		}
-	}
 
-	else = {
-		set_variable = {
-			which = tey_extreme_army
-			value = 40
+		else = {
+			set_variable = {
+				which = tey_extreme_army
+				value = 40
+			}
 		}
 	}
 }
 
 remove_extreme_modifiers = {
-	remove_country_modifier = tey_centaur_army_extreme
-	remove_country_modifier = tey_elf_army_extreme
-	remove_country_modifier = tey_gnoll_army_extreme
-	remove_country_modifier = tey_gnome_army_extreme
-	remove_country_modifier = tey_goblin_army_extreme
-	remove_country_modifier = tey_harimari_army_extreme
-	remove_country_modifier = tey_hobgoblin_army_extreme
-	remove_country_modifier = tey_kobold_army_extreme
-	remove_country_modifier = tey_ogre_army_extreme
-	remove_country_modifier = tey_orc_army_extreme
+	remove_country_modifier = tey_extreme_army_centaur
+	remove_country_modifier = tey_extreme_army_elf
+	remove_country_modifier = tey_extreme_army_gnoll
+	remove_country_modifier = tey_extreme_army_gnome
+	remove_country_modifier = tey_extreme_army_goblin
+	remove_country_modifier = tey_extreme_army_harimari
+	remove_country_modifier = tey_extreme_army_hobgoblin
+	remove_country_modifier = tey_extreme_army_kobold
+	remove_country_modifier = tey_extreme_army_ogre
+	remove_country_modifier = tey_extreme_army_orc
+	remove_country_modifier = tey_extreme_army_halfling
+	remove_country_modifier = tey_extreme_army_yasher
+	remove_country_modifier = tey_extreme_army_ruinborn
 }
 
 remove_corpses_army = {
