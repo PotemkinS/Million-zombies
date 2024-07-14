@@ -591,3 +591,7 @@ tey_spared_rebels = {
 	all_estate_influence_modifier = -0.1
 	all_estate_loyalty_equilibrium = 0.1
 }
+
+tey_sorcerer_king_museum = {
+	monthly_splendor = 1
+}

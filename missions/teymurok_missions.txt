@@ -746,6 +746,12 @@ teymurok_third_branch = {
 				change_religion = ROOT
 			}
 			set_capital = 833
+			833 = {
+				add_province_modifier = {
+					name = tey_sorcerer_king_museum
+					duration = -1
+				}
+			}
 			add_adm_power = 100
 			add_dip_power = 100 
 			add_mil_power = 100
