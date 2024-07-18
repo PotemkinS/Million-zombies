@@ -73,6 +73,6 @@ TEY_yarken_ideas = {
 		defensiveness = 0.15
 	}
 	tey_random_shit_go = {
-		max_absolutism_effect = 0.2
+		max_absolutism_effect = 0.5
 	}
 }

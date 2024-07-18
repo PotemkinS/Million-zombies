@@ -201,10 +201,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	option = {
-		name = flavor_teymurok.4.a
-
-		custom_tooltip = teymurok_coalition_war_tt
+	immediate = {
 		hidden_effect = {
 			every_rival_country = { 
 				form_coalition_against = ROOT
@@ -230,6 +227,12 @@ country_event = {
 				}
 			}
 		}
+	}
+
+	option = {
+		name = flavor_teymurok.4.a
+
+		custom_tooltip = teymurok_coalition_war_tt
 
 		set_country_flag = teymurok_coalition_war
 	}
@@ -288,7 +291,7 @@ country_event = {
 			}
 			add_aggressive_expansion = {
 				who = ROOT
-				value = 40
+				value = 30
 				apply_calc = no
 			}
 		}
@@ -668,8 +671,6 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.18.a
-
-		add_stability_or_adm_power = yes
 	}
 }
 
@@ -685,8 +686,6 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.19.a
-
-		add_stability_or_adm_power = yes
 	}
 }
 
@@ -858,7 +857,7 @@ country_event = {
 	id = flavor_teymurok.200
 	title = flavor_teymurok.200.title
 	desc = flavor_teymurok.200.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = LOOMING_DEATH_eventPicture
 
 	is_triggered_only = yes
 
@@ -870,6 +869,10 @@ country_event = {
 	
 	option = {#army
 		name = flavor_teymurok.200.b
+
+		trigger = {
+			mission_completed = tey_desperate_times
+		}
 
 		country_event = {
 			id = flavor_teymurok.201
@@ -887,18 +890,22 @@ country_event = {
 	option = {#province economy
 		name = flavor_teymurok.200.d
 
+		trigger = {
+			mission_completed = tey_zombie_fields1
+		}
+
 		country_event = {
 			id = flavor_teymurok.203
 		}
 	}
 }
 
-#first decision war event
+#first decision army event
 country_event = {
 	id = flavor_teymurok.201
 	title = flavor_teymurok.201.title
 	desc = flavor_teymurok.201.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = UNDEAD_ARMY_eventPicture
 
 	is_triggered_only = yes
 
@@ -962,7 +969,7 @@ country_event = {
 	id = flavor_teymurok.202
 	title = flavor_teymurok.202.title
 	desc = flavor_teymurok.202.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = SMUGGLERS_eventPicture
 
 	is_triggered_only = yes
 
@@ -997,13 +1004,13 @@ country_event = {
 	}
 	
 	option = {#small dev
-		name = flavor_teymurok.202.d
+		name = flavor_teymurok.202.e
 
 		add_small_global_economy = { modifier = developers race = human }
 	}
 	
 	option = {#big dev
-		name = flavor_teymurok.202.d
+		name = flavor_teymurok.202.f
 
 		add_big_global_economy = { modifier = developers race = human }
 	}
@@ -1014,7 +1021,7 @@ country_event = {
 	id = flavor_teymurok.203
 	title = flavor_teymurok.203.title
 	desc = flavor_teymurok.203.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = TRADEGOODS_eventPicture
 
 	is_triggered_only = yes
 
@@ -1090,12 +1097,12 @@ country_event = {
 	id = flavor_teymurok.204
 	title = flavor_teymurok.204.title
 	desc = flavor_teymurok.204.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = DIVERSE_COURT_eventPicture
 
 	is_triggered_only = yes
 	
 	option = {#close
-		name = flavor_teymurok.204.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
@@ -1234,7 +1241,7 @@ country_event = {
 	id = flavor_teymurok.205
 	title = flavor_teymurok.205.title
 	desc = flavor_teymurok.205.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = HORDE_ON_HORSEBACK_eventPicture
 
 	is_triggered_only = yes
 
@@ -1243,13 +1250,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.205.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.205.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1304,7 +1311,7 @@ country_event = {
 	id = flavor_teymurok.206
 	title = flavor_teymurok.206.title
 	desc = flavor_teymurok.206.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
 
 	is_triggered_only = yes
 
@@ -1313,13 +1320,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.206.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.206.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1374,7 +1381,7 @@ country_event = {
 	id = flavor_teymurok.207
 	title = flavor_teymurok.207.title
 	desc = flavor_teymurok.207.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = WOOD_ELVEN_THRONE_ROOM_eventPicture
 
 	is_triggered_only = yes
 
@@ -1383,13 +1390,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.207.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.207.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1444,7 +1451,7 @@ country_event = {
 	id = flavor_teymurok.208
 	title = flavor_teymurok.208.title
 	desc = flavor_teymurok.208.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = CHAMBER_OF_CURIOSITIES_eventPicture
 
 	is_triggered_only = yes
 
@@ -1453,13 +1460,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.208.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.208.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1514,7 +1521,7 @@ country_event = {
 	id = flavor_teymurok.209
 	title = flavor_teymurok.209.title
 	desc = flavor_teymurok.209.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = SCIENTISTS_eventPicture
 
 	is_triggered_only = yes
 
@@ -1523,13 +1530,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.209.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.209.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1584,7 +1591,7 @@ country_event = {
 	id = flavor_teymurok.210
 	title = flavor_teymurok.210.title
 	desc = flavor_teymurok.210.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = GOBLIN_GUNNER_event_picture
 
 	is_triggered_only = yes
 
@@ -1593,13 +1600,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.210.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.210.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1654,7 +1661,7 @@ country_event = {
 	id = flavor_teymurok.211
 	title = flavor_teymurok.211.title
 	desc = flavor_teymurok.211.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = FEAST_eventPicture
 
 	is_triggered_only = yes
 
@@ -1663,13 +1670,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.211.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.211.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1724,7 +1731,7 @@ country_event = {
 	id = flavor_teymurok.212
 	title = flavor_teymurok.212.title
 	desc = flavor_teymurok.212.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = TIGER_BODYGUARD_eventPicture
 
 	is_triggered_only = yes
 
@@ -1733,13 +1740,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.212.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.212.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1806,7 +1813,7 @@ country_event = {
 	id = flavor_teymurok.213
 	title = flavor_teymurok.213.title
 	desc = flavor_teymurok.213.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = HARPY_TOWN_eventPicture
 
 	is_triggered_only = yes
 
@@ -1815,13 +1822,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.213.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.213.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1876,7 +1883,7 @@ country_event = {
 	id = flavor_teymurok.214
 	title = flavor_teymurok.214.title
 	desc = flavor_teymurok.214.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = shinto_MILITARY_CAMP_eventPicture
 
 	is_triggered_only = yes
 
@@ -1885,13 +1892,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.214.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.214.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -1946,7 +1953,7 @@ country_event = {
 	id = flavor_teymurok.215
 	title = flavor_teymurok.215.title
 	desc = flavor_teymurok.215.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = KOBOLD_SLAVE_eventPicture
 
 	is_triggered_only = yes
 
@@ -1955,13 +1962,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.215.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.215.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -2016,7 +2023,7 @@ country_event = {
 	id = flavor_teymurok.216
 	title = flavor_teymurok.216.title
 	desc = flavor_teymurok.216.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = JUDAISM_eventPicture
 
 	is_triggered_only = yes
 
@@ -2025,13 +2032,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.216.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.216.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -2086,7 +2093,7 @@ country_event = {
 	id = flavor_teymurok.217
 	title = flavor_teymurok.217.title
 	desc = flavor_teymurok.217.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = ONI_HUMANS_eventPicture
 
 	is_triggered_only = yes
 
@@ -2095,13 +2102,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.217.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.217.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -2156,7 +2163,7 @@ country_event = {
 	id = flavor_teymurok.218
 	title = flavor_teymurok.218.title
 	desc = flavor_teymurok.218.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = ORC_WITH_AXE_eventPicture
 
 	is_triggered_only = yes
 
@@ -2165,13 +2172,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.218.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.218.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -2226,7 +2233,7 @@ country_event = {
 	id = flavor_teymurok.219
 	title = flavor_teymurok.219.title
 	desc = flavor_teymurok.219.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = SYNTHETICS_eventPicture
 
 	is_triggered_only = yes
 
@@ -2235,13 +2242,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.219.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.219.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204
@@ -2296,7 +2303,7 @@ country_event = {
 	id = flavor_teymurok.220
 	title = flavor_teymurok.220.title
 	desc = flavor_teymurok.220.desc
-	picture = WOKOU_INCIDENT_eventPicture
+	picture = RIOTING_workers_eventPicture
 
 	is_triggered_only = yes
 
@@ -2305,13 +2312,13 @@ country_event = {
 	}
 	
 	option = {#close
-		name = flavor_teymurok.220.a
+		name = flavor_teymurok.200.a
 		clr_country_flag = spending_zombies
 		clr_country_flag = spending_special
 	}
 	
 	option = {#back
-		name = flavor_teymurok.220.b
+		name = flavor_teymurok.201.b
 		
 		country_event = {
 			id = flavor_teymurok.204

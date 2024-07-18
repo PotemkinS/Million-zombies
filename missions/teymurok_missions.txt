@@ -169,6 +169,8 @@ teymurok_first_branch_post_treaty = {
 				name = teymurok_zombie_fields1
 				duration = 7300
 			}
+
+			custom_tooltip = tey_zombies_in_manufacturing_tt
 		}
 	}
 
@@ -342,6 +344,8 @@ teymurok_second_branch = {
 				name = teymurok_zombie_research1
 				duration = 7300
 			}
+
+			custom_tooltip = tey_common_zombie_tt
 
 			hidden_effect = {
 				set_variable = {
@@ -851,6 +855,8 @@ teymurok_third_branch_post_treaty = {
 				name = teymurok_half_unrest
 				duration = -1
 			}
+
+			custom_tooltip = tey_zombies_in_army_tt
 		}
 	}
 
@@ -1086,6 +1092,8 @@ teymurok_fourth_branch = {
 			calc_true_if = {
 				amount = 15
 				all_country = {
+					NOT = { has_country_modifier = monstrous_nation }
+					is_subject = no
 					has_80_opinion_improved_relation = { target = ROOT }
 				}
 			}

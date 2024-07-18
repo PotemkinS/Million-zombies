@@ -1,0 +1,175 @@
+namespace = anb_stolen
+
+country_event = {
+	id = anb_stolen.1
+	title = marcher.2.t
+	desc = marcher.2.d
+	picture = EUROPEAN_REFUGEES_eventPicture
+
+	is_triggered_only = yes
+	
+	option = { # Luciande
+		name = marcher.2.a
+		trigger = {
+			was_tag = B11
+		}
+		
+		escanni_culture_shift = { to_culture = luciander }
+		hidden_effect = {
+			every_core_province = {
+				limit = {
+					region = forlorn_vale_region
+				}
+				change_culture = luciander
+			}
+		}
+	}
+	
+	option = { # Ancardia
+		name = marcher.2.a
+		trigger = {
+			was_tag = B06
+		}
+		
+		escanni_culture_shift = { to_culture = ancardian }
+	}
+	
+	option = { # Rogieria
+		name = marcher.2.a
+		trigger = {
+			was_tag = B07
+		}
+		
+		escanni_culture_shift = { to_culture = rogieran }
+	}
+	
+	option = { # Elikhand
+		name = marcher.2.a
+		trigger = {
+			was_tag = B15
+		}
+		
+		escanni_culture_shift = { to_culture = elikhander }
+	}
+	
+	option = { # Wyvernheart
+		name = marcher.2.a
+		trigger = {
+			was_tag = B12
+		}
+		
+		escanni_culture_shift = { to_culture = heartman }
+	}
+	
+	option = { # Alenor
+		name = marcher.2.a
+		trigger = {
+				was_tag = B03
+		}
+		
+		escanni_culture_shift = { to_culture = alenori }
+	}
+	
+	option = { # Stalbor
+		name = marcher.2.a
+		trigger = {
+			was_tag = B13
+		}
+		
+		escanni_culture_shift = { to_culture = stalboric }
+	}
+	
+	option = { # Ravenmarch
+		name = marcher.2.a
+		trigger = {
+			was_tag = B14
+		}
+		
+		escanni_culture_shift = { to_culture = ravenmarcher }
+	}
+	
+	option = { # Araionn
+		name = marcher.2.a
+		trigger = {
+			was_tag = B09
+		}
+		
+		escanni_culture_shift = { to_culture = ionnic }
+	}
+	
+	option = { # Newshire
+		name = marcher.2.a
+		trigger = {
+			was_tag = B10
+		}
+		
+		escanni_culture_shift = { to_culture = newfoot_halfling }
+	}
+	
+	option = { # Estaire
+		name = marcher.2.a
+		trigger = {
+			was_tag = B08
+		}
+		
+		escanni_culture_shift = { to_culture = estairey }
+	}
+	
+	option = { # Anbenland
+		name = marcher.2.a
+		trigger = {
+			was_tag = B16
+		}
+		
+		escanni_culture_shift = { to_culture = anbenlander }
+	}
+	
+	option = { # Nurcestir
+		name = marcher.2.a
+		trigger = {
+			was_tag = B05
+		}
+		
+		escanni_culture_shift = { to_culture = nurcestiran }
+	}
+	
+	option = { # Esthil
+		name = marcher.2.a
+		trigger = {
+			was_tag = B20
+		}
+		
+		escanni_culture_shift = { to_culture = esthili }
+	}
+	
+	option = { # Rosande
+		name = marcher.2.a
+		trigger = {
+			was_tag = B04
+		}
+		
+		escanni_culture_shift = { to_culture = rosanda }
+	}
+
+	option = { # Hammerhome
+		name = marcher.2.a
+		trigger = {
+			was_tag = B18
+		}
+		
+		escanni_culture_shift = { to_culture = iron_dwarf }
+	}
+	
+	option = { # Covenblad
+		name = marcher.2.a
+		trigger = {
+			was_tag = B19
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+		
+		escanni_culture_shift = { to_culture = covenbladic }
+	}
+}

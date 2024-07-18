@@ -32,7 +32,7 @@ country_decisions = {
     				share = -10
 				}
 				country_event = { #new culture event, 10 years after their debuff runs out
-					id = marcher.2
+					id = anb_stolen.1
 					days = 18250
 				}
 			}

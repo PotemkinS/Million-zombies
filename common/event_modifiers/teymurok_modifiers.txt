@@ -161,11 +161,15 @@ teymurok_permanent_partner = {
 }
 
 tey_small_recovery = {
-    manpower_recovery_speed = 0.15
+    manpower_recovery_speed = 0.3
+	fire_damage = -0.075
+	shock_damage = -0.075
 }
 
 tey_big_recovery = {
-    manpower_recovery_speed = 0.3
+    manpower_recovery_speed = 0.6
+	fire_damage = -0.15
+	shock_damage = -0.15
 }
 
 tey_small_siege = {
@@ -197,11 +201,11 @@ tey_big_unspecial_goods = {
 }
 
 tey_small_special_goods = {
-	trade_goods_size = 0.5
+	trade_goods_size = 0.3
 }
 
 tey_big_special_goods = {
-    trade_goods_size = 1
+    trade_goods_size = 0.6
 }
 
 tey_small_builders = {
