@@ -348,9 +348,9 @@ teymurok_second_branch = {
 			custom_tooltip = tey_common_zombie_tt
 
 			hidden_effect = {
-				set_variable = {
+				change_variable = {
 					which = teymurok_human_bodies_collected
-					value = 0
+					value = -50
 				}
 			}
 		}
@@ -740,6 +740,7 @@ teymurok_third_branch = {
 				region = inner_castanor_region
 			}
 			castonath_area = {
+				type = all
 				owned_by = ROOT
 			}
 		}
@@ -787,7 +788,7 @@ teymurok_third_branch = {
 
 	tey_treaty = {
 		icon = geo_a_house_divided
-		required_missions = { }#tey_infrastructure_projects tey_perimetr3 tey_friend }
+		required_missions = { tey_infrastructure_projects tey_perimetr3 tey_friend }
 		position = 4
 		
 		trigger = {
@@ -796,7 +797,7 @@ teymurok_third_branch = {
 
 		effect = {
 			country_event = {
-				id = flavor_teymurok.2
+				id = flavor_teymurok.26
 			}
 			hidden_effect = {
 				set_country_flag = yarken_treaty_published
@@ -1066,6 +1067,8 @@ teymurok_fourth_branch = {
 			owner = {
 				has_country_modifier = monstrous_nation
 			}
+			has_discovered = ROOT
+			is_capital = yes
 		}
 		
 		trigger = {

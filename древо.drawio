@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-06-28T21:02:18.486Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="cjHzW3wjF-U75Rm9s7IG" version="24.6.4" type="device">
+<mxfile host="app.diagrams.net" modified="2024-07-25T06:18:58.832Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="hpA0QfKlJtmws1c-6uY6" version="24.6.4" type="device">
   <diagram name="Страница — 1" id="BXOZgFZ0woUrctJBkeRY">
-    <mxGraphModel dx="3683" dy="2215" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3232" dy="1982" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -729,7 +729,7 @@
             <mxPoint x="1319.5" y="5836" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-32" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;страна процветает&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;3 стабы&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;100 лиги&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;4 союзника 80 траста&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;300к армия&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;500 дохода&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-32" value="&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;3 стабы&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;100 лиги&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;300к армия&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;500 дохода&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1039.5" y="5836" width="280" height="120" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0Ew-OyiPKJsIfG58_g5D-33" target="0Ew-OyiPKJsIfG58_g5D-8" edge="1">
@@ -896,7 +896,7 @@
             <mxPoint x="660" y="1640" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8WfLPUgs6Gm4gQPEIxjt-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="0Ew-OyiPKJsIfG58_g5D-105" target="iphwIeOrnClIcom6qrQQ-2">
+        <mxCell id="8WfLPUgs6Gm4gQPEIxjt-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0Ew-OyiPKJsIfG58_g5D-105" target="iphwIeOrnClIcom6qrQQ-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="540" y="2200" />
@@ -1358,7 +1358,7 @@
             <mxPoint x="1299.5" y="5236" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-255" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;дизастер кончился&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;3к дева&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-255" value="&lt;div&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;3к дева&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1039.5" y="5116" width="280" height="120" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-299" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0Ew-OyiPKJsIfG58_g5D-258" target="0Ew-OyiPKJsIfG58_g5D-30" edge="1">
@@ -1367,7 +1367,7 @@
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-258" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="719.5" y="5436" width="280" height="280" as="geometry" />
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-259" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 20px;&quot;&gt;Ресурсная база&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-259" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 20px;&quot;&gt;Гонцы&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="719.5" y="5436" width="280" height="40" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-260" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="0Ew-OyiPKJsIfG58_g5D-259" edge="1">
@@ -1403,10 +1403,10 @@
             <mxPoint x="679.5" y="5476" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-267" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;3 генерала 15 пипсов&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-267" value="&lt;span style=&quot;font-size: 16px;&quot;&gt;ген 16 пипсов и трейтом&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="399.5" y="5476" width="280" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-268" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;3 супер генерала&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-268" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;решение на супер генералов&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="399.5" y="5596" width="280" height="110" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-269" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="0Ew-OyiPKJsIfG58_g5D-268" target="0Ew-OyiPKJsIfG58_g5D-268" edge="1">
@@ -1457,7 +1457,7 @@
             <mxPoint x="1639.5" y="5476" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-279" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;80 профессионализма&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-279" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;80 профессионализма или традишек&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1359.5" y="5476" width="280" height="120" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-280" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;наёмники крутые&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -1484,7 +1484,7 @@
             <mxPoint x="1959.5" y="5476" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0Ew-OyiPKJsIfG58_g5D-285" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;рыба корова шерсть шкура с башней магов и 30 дева&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;3 шпионки 75&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="0Ew-OyiPKJsIfG58_g5D-285" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;рыба корова шерсть шкура с башней магов и 30 дева&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;шпион 5 лвла&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1679.5" y="5476" width="280" height="120" as="geometry" />
         </mxCell>
         <mxCell id="0Ew-OyiPKJsIfG58_g5D-286" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;+50 шпионки&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;-50 за нами шпионки&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;отряд мега коней&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">

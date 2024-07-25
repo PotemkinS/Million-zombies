@@ -36,10 +36,19 @@ country_event = {
 			type = court_mage
 			name = "Yarken"
 			skill = 3
-			cost_multiplier = 0.2
+			cost_multiplier = 0
 			age = 30
 			culture = east_damerian
 			religion = regent_court
+		}
+
+		define_general = {
+			name = "Yarken"
+			fire = 2
+			shock = 8
+			manuever = 1
+			siege = 4
+			trait = war_wizard_personality
 		}
 	}
 }
@@ -55,12 +64,6 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.2.a
-
-		custom_tooltip = no_fridge_tt
-
-		remove_estate_privilege = estate_mages_organization_state
-
-		set_estate_privilege = estate_mages_organization_yarken
 
 		add_country_modifier = { 
 			name = teymurok_full_public_rejection
@@ -747,7 +750,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 120
+		months = 360
 	}
 
 	option = {
@@ -837,6 +840,32 @@ country_event = {
 		add_country_modifier = {
 			name = tey_people_self_organising
 			duration = 3650
+		}
+	}
+}
+
+#
+country_event = {
+	id = flavor_teymurok.26
+	title = flavor_teymurok.26.title
+	desc = flavor_teymurok.26.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.26.a
+
+		custom_tooltip = no_fridge_tt
+
+		remove_estate_privilege = estate_mages_organization_state
+
+		set_estate_privilege = estate_mages_organization_yarken
+
+		country_event = {
+			id = flavor_teymurok.2
+			days = 7
 		}
 	}
 }

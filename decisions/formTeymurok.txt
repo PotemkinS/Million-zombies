@@ -4,13 +4,13 @@ country_decisions = {
 		major = yes
 		potential = {
 			ai = no
-		#	has_reform = adventurer_reform
+			has_reform = adventurer_reform
 		}
 		allow = {
-		#	has_reform = found_our_nation
-		#	is_free_or_tributary_trigger = yes
-		#	is_at_war = no
-		#	adm_tech = 7
+			has_reform = found_our_nation
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			adm_tech = 7
 		}
 		effect = {
 			change_tag = TEY

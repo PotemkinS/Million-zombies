@@ -538,44 +538,46 @@ interaction = { # Seize Land
 		}
     }
     effect = {
-		if = {
-			limit = { mission_completed = tey_treaty }
+		hidden_effect = {
 			if = {
-				limit = {
-					check_variable = {
-						which = teymurok_land_seized
-						value = 3
+				limit = { mission_completed = tey_treaty }
+				if = {
+					limit = {
+						check_variable = {
+							which = teymurok_land_seized
+							value = 3
+						}
+					}
+					country_event = {
+						id = flavor_teymurok.15
 					}
 				}
-				country_event = {
-					id = flavor_teymurok.15
-				}
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = teymurok_land_seized
-						value = 2
+				else_if = {
+					limit = {
+						check_variable = {
+							which = teymurok_land_seized
+							value = 2
+						}
+					}
+					country_event = {
+						id = flavor_teymurok.16
 					}
 				}
-				country_event = {
-					id = flavor_teymurok.16
-				}
-			}
-			else_if = {
-				limit = {
-					check_variable = {
-						which = teymurok_land_seized
-						value = 1
+				else_if = {
+					limit = {
+						check_variable = {
+							which = teymurok_land_seized
+							value = 1
+						}
+					}
+					country_event = {
+						id = flavor_teymurok.17
 					}
 				}
-				country_event = {
-					id = flavor_teymurok.17
+				change_variable = {
+					which = teymurok_land_seized
+					value = -1
 				}
-			}
-			change_variable = {
-				which = teymurok_land_seized
-				value = -1
 			}
 		}
 		if = {

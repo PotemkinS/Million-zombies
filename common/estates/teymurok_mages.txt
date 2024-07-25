@@ -3,3 +3,27 @@ estate_mages = {
         estate_mages_organization_yarken
     }
 }
+
+estate_adventurers = {
+    privileges = {
+        estate_adventurers_organization_yarken
+    }
+}
+
+estate_burghers = {
+    privileges = {
+        estate_burghers_organization_yarken
+    }
+}
+
+estate_nobles = {
+    privileges = {
+        estate_nobles_organization_yarken
+    }
+}
+
+estate_church = {
+    privileges = {
+        estate_church_organization_yarken
+    }
+}

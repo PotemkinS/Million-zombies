@@ -6,12 +6,12 @@ remove_excess_corpses = {
 			}
 			check_variable = {
 				which = teymurok_human_bodies_collected
-				value = 100
+				value = 200
 			}
 		}
 		set_variable = {
 			which = teymurok_human_bodies_collected
-			value = 100
+			value = 200
 		}
 	}
 
@@ -22,12 +22,12 @@ remove_excess_corpses = {
 			}
 			check_variable = {
 				which = teymurok_human_bodies_collected
-				value = 500
+				value = 1000
 			}
 		}
 		set_variable = {
 			which = teymurok_human_bodies_collected
-			value = 500
+			value = 1000
 		}
 	}
 }

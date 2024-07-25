@@ -9,6 +9,7 @@ buy_corpses = {
 
     is_allowed = {
         FROM = {
+            diplomatic_reputation = 2
             alliance_with = ROOT
             has_opinion = {
                 who = ROOT

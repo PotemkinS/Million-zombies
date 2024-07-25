@@ -32,6 +32,7 @@ on_battle_won_country = {
                     }
                     FROM = {
                         OR = {
+                            tag = NAT
                             tag = REB
                             has_country_modifier = human_military
                             has_country_modifier = half_elven_military
@@ -182,7 +183,7 @@ on_battle_lost_country = {
 on_expanded_infrastructure = {
     if = {
         limit = {
-            #FROM = { mission_completed = tey_doctrine_of_duality }
+            FROM = { mission_completed = tey_doctrine_of_duality }
 			NOT = { has_construction = building }
 			NOT = { has_construction = core }
 			NOT = { has_construction = culture }
@@ -254,6 +255,7 @@ on_siege_lost_country = {
             mission_completed = tey_terrible_accident
             NOT = { mission_completed = tey_war_of_the_sorcerer_king }
             FROM = {
+                owned_by = ROOT
                 controller = {
                     war_with = ROOT
                 }
@@ -263,12 +265,15 @@ on_siege_lost_country = {
             id = flavor_teymurok.20
         }
         FROM = {
-            remove_core = ROOT
-            add_province_modifier = {
-                name = tey_administration_removed_recently
-                duration = 3650
+            if = {
+                limit = { owned_by = ROOT}
+                remove_core = ROOT
+                add_province_modifier = {
+                    name = tey_administration_removed_recently
+                    duration = 3650
+                }
+                add_core = controller
             }
-            add_core = controller
         }
     }
 }

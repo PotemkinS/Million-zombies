@@ -3,12 +3,111 @@ estate_mages_organization_yarken = {
 	max_absolutism = -40
 	loyalty = 0.2
 	influence  = 0.2
-	land_share = 10
+	land_share = 0
  	is_valid = { 
-		tag = TEY
+		mission_completed = tey_treaty
 	}	#Conditions for whether it is possible for the country to have this privilege
  	can_select = { 
-		always = no
+		always = yes
+	}
+ 	can_revoke = { 
+		always = no 
+	}
+	on_granted = {
+		add_prestige = -30
+	}
+	modifier_by_land_ownership = {
+	}
+	influence_scaled_conditional_modifier = {
+		trigger = {
+		}
+		modifier = {
+		}
+	}
+	loyalty_scaled_conditional_modifier = {
+		trigger = {
+		}
+		modifier = {
+		}
+	}
+	penalties = {
+	}
+	conditional_modifier = {
+		trigger = { 
+			NOT = { mission_completed = tey_bury_the_hatchet }
+		 }
+		modifier = {
+			custom_tooltip = tey_magisterium_ban_tt
+			estate_mages_influence = -40
+		}
+	}
+	benefits = {
+		
+	}
+}
+
+estate_church_organization_yarken = {
+	icon = privilege_promote_maratha_nobility
+	max_absolutism = -40
+	loyalty = 0.2
+	influence  = 0.2
+	land_share = 10
+ 	is_valid = { 
+		mission_completed = tey_treaty
+	}	#Conditions for whether it is possible for the country to have this privilege
+ 	can_select = { 
+		always = yes
+	}
+ 	can_revoke = { 
+		always = no 
+	}
+}
+
+estate_nobles_organization_yarken = {
+	icon = privilege_promote_maratha_nobility
+	max_absolutism = -40
+	loyalty = 0.2
+	influence  = 0.2
+	land_share = 10
+ 	is_valid = { 
+		mission_completed = tey_treaty
+	}	#Conditions for whether it is possible for the country to have this privilege
+ 	can_select = { 
+		always = yes
+	}
+ 	can_revoke = { 
+		always = no 
+	}
+}
+
+estate_burghers_organization_yarken = {
+	icon = privilege_promote_maratha_nobility
+	max_absolutism = -40
+	loyalty = 0.2
+	influence  = 0.2
+	land_share = 10
+ 	is_valid = { 
+		mission_completed = tey_treaty
+	}	#Conditions for whether it is possible for the country to have this privilege
+ 	can_select = { 
+		always = yes
+	}
+ 	can_revoke = { 
+		always = no 
+	}
+}
+
+estate_adventurers_organization_yarken = {
+	icon = privilege_promote_maratha_nobility
+	max_absolutism = -40
+	loyalty = 0.2
+	influence  = 0.2
+	land_share = 10
+ 	is_valid = { 
+		mission_completed = tey_treaty
+	}	#Conditions for whether it is possible for the country to have this privilege
+ 	can_select = { 
+		always = yes
 	}
  	can_revoke = { 
 		always = no 
