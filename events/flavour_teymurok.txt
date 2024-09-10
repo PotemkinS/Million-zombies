@@ -36,7 +36,7 @@ country_event = {
 			type = court_mage
 			name = "Yarken"
 			skill = 3
-			cost_multiplier = 0
+			cost_multiplier = 0.2
 			age = 30
 			culture = east_damerian
 			religion = regent_court
@@ -110,7 +110,7 @@ country_event = {
 
 		change_variable = {
 			which = teymurok_human_bodies_collected
-			value = 10000
+			value = 500000
 		}
 
 		change_variable = {
@@ -2394,5 +2394,29 @@ country_event = {
 		name = flavor_teymurok.220.i
 
 		add_big_local_economy = { goods = troll type = special race = troll }
+	}
+}
+
+country_event = {
+	id = flavor_teymurok.666
+	title = flavor_teymurok.220.title
+	desc = flavor_teymurok.220.desc
+	picture = yarken_terka
+
+	is_triggered_only = yes
+	option = {
+		name = flavor_teymurok.220.i
+	}
+}
+
+country_event = {
+	id = flavor_teymurok.667
+	title = flavor_teymurok.220.title
+	desc = flavor_teymurok.220.desc
+	picture = kennis_tvarka
+
+	is_triggered_only = yes
+	option = {
+		name = flavor_teymurok.220.i
 	}
 }

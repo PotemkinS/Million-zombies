@@ -1,0 +1,197 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_cemetery"
+		texturefile = "gfx//interface//buildings//cemetery.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_grain"
+		texturefile = "gfx//interface//grain.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_wwine"
+		texturefile = "gfx//interface//wine.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_wool"
+		texturefile = "gfx//interface//wool.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_cloth"
+		texturefile = "gfx//interface//cloth.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_fish"
+		texturefile = "gfx//interface//fish.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_fur"
+		texturefile = "gfx//interface//fur.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_salt"
+		texturefile = "gfx//interface//salt.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_naval_supplies"
+		texturefile = "gfx//interface//naval.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_copper"
+		texturefile = "gfx//interface//copper.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_gold"
+		texturefile = "gfx//interface//gold.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_iron"
+		texturefile = "gfx//interface//iron.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_slaves"
+		texturefile = "gfx//interface//slaves.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_ivory"
+		texturefile = "gfx//interface//ivory.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_tea"
+		texturefile = "gfx//interface//tea.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_porcelain"
+		texturefile = "gfx//interface//porcelain.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_spice"
+		texturefile = "gfx//interface//spice.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_coffee"
+		texturefile = "gfx//interface//coffee.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_cotton"
+		texturefile = "gfx//interface//cotton.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_sugar"
+		texturefile = "gfx//interface//sugar.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_tabaco"
+		texturefile = "gfx//interface//tabaco.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_cacao"
+		texturefile = "gfx//interface//cacao.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_silk"
+		texturefile = "gfx//interface//silk.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_dye"
+		texturefile = "gfx//interface//dye.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_exotic"
+		texturefile = "gfx//interface//exotic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_livestock"
+		texturefile = "gfx//interface//livestock.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_incense"
+		texturefile = "gfx//interface//incense.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_glass"
+		texturefile = "gfx//interface//glass.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_paper"
+		texturefile = "gfx//interface//paper.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_gems"
+		texturefile = "gfx//interface//gems.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_coal"
+		texturefile = "gfx//interface//coal.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_cloves"
+		texturefile = "gfx//interface//cloves.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_damestear"
+		texturefile = "gfx//interface//damestear.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_relics"
+		texturefile = "gfx//interface//relics.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_mithril"
+		texturefile = "gfx//interface//mithril.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_mushrooms"
+		texturefile = "gfx//interface//mushrooms.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_icon_serpentbloom"
+		texturefile = "gfx//interface//serpentbloom.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "yarken_terka"
+		texturefile = "gfx//interface//events//yarken.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "kennis_tvarka"
+		texturefile = "gfx//interface//events//kennis.dds"
+		loadType = "INGAME"
+	}
+}
