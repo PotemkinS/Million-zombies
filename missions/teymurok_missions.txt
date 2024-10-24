@@ -656,16 +656,20 @@ teymurok_third_branch = {
 		position = 1
 
 		provinces_to_highlight = {
-			region = inner_castanor_region
-			NOT = {
-				owned_by = ROOT
+			NOT = { 
+				owned_by = ROOT 
+			}
+			ROOT = {
+				capital_scope = { 
+					region = PREV_PREV 
+				}
 			}
 		}
 		
 		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+			num_of_owned_provinces_with = {
 				value = 10
-				region = inner_castanor_region
+				region = capital
 			}
 		}
 
@@ -675,8 +679,6 @@ teymurok_third_branch = {
 				every_owned_province = {
 					every_neighbor_province = {
 						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_permanent_claim = ROOT	}
 							NOT = { is_core = ROOT	}
 						}
 						add_permanent_claim = ROOT
@@ -692,16 +694,20 @@ teymurok_third_branch = {
 		position = 2
 
 		provinces_to_highlight = {
-			region = inner_castanor_region
-			NOT = {
-				owned_by = ROOT
+			NOT = { 
+				owned_by = ROOT 
+			}
+			ROOT = {
+				capital_scope = { 
+					region = PREV_PREV 
+				}
 			}
 		}
 		
 		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+			num_of_owned_provinces_with = {
 				value = 20
-				region = inner_castanor_region
+				region = capital
 			}
 		}
 
@@ -728,16 +734,20 @@ teymurok_third_branch = {
 		position = 3
 
 		provinces_to_highlight = {
-			region = inner_castanor_region
-			NOT = {
-				owned_by = ROOT
+			NOT = { 
+				owned_by = ROOT 
+			}
+			ROOT = {
+				capital_scope = { 
+					region = PREV_PREV 
+				}
 			}
 		}
 		
 		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+			num_of_owned_provinces_with = {
 				value = 40
-				region = inner_castanor_region
+				region = capital
 			}
 			castonath_area = {
 				type = all
@@ -1246,8 +1256,7 @@ teymurok_fifth_branch = {
 		
 		trigger = {
 			calc_true_if = {
-				all_country	 = {
-					alliance_with = ROOT
+				all_ally	 = {
 					has_opinion = {
 						who = ROOT
 						value = 150
