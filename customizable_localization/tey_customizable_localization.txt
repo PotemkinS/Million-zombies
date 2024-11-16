@@ -1,0 +1,79 @@
+defined_text = {
+    name = weak_flesh_change_title
+    random = no
+
+    text = {
+        localisation_key = weak_flesh_title
+        trigger = {
+            mission_completed = tey_wise_ones
+            mission_completed = tey_zombie_diplomats
+            mission_completed = tey_zombie_generals
+            mission_completed = tey_lord_of_beasts_and_monsters
+            mission_completed = tey_yarken_guard
+        }
+    }
+    text = {
+        localisation_key = fake_flesh_title
+        trigger = {
+            always = yes
+        }
+    }
+}
+
+defined_text = {
+    name = weak_flesh_change_desc
+    random = no
+
+    text = {
+        localisation_key = weak_flesh_desc
+        trigger = {
+            mission_completed = tey_wise_ones
+            mission_completed = tey_zombie_diplomats
+            mission_completed = tey_zombie_generals
+            mission_completed = tey_lord_of_beasts_and_monsters
+            mission_completed = tey_yarken_guard
+        }
+    }
+    text = {
+        localisation_key = fake_flesh_desc
+        trigger = {
+            always = yes
+        }
+    }
+}
+
+defined_text = {
+    name =  tey_yarken_on_throne_change_title
+    random = no
+
+    text = {
+        localisation_key =  tey_yarken_on_throne_title
+        trigger = {
+            mission_completed = tey_solution
+        }
+    }
+    text = {
+        localisation_key = fake_tey_yarken_on_throne_title
+        trigger = {
+            always = yes
+        }
+    }
+}
+
+defined_text = {
+    name =  tey_yarken_on_throne_change_desc
+    random = no
+
+    text = {
+        localisation_key =  tey_yarken_on_throne_desc
+        trigger = {
+            mission_completed = tey_solution
+        }
+    }
+    text = {
+        localisation_key = fake_tey_yarken_on_throne_desc
+        trigger = {
+            always = yes
+        }
+    }
+}

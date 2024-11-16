@@ -18,13 +18,13 @@ teymurok_church_payed1 = {
 }
 
 teymurok_church_payed2 = {
-    global_tax_income = -72
+    global_tax_income = -96
     global_autonomy = 0.025
     tolerance_own = -1
 }
 
 teymurok_church_payed3 = {
-    global_tax_income = -96
+    global_tax_income = -120
 }
 
 teymurok_full_diplomatic_blockade = {
@@ -95,10 +95,9 @@ teymurok_zombie_fields2 = {
 }
 
 teymurok_zombie_economy = {
-    development_cost = -0.15
-    global_unrest = -2
-    build_cost = -0.15
-    build_time = -0.15
+    development_cost = -0.1
+    global_unrest = -1
+    build_time = -0.2
     global_trade_goods_size_modifier = 0.1
 }
 
@@ -112,8 +111,8 @@ teymurok_buying_bodies = {
 
 teymurok_zombies_in_army = {
     land_morale = -0.10
-	nobles_loyalty_modifier = -0.05
-    land_maintenance_modifier = -0.1
+	nobles_loyalty_modifier = -0.1
+    global_regiment_cost = -0.15
     manpower_recovery_speed = 0.33
 }
 
@@ -600,4 +599,16 @@ tey_spared_rebels = {
 
 tey_sorcerer_king_museum = {
 	monthly_splendor = 1
+}
+
+tey_zombie_diplomats = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.2
+	diplomats = 1
+	envoy_travel_time = -0.33
+}
+
+tey_lord_of_beasts_and_monsters = {
+	spy_offence = 0.5
+	global_spy_defence = 0.5
 }

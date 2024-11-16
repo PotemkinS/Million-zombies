@@ -1,0 +1,101 @@
+merc_yarken_guard = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    regiments_per_development = 0.005
+    cost_modifier = 0.1
+    cavalry_weight = 0
+    artillery_weight = 0
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		mission_completed = tey_yarken_guard
+	}
+	modifier = {
+        shock_damage_received = -0.2
+        fire_damage_received = -0.2
+        morale_damage_received = -1
+        land_attrition = -1
+	}
+    counts_towards_force_limit = no
+    max_size = 16
+}
+
+merc_yarken_horses = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    regiments_per_development = 0.01
+    cost_modifier = 0.1
+    cavalry_weight = 1
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		mission_completed = tey_lord_of_beasts_and_monsters
+	}
+	modifier = {
+        cavalry_shock = 3
+        cav_to_inf_ratio = 1
+        cavalry_flanking = 1
+        land_attrition = -1
+        movement_speed = 0.5
+	}
+    counts_towards_force_limit = no
+    max_size = 8
+}
+
+merc_yarken_birds = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    regiments_per_development = 0.05
+    cost_modifier = 0.1
+    cavalry_weight = 0
+    artillery_weight = 0
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		mission_completed = tey_lord_of_beasts_and_monsters
+	}
+	modifier = {
+        can_bypass_forts = yes
+        shock_damage_received = 1
+        fire_damage_received = 1
+        land_attrition = -1
+        movement_speed = 2
+	}
+    counts_towards_force_limit = no
+    max_size = 40
+}
+
+merc_yarken_honey_badgers = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    regiments_per_development = 0.05
+    cost_modifier = 0.1
+    cavalry_weight = 0
+    artillery_weight = 0
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		mission_completed = tey_lord_of_beasts_and_monsters
+	}
+	modifier = {
+        shock_damage_received = -1
+        fire_damage_received = -1
+        morale_damage_received = -1
+        land_attrition = -1
+	}
+    counts_towards_force_limit = no
+    max_size = 4
+}
+
+merc_yarken_fish = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    cost_modifier = 0.1
+    cavalry_weight = 0
+    artillery_weight = 0
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		mission_completed = tey_lord_of_beasts_and_monsters
+	}
+	modifier = {
+        can_bypass_forts = yes
+        shock_damage_received = 1
+        fire_damage_received = 1
+        land_attrition = -1
+        movement_speed = 3
+	}
+    counts_towards_force_limit = no
+    min_size = 1
+    max_size = 1
+}

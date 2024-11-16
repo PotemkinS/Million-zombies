@@ -4,7 +4,7 @@ country_decisions = {
 		major = yes
 
 		potential = {
-			mission_completed = tey_treaty
+			mission_completed = tey_zombie_research
 			NOT = {
 				has_country_flag = spending_zombies
 			}

@@ -1,6 +1,6 @@
 ﻿l_english:
   collect_50k_tt: "Kill §Y50k§! soldiers in battles you won. (Currently §Y[Root.teymurok_human_bodies_collected.GetValue]k§!)."
-  collect_500k_tt: "Kill §Y500k§! soldiers in battles you won. (Currently §Y[Root.teymurok_human_bodies_collected.GetValue]k§!)."
+  collect_500k_tt: "Have §Y500k§! bodies in storage. (Currently §Y[Root.teymurok_human_bodies_collected.GetValue]k§!)."
   human_corpse_amount_tt: "We have §Y[Root.teymurok_human_bodies_collected.GetValue]k§! human corpses"
   centaur_corpse_amount_tt: "We have §Y[Root.teymurok_centaur_bodies_collected.GetValue]k§! centaur corpses"
   dwarf_corpse_amount_tt: "We have §Y[Root.teymurok_dwarf_bodies_collected.GetValue]k§! dwarf corpses"

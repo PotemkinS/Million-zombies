@@ -303,6 +303,20 @@ teymurok_first_branch_post_treaty = {
 			custom_tooltip = can_use_special_zomies_tt
 		}
 	}
+
+	tey_zombie_generals = {
+		icon = geo_a_house_divided
+		required_missions = { tey_what_you_can_do_for_your_country }
+		position = 15
+		
+		trigger = {
+			has_commanding_three_star = yes
+			num_of_generals_with_traits = 2
+		}
+
+		effect = {
+		}
+	}
 }
 
 teymurok_second_branch = {
@@ -639,6 +653,95 @@ teymurok_second_branch = {
 			}
 		}
 	}
+
+	tey_zombie_diplomats = {
+		icon = geo_a_house_divided
+		required_missions = { tey_what_you_can_do_for_your_country }
+		position = 15
+
+		provinces_to_highlight = {
+		}
+		
+		trigger = {
+			any_owned_province = {
+				trade_goods = fur
+				has_building = workshop
+				development = 20
+			}
+			any_owned_province = {
+				trade_goods = cloth
+				has_building = workshop
+				development = 20
+			}
+			any_owned_province = {
+				trade_goods = gold
+				development = 20
+			}
+			OR = {
+				any_owned_province = {
+					trade_goods = dyes
+					development = 20
+				}
+				any_known_country  = {
+					any_owned_province = {
+						trade_goods = dyes
+					}
+					is_subject = no
+					has_80_opinion_improved_relation = { target = ROOT }
+					has_25_opinion_sent_gift = { target = ROOT }
+				}
+			}
+			OR = {
+				any_owned_province = {
+					trade_goods = silk
+					development = 20
+				}
+				any_known_country  = {
+					any_owned_province = {
+						trade_goods = silk
+					}
+					is_subject = no
+					has_80_opinion_improved_relation = { target = ROOT }
+					has_25_opinion_sent_gift = { target = ROOT }
+				}
+			}
+			OR = {
+				any_owned_province = {
+					trade_goods = gems
+					development = 20
+				}
+				any_known_country  = {
+					any_owned_province = {
+						trade_goods = gems
+					}
+					is_subject = no
+					has_80_opinion_improved_relation = { target = ROOT }
+					has_25_opinion_sent_gift = { target = ROOT }
+				}
+			}
+			OR = {
+				any_owned_province = {
+					trade_goods = incense
+					development = 20
+				}
+				any_known_country  = {
+					any_owned_province = {
+						trade_goods = incense
+					}
+					is_subject = no
+					has_80_opinion_improved_relation = { target = ROOT }
+					has_25_opinion_sent_gift = { target = ROOT }
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = tey_zombie_diplomats
+				duration = -1
+			}
+		}
+	}
 }
 
 teymurok_third_branch = {
@@ -667,21 +770,26 @@ teymurok_third_branch = {
 		}
 		
 		trigger = {
-			num_of_owned_provinces_with = {
-				value = 10
-				region = capital
+			custom_trigger_tooltip = {
+				tooltip = "Own 10 provinces in your capital region"
+				num_of_owned_provinces_with = {
+					value = 10
+					region = capital
+				}
 			}
 		}
 
 		effect = {
-			custom_tooltip = claim_neighbor_province
+			custom_tooltip = perma_claim_neighbor_area
 			hidden_effect = {
 				every_owned_province = {
 					every_neighbor_province = {
 						limit = {
-							NOT = { is_core = ROOT	}
+							NOT = { is_core = ROOT }
 						}
-						add_permanent_claim = ROOT
+						area = {
+							add_permanent_claim = ROOT
+						}
 					}
 				}
 			}
@@ -705,25 +813,23 @@ teymurok_third_branch = {
 		}
 		
 		trigger = {
-			num_of_owned_provinces_with = {
-				value = 20
-				region = capital
+			custom_trigger_tooltip = {
+				tooltip = "Own 20 provinces in your capital region"
+				num_of_owned_provinces_with = {
+					value = 20
+					region = capital
+				}
 			}
 		}
 
 		effect = {
-			custom_tooltip = perma_claim_neighbor_area
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						limit = {
-							NOT = { is_core = ROOT }
-						}
-						area = {
-							add_permanent_claim = ROOT
-						}
-					}
+			capital_scope = {
+				region = {
+					add_permanent_claim = ROOT
 				}
+			}
+			castonath_area = {
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -737,17 +843,23 @@ teymurok_third_branch = {
 			NOT = { 
 				owned_by = ROOT 
 			}
-			ROOT = {
-				capital_scope = { 
-					region = PREV_PREV 
+			OR = {
+				ROOT = {
+					capital_scope = { 
+						region = PREV_PREV 
+					}
 				}
+				area = castonath_area
 			}
 		}
 		
 		trigger = {
-			num_of_owned_provinces_with = {
-				value = 40
-				region = capital
+			custom_trigger_tooltip = {
+				tooltip = "Own 40 provinces in your capital region"
+				num_of_owned_provinces_with = {
+					value = 40
+					region = capital
+				}
 			}
 			castonath_area = {
 				type = all
@@ -771,27 +883,13 @@ teymurok_third_branch = {
 			add_dip_power = 100 
 			add_mil_power = 100
 			inner_castanor_region = {
-				add_permanent_claim = ROOT
+				add_claim = ROOT
 			}
-			inner_castanor_region = {
-				every_neighbor_province = {
-					limit = {
-						region = south_castanor_region
-					}
-					area = {
-						add_permanent_claim = ROOT
-					}
-				}
+			south_castanor_region = {
+				add_claim = ROOT
 			}
-			inner_castanor_region = {
-				every_neighbor_province = {
-					limit = {
-						region = west_castanor_region
-					}
-					area = {
-						add_permanent_claim = ROOT
-					}
-				}
+			west_castanor_region = {
+				add_claim = ROOT
 			}
 		}
 	}
@@ -921,9 +1019,27 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
+	tey_church_greed = {
+		icon = geo_a_house_divided
+		required_missions = { tey_not_war_only }
+		position = 8
+		
+		trigger = {
+		}
+
+		effect = {
+			remove_country_modifier = teymurok_church_payed1
+
+			add_country_modifier = {
+				name = teymurok_church_payed2
+				duration = -1
+			}
+		}
+	}
+
 	tey_doctrine_of_duality = {
 		icon = geo_a_house_divided
-		required_missions = { tey_by_their_deeds tey_longterm_partnership }
+		required_missions = { tey_church_greed }
 		position = 10
 		
 		trigger = {
@@ -934,13 +1050,6 @@ teymurok_third_branch_post_treaty = {
 		}
 
 		effect = {
-			remove_country_modifier = teymurok_church_payed1
-
-			add_country_modifier = {
-				name = teymurok_church_payed2
-				duration = -1
-			}
-			
 			custom_tooltip = teymurok_cemetery_alowed_tt
 		}
 	}
@@ -977,11 +1086,14 @@ teymurok_third_branch_post_treaty = {
 
 	tey_time_heals_all_wounds = {
 		icon = geo_a_house_divided
-		required_missions = { tey_body_donation tey_zombie_fields2 tey_zombie_regiments }
+		required_missions = { tey_body_donation tey_zombie_fields2 }
 		position = 12
 		
 		trigger = {
-
+			calc_true_if = {
+				amount = 3
+				has_country_modifier = tey_small_economy_orc
+			}
 		}
 
 		effect = {
@@ -996,10 +1108,53 @@ teymurok_third_branch_post_treaty = {
 		}
 	}
 
-	tey_end_reforms = {
+	tey_what_you_can_do_for_your_country = {
 		icon = geo_a_house_divided
 		required_missions = { tey_zombie_factory_finished tey_zombie_economy tey_castonath_military_academy tey_escann_united }
 		position = 14
+		
+		trigger = {
+			development = 2000
+			monthly_income = 200
+			army_size = 200
+			calc_true_if = {
+				amount = 100
+				all_owned_province = {
+					is_prosperous = yes
+				}
+			}
+		}
+
+		effect = {
+			country_event = {
+				id = flavor_teymurok.27
+			}
+		}
+	}
+	
+	tey_wise_ones = {
+		icon = geo_a_house_divided
+		required_missions = { tey_what_you_can_do_for_your_country }
+		position = 15
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = hired_all_advisors_level_5
+				employed_advisor = { category = ADM skill = 5 }
+				employed_advisor = { category = DIP skill = 5 }
+				employed_advisor = { category = MIL skill = 5 }
+			}
+		}
+
+		effect = {
+
+		}
+	}
+
+	tey_flesh_is_weak = {
+		icon = geo_a_house_divided
+		required_missions = { tey_wise_ones tey_lord_of_beasts_and_monsters tey_zombie_diplomats tey_zombie_generals tey_yarken_guard }
+		position = 16
 		
 		trigger = {
 
@@ -1011,20 +1166,20 @@ teymurok_third_branch_post_treaty = {
 	}
 }
 
-teymurok_third_branch_post_reform = {
+teymurok_lich = {
 	slot = 3
 	generic = no
 	ai = yes
 	potential = {
 		tag = TEY
-		has_country_flag = disaster_over
+		mission_completed = tey_flesh_is_weak
 	}
 	has_country_shield = yes
 
-	treaty10 = {
+	tey_solution = {
 		icon = geo_a_house_divided
-		required_missions = {  }
-		position = 15
+		required_missions = { tey_flesh_is_weak }
+		position = 17
 
 		provinces_to_highlight = {
 
@@ -1039,10 +1194,10 @@ teymurok_third_branch_post_reform = {
 		}
 	}
 
-	treaty11 = {
+	tey_yarken_on_throne = {
 		icon = geo_a_house_divided
-		required_missions = {  }
-		position = 16
+		required_missions = { tey_flesh_is_weak }
+		position = 18
 
 		provinces_to_highlight = {
 
@@ -1149,8 +1304,8 @@ teymurok_fourth_branch = {
 
 	tey_longterm_partnership = {
 		icon = geo_a_house_divided
-		required_missions = { tey_empty_cemeteries }
-		position = 9
+		required_missions = { tey_empty_cemeteries tey_bury_the_hatchet }
+		position = 10
 		
 		trigger = {
 			custom_trigger_tooltip = {
@@ -1167,10 +1322,22 @@ teymurok_fourth_branch = {
 		}
 	}
 
+	tey_import_substitution = {
+		icon = geo_a_house_divided
+		required_missions = { tey_doctrine_of_duality tey_longterm_partnership }
+		position = 11
+		
+		trigger = {
+		}
+
+		effect = {
+		}
+	}
+
 	tey_zombie_regiments = {
 		icon = geo_a_house_divided
-		required_missions = { tey_doctrine_of_duality }
-		position = 11
+		required_missions = { tey_body_donation }
+		position = 12
 		
 		trigger = {
 			is_at_war = yes
@@ -1196,7 +1363,7 @@ teymurok_fourth_branch = {
 
 	tey_castonath_military_academy = {
 		icon = geo_a_house_divided
-		required_missions = { tey_time_heals_all_wounds }
+		required_missions = { tey_time_heals_all_wounds tey_zombie_regiments }
 		position = 13
 
 		provinces_to_highlight = {
@@ -1223,6 +1390,22 @@ teymurok_fourth_branch = {
 				id = flavor_teymurok.13
 				days = 1825
 			}
+		}
+	}
+
+	tey_yarken_guard = {
+		icon = geo_a_house_divided
+		required_missions = { tey_what_you_can_do_for_your_country }
+		position = 15
+		
+		trigger = {
+			OR = {
+				army_tradition = 80
+				army_professionalism = 0.8
+			}
+		}
+
+		effect = {
 		}
 	}
 }
@@ -1432,6 +1615,45 @@ teymurok_fifth_branch_post_treaty = {
 		effect = {
 			country_event = {
 				id = flavor_teymurok.8
+			}
+		}
+	}
+
+	tey_lord_of_beasts_and_monsters = {
+		icon = geo_a_house_divided
+		required_missions = { tey_what_you_can_do_for_your_country }
+		position = 15
+
+		provinces_to_highlight = {
+		}
+		
+		trigger = {
+			any_owned_province = {
+				trade_goods = fish
+				has_building = mage_tower
+				development = 30
+			}
+			any_owned_province = {
+				trade_goods = livestock
+				has_building = mage_tower
+				development = 30
+			}
+			any_owned_province = {
+				trade_goods = fur
+				has_building = mage_tower
+				development = 30
+			}
+			any_owned_province = {
+				trade_goods = wool
+				has_building = mage_tower
+				development = 30
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = tey_lord_of_beasts_and_monsters
+				duration = -1
 			}
 		}
 	}
