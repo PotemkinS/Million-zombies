@@ -1,0 +1,69 @@
+country_decisions = {
+
+	tey_generals_decisions = {
+		potential = {
+			mission_completed = tey_what_you_can_do_for_your_country
+            NOT = {
+                AND = {
+                    has_country_flag = tey_recruit_logistics_general
+                    has_country_flag = tey_recruit_battle_general
+                    has_country_flag = tey_recruit_siege_general
+                }
+            }
+		}
+
+        allow = {
+			has_commanding_three_star = yes
+			num_of_generals_with_traits = 2
+            mil_power = 200
+        }
+
+		effect = {
+            country_event = {
+                id = flavor_teymurok.28
+            }
+		}
+	}
+
+	tey_wise_ones_decisions = {
+		potential = {
+			mission_completed = tey_what_you_can_do_for_your_country
+		}
+
+        allow = {
+			custom_trigger_tooltip = {
+				tooltip = hired_all_advisors_level_5
+				employed_advisor = { category = ADM skill = 5 }
+				employed_advisor = { category = DIP skill = 5 }
+				employed_advisor = { category = MIL skill = 5 }
+			}
+            840 = {
+                owned_by = ROOT
+            }
+        }
+
+		effect = {
+            country_event = {
+                id = flavor_teymurok.30
+            }
+		}
+	}
+
+	tey_beasts_decisions = {
+		potential = {
+			mission_completed = tey_what_you_can_do_for_your_country
+            NOT = {
+                has_country_flag = tey_zombie_fish
+                has_country_flag = tey_zombie_badgers
+                has_country_flag = tey_zombie_birds
+                has_country_flag = tey_zombie_horses
+            }
+		}
+
+		effect = {
+            country_event = {
+                id = flavor_teymurok.29
+            }
+		}
+	}
+}

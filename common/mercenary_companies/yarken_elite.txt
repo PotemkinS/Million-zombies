@@ -25,7 +25,7 @@ merc_yarken_horses = {
     cavalry_weight = 1
 	sprites = { dlc103_sav_sprite_pack }
     trigger = {
-		mission_completed = tey_lord_of_beasts_and_monsters
+		has_country_flag = tey_zombie_horses
 	}
 	modifier = {
         cavalry_shock = 3
@@ -46,7 +46,7 @@ merc_yarken_birds = {
     artillery_weight = 0
 	sprites = { dlc103_sav_sprite_pack }
     trigger = {
-		mission_completed = tey_lord_of_beasts_and_monsters
+		has_country_flag = tey_zombie_birds
 	}
 	modifier = {
         can_bypass_forts = yes
@@ -67,7 +67,7 @@ merc_yarken_honey_badgers = {
     artillery_weight = 0
 	sprites = { dlc103_sav_sprite_pack }
     trigger = {
-		mission_completed = tey_lord_of_beasts_and_monsters
+		has_country_flag = tey_zombie_badgers
 	}
 	modifier = {
         shock_damage_received = -1
@@ -86,7 +86,7 @@ merc_yarken_fish = {
     artillery_weight = 0
 	sprites = { dlc103_sav_sprite_pack }
     trigger = {
-		mission_completed = tey_lord_of_beasts_and_monsters
+		has_country_flag = tey_zombie_fish
 	}
 	modifier = {
         can_bypass_forts = yes

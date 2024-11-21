@@ -310,11 +310,21 @@ teymurok_first_branch_post_treaty = {
 		position = 15
 		
 		trigger = {
-			has_commanding_three_star = yes
-			num_of_generals_with_traits = 2
+			custom_trigger_tooltip = {
+				tooltip = tey_hired_any_general_tt
+				OR = {
+					has_country_flag = tey_recruit_logistics_general
+					has_country_flag = tey_recruit_battle_general
+					has_country_flag = tey_recruit_siege_general
+				}
+			}
 		}
 
 		effect = {
+			custom_tooltip = tey_reset_generals_tt
+			clr_country_flag = tey_recruit_logistics_general
+			clr_country_flag = tey_recruit_battle_general
+			clr_country_flag = tey_recruit_siege_general
 		}
 	}
 }
@@ -762,16 +772,26 @@ teymurok_third_branch = {
 			NOT = { 
 				owned_by = ROOT 
 			}
-			ROOT = {
-				capital_scope = { 
-					region = PREV_PREV 
+			AND = {
+				ROOT = {
+					capital_scope = { 
+						region = PREV_PREV 
+					}
+				}
+				owner = {
+					NOT = {
+						num_of_owned_provinces_with = {
+							value = 10
+							region = capital
+						}
+					}
 				}
 			}
 		}
 		
 		trigger = {
 			custom_trigger_tooltip = {
-				tooltip = "Own 10 provinces in your capital region"
+				tooltip = tey_own_10_prov_capital_tt
 				num_of_owned_provinces_with = {
 					value = 10
 					region = capital
@@ -805,16 +825,26 @@ teymurok_third_branch = {
 			NOT = { 
 				owned_by = ROOT 
 			}
-			ROOT = {
-				capital_scope = { 
-					region = PREV_PREV 
+			AND = {
+				ROOT = {
+					capital_scope = { 
+						region = PREV_PREV 
+					}
+				}
+				owner = {
+					NOT = {
+						num_of_owned_provinces_with = {
+							value = 20
+							region = capital
+						}
+					}
 				}
 			}
 		}
 		
 		trigger = {
 			custom_trigger_tooltip = {
-				tooltip = "Own 20 provinces in your capital region"
+				tooltip = tey_own_20_prov_capital_tt
 				num_of_owned_provinces_with = {
 					value = 20
 					region = capital
@@ -844,9 +874,19 @@ teymurok_third_branch = {
 				owned_by = ROOT 
 			}
 			OR = {
-				ROOT = {
-					capital_scope = { 
-						region = PREV_PREV 
+				AND = {
+					ROOT = {
+						capital_scope = { 
+							region = PREV_PREV 
+						}
+					}
+					owner = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 40
+								region = capital
+							}
+						}
 					}
 				}
 				area = castonath_area
@@ -855,7 +895,7 @@ teymurok_third_branch = {
 		
 		trigger = {
 			custom_trigger_tooltip = {
-				tooltip = "Own 40 provinces in your capital region"
+				tooltip = tey_own_40_prov_capital_tt
 				num_of_owned_provinces_with = {
 					value = 40
 					region = capital
@@ -1138,16 +1178,15 @@ teymurok_third_branch_post_treaty = {
 		position = 15
 		
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = hired_all_advisors_level_5
-				employed_advisor = { category = ADM skill = 5 }
-				employed_advisor = { category = DIP skill = 5 }
-				employed_advisor = { category = MIL skill = 5 }
+			840 = {
+				has_province_modifier = tey_wise_ones
 			}
 		}
 
 		effect = {
-
+			country_event = {
+				id = flavor_teymurok.34
+			}
 		}
 	}
 
@@ -1406,6 +1445,7 @@ teymurok_fourth_branch = {
 		}
 
 		effect = {
+			custom_tooltip = tey_unlock_yarken_guard_tt
 		}
 	}
 }
@@ -1623,30 +1663,16 @@ teymurok_fifth_branch_post_treaty = {
 		icon = geo_a_house_divided
 		required_missions = { tey_what_you_can_do_for_your_country }
 		position = 15
-
-		provinces_to_highlight = {
-		}
 		
 		trigger = {
-			any_owned_province = {
-				trade_goods = fish
-				has_building = mage_tower
-				development = 30
-			}
-			any_owned_province = {
-				trade_goods = livestock
-				has_building = mage_tower
-				development = 30
-			}
-			any_owned_province = {
-				trade_goods = fur
-				has_building = mage_tower
-				development = 30
-			}
-			any_owned_province = {
-				trade_goods = wool
-				has_building = mage_tower
-				development = 30
+			custom_trigger_tooltip = {
+				tooltip = tey_unlock_all_beasts_tt
+				AND = {
+					has_country_flag = tey_zombie_horses
+					has_country_flag = tey_zombie_badgers
+					has_country_flag = tey_zombie_fish
+					has_country_flag = tey_zombie_birds
+				}
 			}
 		}
 

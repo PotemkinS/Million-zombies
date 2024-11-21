@@ -311,8 +311,8 @@ country_event = {
 				capital_scope = {
 					continent = europe
 				}
-				add_opinion = { who = ROOT modifier = opinion_eased_tension }
 			}
+			add_opinion = { who = ROOT modifier = opinion_eased_tension }
 		}
 		add_legitimacy = 20
 
@@ -334,6 +334,11 @@ country_event = {
 	
 	option = {
 		name = flavor_teymurok.8.a
+
+		add_country_modifier = {
+			name = tey_prosperous_escann
+			duration = -1
+		}
 	}
 }
 
@@ -837,7 +842,7 @@ country_event = {
 	}
 }
 
-#
+#turning point
 country_event = {
 	id = flavor_teymurok.26
 	title = flavor_teymurok.26.title
@@ -875,6 +880,980 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.27.a
+	}
+}
+
+#Zombie generals
+country_event = {
+	id = flavor_teymurok.28
+	title = flavor_teymurok.28.title
+	desc = flavor_teymurok.28.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.28.a
+	}
+
+	option = {
+		name = flavor_teymurok.28.b
+		trigger = {
+			NOT = {
+				has_country_flag = tey_recruit_battle_general
+			}
+		}
+		
+		add_treasury = -750
+		add_mil_power = -300
+
+		define_general = {
+			shock = 8
+			fire = 8
+			manuever = 3
+			siege = 0
+			trait = battle_genius
+		}
+
+		set_country_flag = tey_recruit_battle_general
+	}
+
+	option = {
+		name = flavor_teymurok.28.c
+		trigger = {
+			NOT = {
+				has_country_flag = tey_recruit_siege_general
+			}
+		}
+		
+		add_treasury = -750
+		add_mil_power = -300
+
+		define_general = {
+			shock = 0
+			fire = 0
+			manuever = 0
+			siege = 8
+			trait = siege_genius
+		}
+
+		set_country_flag = tey_recruit_siege_general
+	}
+
+	option = {
+		name = flavor_teymurok.28.d
+		trigger = {
+			NOT = {
+				has_country_flag = tey_recruit_logistics_general
+			}
+		}
+
+		add_treasury = -750
+		add_mil_power = -300
+
+		define_general = {
+			shock = 0
+			fire = 0
+			manuever = 0
+			siege = 0
+			trait = logistic_genius
+		}
+
+		set_country_flag = tey_recruit_logistics_general
+	}
+}
+
+#Zombie beasts
+country_event = {
+	id = flavor_teymurok.29
+	title = flavor_teymurok.29.title
+	desc = flavor_teymurok.29.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.29.a
+	}
+
+	option = {
+		name = flavor_teymurok.29.b
+		trigger = {
+			NOT = {
+				has_country_flag = tey_zombie_fish
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					trade_goods = fish
+					has_building = mage_tower
+					development = 30
+				}
+
+				set_country_flag = tey_zombie_fish
+			}
+		}
+		else = {
+			custom_tooltip = tey_fish_province_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.29.c
+		trigger = {
+			NOT = {
+				has_country_flag = tey_zombie_badgers
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					trade_goods = fur
+					has_building = mage_tower
+					development = 30
+				}
+
+				set_country_flag = tey_zombie_badgers
+			}
+		}
+		else = {
+			custom_tooltip = tey_badgers_province_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.29.d
+		trigger = {
+			NOT = {
+				has_country_flag = tey_zombie_birds
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_terrain = mountains
+					has_building = mage_tower
+					development = 30
+				}
+
+				set_country_flag = tey_zombie_birds
+			}
+		}
+		else = {
+			custom_tooltip = tey_birds_province_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.29.e
+		trigger = {
+			NOT = {
+				has_country_flag = tey_zombie_horses
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					trade_goods = livestock
+					has_building = mage_tower
+					development = 30
+				}
+
+				set_country_flag = tey_zombie_horses
+			}
+		}
+		else = {
+			custom_tooltip = tey_horses_province_tt
+		}
+	}
+}
+
+#general wise ones
+country_event = {
+	id = flavor_teymurok.30
+	title = flavor_teymurok.30.title
+	desc = flavor_teymurok.30.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.30.a
+	}
+
+	option = {
+		name = flavor_teymurok.30.b
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_combined_adm
+				}
+			}
+		}
+
+		country_event = {
+			id = flavor_teymurok.31
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.30.c
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_combined_dip
+				}
+			}
+		}
+
+		country_event = {
+			id = flavor_teymurok.32
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.30.d
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_combined_army
+				}
+			}
+		}
+
+		country_event = {
+			id = flavor_teymurok.33
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.30.e
+		trigger = {
+			840 = {
+				has_province_modifier = tey_combined_adm
+				has_province_modifier = tey_combined_dip
+				has_province_modifier = tey_combined_army
+			}
+		}
+
+		840 = {
+
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_treasury = -1000
+
+			remove_province_modifier = tey_combined_adm
+			remove_province_modifier = tey_combined_dip
+			remove_province_modifier = tey_combined_army
+
+			add_permanent_province_modifier = {
+				name = tey_wise_ones
+				duration = -1
+			}
+		}
+	}
+}
+
+#adm wise ones
+country_event = {
+	id = flavor_teymurok.31
+	title = flavor_teymurok.31.title
+	desc = flavor_teymurok.31.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.31.a
+	}
+
+	option = {
+		name = flavor_teymurok.31.b
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Philosopher
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				philosopher = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Philosopher
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.c
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Scientist
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				natural_scientist = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Scientist
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.d
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Artist
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				artist = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Artist
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.e
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Treasurer
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				treasurer = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Treasurer
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.f
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Theologian
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				theologian = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Theologian
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.g
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Mint
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				master_of_mint = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Mint
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.31.h
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Inquisitor
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				inquisitor = 5
+			}
+			add_adm_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Inquisitor
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.i
+		trigger = {
+			840 = {
+				has_province_modifier = tey_Artist
+				has_province_modifier = tey_Inquisitor
+				has_province_modifier = tey_Mint
+				has_province_modifier = tey_Scientist
+				has_province_modifier = tey_Philosopher
+				has_province_modifier = tey_Theologian
+				has_province_modifier = tey_Treasurer
+			}
+		}
+
+		add_adm_power = -75
+		add_dip_power = -75
+		add_mil_power = -75
+		add_treasury = -750
+		840 = {
+			remove_province_modifier = tey_Artist
+			remove_province_modifier = tey_Inquisitor
+			remove_province_modifier = tey_Mint
+			remove_province_modifier = tey_Scientist
+			remove_province_modifier = tey_Philosopher
+			remove_province_modifier = tey_Theologian
+			remove_province_modifier = tey_Treasurer
+
+			add_permanent_province_modifier = {
+				name = tey_combined_adm
+				duration = -1
+			}
+		}
+	}
+}
+
+#dip wise ones
+country_event = {
+	id = flavor_teymurok.32
+	title = flavor_teymurok.32.title
+	desc = flavor_teymurok.32.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.32.a
+	}
+
+	option = {
+		name = flavor_teymurok.32.b
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Statesman
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				statesman = 5
+			}
+			add_dip_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Statesman
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.c
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Naval
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				naval_reformer = 5
+			}
+			add_dip_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Naval
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.d
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Trader
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				trader = 5
+			}
+			add_dip_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Trader
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.e
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Spymaster
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				spymaster = 5
+			}
+			add_dip_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Spymaster
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.f
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Diplomat
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				diplomat = 5
+			}
+			add_dip_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Diplomat
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.32.g
+		trigger = {
+			840 = {
+				has_province_modifier = tey_Trader
+				has_province_modifier = tey_Statesman
+				has_province_modifier = tey_Spymaster
+				has_province_modifier = tey_Naval
+				has_province_modifier = tey_Diplomat
+			}
+		}
+
+		add_adm_power = -75
+		add_dip_power = -75
+		add_mil_power = -75
+		add_treasury = -750
+		840 = {
+			remove_province_modifier = tey_Trader
+			remove_province_modifier = tey_Statesman
+			remove_province_modifier = tey_Spymaster
+			remove_province_modifier = tey_Naval
+			remove_province_modifier = tey_Diplomat
+
+			add_permanent_province_modifier = {
+				name = tey_combined_dip
+				duration = -1
+			}
+		}
+	}
+}
+
+#mil wise ones
+country_event = {
+	id = flavor_teymurok.33
+	title = flavor_teymurok.33.title
+	desc = flavor_teymurok.33.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.33.a
+	}
+
+	option = {
+		name = flavor_teymurok.33.b
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Army
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				army_reformer = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Army
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.c
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Organizer
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				army_organiser = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Organizer
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.d
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Commandant
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				commandant = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Commandant
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.e
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Quartermaster
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				quartermaster = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Quartermaster
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.f
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Recruiter
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				recruitmaster = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Recruiter
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.g
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Engineer
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				fortification_expert = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Engineer
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.h
+		trigger = {
+			840 = {
+				NOT = {
+					has_province_modifier = tey_Captain
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				grand_captain = 5
+			}
+			add_mil_power = -50
+			add_treasury = -500
+
+			840 = {
+				add_permanent_province_modifier = {
+					name = tey_Captain
+					duration = -1
+				}
+			}
+		}
+		else = {
+			custom_tooltip = tey_hire_5_lvl_avisor_tt
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.33.i
+		trigger = {
+			840 = {
+				has_province_modifier = tey_Organizer
+				has_province_modifier = tey_Army
+				has_province_modifier = tey_Commandant
+				has_province_modifier = tey_Captain
+				has_province_modifier = tey_Recruiter
+				has_province_modifier = tey_Engineer
+				has_province_modifier = tey_Quartermaster
+			}
+		}
+		
+		add_adm_power = -75
+		add_dip_power = -75
+		add_mil_power = -75
+		add_treasury = -750
+		840 = {
+			remove_province_modifier = tey_Organizer
+			remove_province_modifier = tey_Army
+			remove_province_modifier = tey_Commandant
+			remove_province_modifier = tey_Captain
+			remove_province_modifier = tey_Recruiter
+			remove_province_modifier = tey_Engineer
+			remove_province_modifier = tey_Quartermaster
+
+			add_permanent_province_modifier = {
+				name = tey_combined_army
+				duration = -1
+			}
+		}
+	}
+}
+
+#hints what will happen soon
+country_event = {
+	id = flavor_teymurok.34
+	title = flavor_teymurok.34.title
+	desc = flavor_teymurok.34.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.34.a
 	}
 }
 

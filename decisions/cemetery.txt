@@ -1,8 +1,6 @@
 country_decisions = {
 
 	tey_cemetery_decisions = {
-		major = yes
-
 		potential = {
 			mission_completed = tey_body_donation
 		}

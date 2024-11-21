@@ -1,8 +1,6 @@
 country_decisions = {
 
 	tey_use_basic_zombie = {
-		major = yes
-
 		potential = {
 			mission_completed = tey_zombie_research
 			NOT = {
@@ -27,8 +25,6 @@ country_decisions = {
 	}
 
 	tey_use_special_zombie = {
-		major = yes
-		
 		potential = {
 			mission_completed = tey_zombie_factory_finished
 			NOT = {

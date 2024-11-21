@@ -2,11 +2,9 @@ custom_button = {
     name = tey_infrastructure_button
     potential = {
 		owner = {
+        	mission_completed = tey_doctrine_of_duality
 			tag = FROM
 		}
-	}
-	trigger = {
-        always = yes
 	}
 	effect = {
         FROM = {
@@ -15,7 +13,6 @@ custom_button = {
             }
         }
 	}
-	tooltip = dig_hold_button_tt
 }
 
 custom_button = {

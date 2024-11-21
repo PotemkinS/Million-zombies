@@ -612,3 +612,140 @@ tey_lord_of_beasts_and_monsters = {
 	spy_offence = 0.5
 	global_spy_defence = 0.5
 }
+
+tey_Artist = {
+	stability_cost_modifier = -0.1
+}
+
+tey_Inquisitor = {
+	global_missionary_strength = 0.01
+}
+
+tey_Mint = {
+	inflation_reduction = 0.05
+}
+
+tey_Scientist = {
+	production_efficiency = 0.05
+}
+
+tey_Philosopher = {
+	prestige = 0.5
+}
+
+tey_Theologian = {
+	global_unrest = -1
+}
+
+tey_Treasurer = {
+	yearly_corruption = -0.05
+}
+
+tey_combined_adm = {
+	stability_cost_modifier = -0.1
+	global_missionary_strength = 0.01
+	inflation_reduction = 0.05
+	production_efficiency = 0.05
+	prestige = 0.5
+	global_unrest = -1
+	yearly_corruption = -0.05
+	min_autonomy_in_territories = -0.05
+}
+
+tey_Diplomat = {
+	improve_relation_modifier = 0.1
+}
+
+tey_Naval = {
+	naval_morale = 0.05
+}
+
+tey_Spymaster = {
+	spy_offence = 0.1
+}
+
+tey_Statesman = {
+	diplomatic_reputation = 1
+}
+
+tey_Trader = {
+	trade_efficiency = 0.05
+}
+
+tey_combined_dip = {
+	improve_relation_modifier = 0.1
+	naval_morale = 0.05
+	spy_offence = 0.1
+	diplomatic_reputation = 1
+	trade_efficiency = 0.05
+	global_trade_goods_size_modifier = 0.05
+}
+
+tey_Organizer = {
+	global_supply_limit_modifier = 0.2
+}
+
+tey_Army = {
+	army_tradition_decay = -0.01
+}
+
+tey_Commandant = {
+	discipline = 0.025
+}
+
+tey_Captain = {
+	war_exhaustion = -0.01
+}
+
+tey_Recruiter = {
+	global_regiment_recruit_speed = -0.10
+}
+
+tey_Engineer = {
+	defensiveness = 0.10
+}
+
+tey_Quartermaster = {
+	reinforce_speed = 0.15
+}
+
+tey_combined_army = {
+	global_supply_limit_modifier = 0.2
+	army_tradition_decay = -0.01
+	discipline = 0.025
+	war_exhaustion = -0.01
+	global_regiment_recruit_speed = -0.10
+	defensiveness = 0.10
+	reinforce_speed = 0.15
+	siege_ability = 0.05
+}
+
+tey_wise_ones = {
+	stability_cost_modifier = -0.1
+	global_missionary_strength = 0.01
+	inflation_reduction = 0.05
+	production_efficiency = 0.05
+	prestige = 0.5
+	global_unrest = -1
+	yearly_corruption = -0.05
+	min_autonomy_in_territories = -0.05
+	improve_relation_modifier = 0.1
+	naval_morale = 0.05
+	spy_offence = 0.1
+	diplomatic_reputation = 1
+	trade_efficiency = 0.05
+	global_trade_goods_size_modifier = 0.05
+	global_supply_limit_modifier = 0.2
+	army_tradition_decay = -0.01
+	discipline = 0.025
+	war_exhaustion = -0.01
+	global_regiment_recruit_speed = -0.10
+	defensiveness = 0.10
+	reinforce_speed = 0.15
+	siege_ability = 0.05
+	all_power_cost = -0.025
+}
+
+tey_prosperous_escann = {
+	global_prosperity_growth = 0.25
+}

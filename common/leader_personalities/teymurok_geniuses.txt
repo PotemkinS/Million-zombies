@@ -2,14 +2,14 @@ siege_genius = {
     allow = {
         always = no
     }
-	siege_ability = 0.3
+	siege_ability = 0.33
 }
 
 logistic_genius = {
     allow = {
         always = no
     }
-	movement_speed = 1
+	movement_speed = 4
 }
 
 battle_genius = {
