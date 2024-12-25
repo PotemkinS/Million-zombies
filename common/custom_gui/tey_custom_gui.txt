@@ -1,0 +1,19 @@
+custom_button = {
+    name = tey_infrastructure_button
+    potential = {
+		owner = {
+			OR = {
+        		mission_completed = tey_doctrine_of_duality
+				mission_completed = tey_import_substitution
+			}
+			tag = FROM
+		}
+	}
+	effect = {
+		province_event = {
+			hidden_effect = {
+				id = flavor_teymurok.35
+			}
+		}
+	}
+}

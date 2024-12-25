@@ -8,18 +8,16 @@ buy_corpses = {
     }
 
     is_allowed = {
-        FROM = {
-            diplomatic_reputation = 2
-            alliance_with = ROOT
-            has_opinion = {
-                who = ROOT
-                value = 150
-            }
-            custom_trigger_tooltip = {
-                tooltip = tey_20_year_cooldown_tt
-                NOT = {
-                    has_country_modifier = teymurok_bought_corpses
-                }
+        diplomatic_reputation = 2
+        alliance_with = ROOT
+        has_opinion = {
+            who = ROOT
+            value = 150
+        }
+        custom_trigger_tooltip = {
+            tooltip = tey_20_year_cooldown_tt
+            NOT = {
+                has_country_modifier = teymurok_bought_corpses
             }
         }
     }
@@ -30,77 +28,15 @@ buy_corpses = {
             value = total_development
             who = FROM
         }
-
-        if = {
-            limit = {
-                check_variable = {
-                    which = tey_target_development
-                    value = 1000
-                }
-            }
-            add_treasury = -1000
-            FROM = {
-                add_treasury = 1000
-            }
+        export_to_variable = {
+            which = tey_target_development_for_var_effect
+            value = total_development
+            who = FROM
         }
-        else_if = {
-            limit = {
-                check_variable = {
-                    which = tey_target_development
-                    value = 500
-                }
-            }
-            add_treasury = -500
-            FROM = {
-                add_treasury = 500
-            }
-        }
-        else_if = {
-            limit = {
-                check_variable = {
-                    which = tey_target_development
-                    value = 300
-                }
-            }
-            add_treasury = -300
-            FROM = {
-                add_treasury = 300
-            }
-        }
-        else_if = {
-            limit = {
-                check_variable = {
-                    which = tey_target_development
-                    value = 200
-                }
-            }
-            add_treasury = -200
-            FROM = {
-                add_treasury = 200
-            }
-        }
-        else = {
-            add_treasury = -100
-            FROM = {
-                add_treasury = 100
-            }
-        }
-
-        FROM = {
-            add_country_modifier ={
-                name = teymurok_bought_corpses
-                duration = 7300
-            }
-            if = {
-                limit = {
-                    has_country_modifier = teymurok_permanent_partner
-                }
-                remove_country_modifier = teymurok_permanent_partner
-            }
-            add_country_modifier = {
-                name = teymurok_permanent_partner
-                duration = 10950
-            }
+        var_effect = { 
+            effect = add_treasury 
+            var = tey_target_development_for_var_effect 
+            sign = - 
         }
 
         divide_variable = {
@@ -121,6 +57,61 @@ buy_corpses = {
         change_variable = {
             which = boughtCorpses
             value = 1
+        }
+    }
+}
+
+buy_invite_migrants = {
+    category = economy
+
+    require_acceptance = no
+
+    is_visible = {
+        mission_completed = tey_import_substitution
+    }
+
+    is_allowed = {
+        any_owned_province = {
+            has_province_modifier = tey_ready_to_be_replaced
+        }
+        adm_power = 200
+        dip_power = 200
+        mil_power = 200
+        FROM = {
+            is_at_war = yes
+        }
+    }
+
+    on_accept = {
+        random_owned_province = {
+            limit = {
+                has_province_modifier = tey_ready_to_be_replaced
+            }
+            remove_province_modifier = tey_ready_to_be_replaced
+
+            add_province_modifier = {
+                name = tey_migration_in_progress
+                duration = -1
+            }
+            export_to_variable = {
+                which = tey_migrants_culture
+                value = primary_culture
+                who = FROM
+            }
+            export_to_variable = {
+                which = tey_migrants_religion
+                value = religion
+                who = FROM
+            }
+            add_scaled_local_adm_power = -15
+            add_scaled_local_dip_power = -15
+            add_scaled_local_mil_power = -15
+            add_treasury = -500
+
+            province_event = {
+                id = flavor_teymurok.36
+                days = 1825
+            }
         }
     }
 }

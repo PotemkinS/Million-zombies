@@ -19,6 +19,7 @@ country_event = {
 		hidden_effect = {
 			add_ruler_personality = free_thinker_personality
 			add_ruler_personality = well_connected_personality
+			set_country_flag = tey_yarken
 		}
 	}
 
@@ -1854,6 +1855,396 @@ country_event = {
 
 	option = {
 		name = flavor_teymurok.34.a
+	}
+}
+
+#hints what will happen soon
+country_event = {
+	id = flavor_teymurok.34
+	title = flavor_teymurok.34.title
+	desc = flavor_teymurok.34.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.34.a
+	}
+}
+
+#teymurok province manager
+province_event = {
+	id = flavor_teymurok.35
+	title = flavor_teymurok.35.title
+	desc = flavor_teymurok.35.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.35.a
+	}
+
+	option = {#cemetery
+		name = flavor_teymurok.35.b
+		trigger = {
+			owner = {
+				mission_completed = tey_doctrine_of_duality
+			}
+		}
+
+        add_building_construction = {
+            building = cemetery
+            speed = 1
+            cost = 1
+        }
+	}
+
+	option = {#migration
+		name = flavor_teymurok.35.b
+		trigger = {
+			owner = {
+				mission_completed = tey_import_substitution
+				all_owned_province = {
+					NOT = {
+						has_province_modifier = tey_ready_to_be_replaced
+					}
+				}
+			}
+		}
+		add_province_modifier = {
+			name = tey_ready_to_be_replaced
+			duration = 730
+		}
+		owner = {
+			add_treasury = -300
+		}
+	}
+}
+
+#migrants arrive
+province_event = {
+	id = flavor_teymurok.36
+	title = flavor_teymurok.36.title
+	desc = flavor_teymurok.36.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.36.a
+
+		change_culture = variable:tey_migrants_culture
+		change_religion = variable:tey_migrants_religion
+
+		remove_province_modifier = tey_migration_in_progress
+
+		add_base_tax = -3
+		add_base_production = -3
+		add_base_manpower = -3
+		set_local_autonomy = 50
+
+		add_province_modifier = {
+			name = tey_migrant_arrived
+			duration = 3650
+		}
+	}
+}
+
+#in search of immortality
+country_event = {
+	id = flavor_teymurok.37
+	title = flavor_teymurok.37.title
+	desc = flavor_teymurok.37.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			swap_non_generic_missions = yes
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.37.a
+	}
+}
+
+#immortality manager
+country_event = {
+	id = flavor_teymurok.38
+	title = flavor_teymurok.38.title
+	desc = flavor_teymurok.38.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {#close
+		name = flavor_teymurok.38.a
+	}
+
+	option = {
+		name = flavor_teymurok.38.b
+		trigger = {
+			NOT = {
+				has_country_flag = placeholder
+			}
+		}
+	}
+
+	option = {
+		name = flavor_teymurok.38.c
+		trigger = {
+			NOT = {
+				has_country_flag = placeholder
+			}
+		}
+	}
+}
+
+#lich is good enough\last event for searching way to immortality decision
+country_event = {
+	id = flavor_teymurok.39
+	title = flavor_teymurok.39.title
+	desc = flavor_teymurok.39.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.39.a
+
+		set_country_flag = tey_found_immortality_way
+	}
+}
+
+#ritual
+country_event = {
+	id = flavor_teymurok.40
+	title = flavor_teymurok.40.title
+	desc = flavor_teymurok.40.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.40.a
+
+		country_event = {
+			id = flavor_teymurok.40
+		}
+	}
+}
+
+#cook fail
+country_event = {
+	id = flavor_teymurok.41
+	title = flavor_teymurok.41.title
+	desc = flavor_teymurok.41.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.41.a
+
+		country_event = {
+			id = flavor_teymurok.41
+		}
+	}
+}
+
+#cool success
+country_event = {
+	id = flavor_teymurok.42
+	title = flavor_teymurok.42.title
+	desc = flavor_teymurok.42.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.42.a
+
+		country_event = {
+			id = flavor_teymurok.42
+		}
+	}
+}
+
+#new power
+country_event = {
+	id = flavor_teymurok.43
+	title = flavor_teymurok.43.title
+	desc = flavor_teymurok.43.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.43.a
+
+		country_event = {
+			id = flavor_teymurok.43
+		}
+	}
+}
+
+#defence
+country_event = {
+	id = flavor_teymurok.44
+	title = flavor_teymurok.44.title
+	desc = flavor_teymurok.44.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.44.a
+
+		country_event = {
+			id = flavor_teymurok.44
+		}
+	}
+}
+
+#looks
+country_event = {
+	id = flavor_teymurok.45
+	title = flavor_teymurok.45.title
+	desc = flavor_teymurok.45.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.45.a
+
+		country_event = {
+			id = flavor_teymurok.45
+		}
+	}
+}
+
+#guest
+country_event = {
+	id = flavor_teymurok.46
+	title = flavor_teymurok.46.title
+	desc = flavor_teymurok.46.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.46.a
+
+		country_event = {
+			id = flavor_teymurok.46
+		}
+	}
+}
+
+#dialog
+country_event = {
+	id = flavor_teymurok.47
+	title = flavor_teymurok.47.title
+	desc = flavor_teymurok.47.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.47.a
+
+		country_event = {
+			id = flavor_teymurok.47
+		}
+	}
+}
+
+#dialog 2
+country_event = {
+	id = flavor_teymurok.48
+	title = flavor_teymurok.48.title
+	desc = flavor_teymurok.48.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.48.a
+
+		country_event = {
+			id = flavor_teymurok.48
+		}
+	}
+}
+
+#rebellion start
+country_event = {
+	id = flavor_teymurok.49
+	title = flavor_teymurok.49.title
+	desc = flavor_teymurok.49.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.49.a
+
+		disband_all_regiments = yes
+
+		every_owned_province = {
+			limit = {
+				NOT = {
+					fort_level = 1
+				}
+			}
+			yarken_rebels = 1
+		}
+		every_owned_province = {
+			limit = {
+				fort_level = 1
+				is_capital = no
+			}
+			yarken_rebels = 3
+		}
+	}
+}
+
+#rebellion end
+country_event = {
+	id = flavor_teymurok.50
+	title = flavor_teymurok.50.title
+	desc = flavor_teymurok.50.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.50.a
+
+		country_event = {
+			id = flavor_teymurok.51
+		}
+	}
+}
+
+#royal meeting
+country_event = {
+	id = flavor_teymurok.51
+	title = flavor_teymurok.51.title
+	desc = flavor_teymurok.51.desc
+	picture = WOKOU_INCIDENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_teymurok.51.a
+
+		set_country_flag = yarken_ruler
 	}
 }
 

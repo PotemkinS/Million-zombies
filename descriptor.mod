@@ -7,6 +7,7 @@ tags={
 }
 dependencies={
 	"Anbennar: A Fantasy Total Conversion"
+	"Anbennar-PublicFork"
 }
 name="Million zombies - Anbennar submod"
 supported_version="v1.37.*"

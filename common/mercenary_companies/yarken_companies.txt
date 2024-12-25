@@ -1,3 +1,23 @@
+merc_yarken_lame = {
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+    regiments_per_development = 0.1
+    cost_modifier = 0.5
+    cavalry_weight = 0
+    artillery_weight = 0
+	sprites = { dlc103_sav_sprite_pack }
+    trigger = {
+		has_country_flag = tey_yarken
+	}
+	modifier = {
+        infantry_power = -0.5
+        morale_damage_received = -1
+        land_attrition = -1
+	}
+    counts_towards_force_limit = no
+    min_size = 1
+    max_size = 50
+}
+
 merc_yarken_guard = {
 	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
     regiments_per_development = 0.005

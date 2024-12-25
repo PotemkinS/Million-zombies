@@ -8,7 +8,6 @@ cemetery = {
 
 	keep_trigger = {
 		owner = { mission_completed = tey_treaty }
-		num_of_times_expanded_infrastructure = 1
 	}
 	
 	modifier = {

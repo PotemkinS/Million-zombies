@@ -180,24 +180,6 @@ on_battle_lost_country = {
     }
 }
 
-on_expanded_infrastructure = {
-    if = {
-        limit = {
-            FROM = { mission_completed = tey_doctrine_of_duality }
-			NOT = { has_construction = building }
-			NOT = { has_construction = core }
-			NOT = { has_construction = culture }
-			NOT = { has_construction = missionary }
-            NOT = { has_building = cemetery }
-        }
-        add_building_construction = {
-            building = cemetery
-            speed = 1
-            cost = 1
-        }
-    }
-}
-
 on_alliance_created = {
     if = {
         limit = {

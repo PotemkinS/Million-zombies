@@ -66,4 +66,19 @@ country_decisions = {
             }
 		}
 	}
+
+	tey_immortality_decisions = {
+		potential = {
+			mission_completed = tey_flesh_is_weak
+            NOT = {
+                has_country_flag = tey_found_immortality_way
+            }
+		}
+
+		effect = {
+            country_event = {
+                id = flavor_teymurok.38
+            }
+		}
+	}
 }
